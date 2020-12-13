@@ -1,8 +1,12 @@
-import Navbar from "react-bootstrap/Navbar";
-import { Logo } from "~components/Logo";
-import React from "react";
+import React from 'react'
+import Navbar from 'react-bootstrap/Navbar'
 
-export const Header = () =>     <Navbar bg="dark" variant="dark">
-    <Logo />
-    <Navbar.Brand href="#home">React Bootstrap</Navbar.Brand>
-</Navbar>
+import { Logo } from '~components/Logo'
+
+export const Header = () => (
+  <Navbar bg="dark" variant="dark">
+    <Navbar.Brand href="/">
+      <Logo />
+    </Navbar.Brand>
+  </Navbar>
+)

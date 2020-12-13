@@ -14,7 +14,8 @@
     "paths": {
       "~components/*": ["components/*"],
       "~utils/*": ["utils/*"],
-      "~templates/*": ["templates/*"]
+      "~templates/*": ["templates/*"],
+      "~types/*": ["types/*"]
     }
   },
   "exclude": ["node_modules", "public", ".cache", "src/**/*.css"]
