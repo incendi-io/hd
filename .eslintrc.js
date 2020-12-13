@@ -18,6 +18,7 @@ module.exports = {
         ['~components', './src/components'],
         ['~utils', './src/utils'],
         ['~templates', './src/templates'],
+        ['~types', './src/types'],
       ],
     },
   },
@@ -39,7 +40,6 @@ module.exports = {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
-    'space-in-parens': [1, 'always'],
     '@typescript-eslint/explicit-function-return-type': 'off',
     'simple-import-sort/imports': 'error',
     'jsx-a11y/anchor-is-valid': [
