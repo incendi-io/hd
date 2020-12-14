@@ -5,7 +5,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   await Promise.all([
     createProductPages(graphql, createPage),
-    createProductFamiliesPages(graphql, createPage)
+    createProductFamiliesPages(graphql, createPage),
+    createNewsPages(graphql, createPage),
   ])
 }
 
@@ -15,7 +16,7 @@ async function createProductPages(graphql, createPage) {
       products: allContentfulProductModel {
         nodes {
           id
-          name
+          slug
           productSubfamily {
             family {
               name
@@ -34,13 +35,13 @@ async function createProductPages(graphql, createPage) {
   const template = path.resolve('./src/templates/Product/index.tsx')
   const items = result.data.products.nodes
 
-  items.map((product) => {
+  items.forEach((product) => {
     createPage({
-      path: `products/new/${createSlug(product.productSubfamily.family.name)}/${createSlug(product.name)}`,
+      path: `products/new/${createSlug(product.productSubfamily.family.name)}/${product.slug}`,
       component: template,
       context: {
-        id: product.id
-      }
+        id: product.id,
+      },
     })
   })
 }
@@ -71,10 +72,51 @@ async function createProductFamiliesPages(graphql, createPage) {
       path: `products/new/${createSlug(node.name)}`,
       component: template,
       context: {
-        id: node.id
-      }
+        id: node.id,
+      },
     })
   })
+}
+
+async function createNewsPages(graphql, createPage) {
+  console.log(graphql)
+  const result = await graphql(`
+    {
+      news: allContentfulNews {
+        nodes {
+          id
+          slug
+          createdAt
+        }
+      }
+    }  
+  `)
+
+  if (result.errors) {
+    console.log(result.errors)
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  const template = path.resolve('./src/templates/News/index.tsx')
+  const items = result.data.news.nodes
+
+  items.forEach(({ slug, createdAt, id }) => {
+    createPage({
+      path: createNewsPagePath({ slug, createdAt }),
+      component: template,
+      context: {
+        id,
+      },
+    })
+  })
+}
+
+function createNewsPagePath({ slug, createdAt }) {
+  const date = new Date(createdAt)
+  return `our-business/news-and-media/news/${date.getFullYear()}/${
+    date.getMonth() + 1
+  }/${date.getDate()}/${date.getHours()}/${date.getMinutes()}/${slug}`
 }
 
 function createSlug(name) {
