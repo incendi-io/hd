@@ -4,23 +4,21 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   await Promise.all([
-    createProductPages(graphql, createPage),
+    createSubfamilyPages(graphql, createPage),
     createProductFamiliesPages(graphql, createPage),
     createNewsPages(graphql, createPage),
   ])
 }
 
-async function createProductPages(graphql, createPage) {
+async function createSubfamilyPages(graphql, createPage) {
   const result = await graphql(`
     {
-      products: allContentfulProductModel {
+      items: allContentfulProductSubfamily {
         nodes {
           id
           slug
-          productSubfamily {
-            family {
-              name
-            }
+          family {
+            slug
           }
         }
       }
@@ -32,15 +30,15 @@ async function createProductPages(graphql, createPage) {
     return
   }
 
-  const template = path.resolve('./src/templates/Product/index.tsx')
-  const items = result.data.products.nodes
+  const template = path.resolve('./src/templates/ProductSubfamily/index.tsx')
+  const items = result.data.items.nodes
 
-  items.forEach((product) => {
+  items.forEach((item) => {
     createPage({
-      path: `products/new/${createSlug(product.productSubfamily.family.name)}/${product.slug}`,
+      path: `products/new/${item.family.slug.toLowerCase()}/${item.slug.toLowerCase()}`,
       component: template,
       context: {
-        id: product.id,
+        id: item.id,
       },
     })
   })
@@ -54,6 +52,7 @@ async function createProductFamiliesPages(graphql, createPage) {
           node {
             id
             name
+            slug
           }
         }
       }
@@ -69,7 +68,7 @@ async function createProductFamiliesPages(graphql, createPage) {
   const items = result.data.productFamilies.edges
   items.forEach(({ node }) => {
     createPage({
-      path: `products/new/${createSlug(node.name)}`,
+      path: `products/new/${node.slug.toLowerCase()}`,
       component: template,
       context: {
         id: node.id,
@@ -117,10 +116,6 @@ function createNewsPagePath({ slug, createdAt }) {
   return `our-business/news-and-media/news/${date.getFullYear()}/${
     date.getMonth() + 1
   }/${date.getDate()}/${date.getHours()}/${date.getMinutes()}/${slug}`
-}
-
-function createSlug(name) {
-  return name.replace(' ', '-').toLowerCase()
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions, getConfig }) => {

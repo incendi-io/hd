@@ -1,14 +1,11 @@
 import * as React from 'react'
 
-import { Layout } from '~components/Layout'
-import ProductFamilyList from '~components/ProductFamilyList'
-import TheLatestNews from '~components/TheLatestNews'
+import Layout from '~components/Layout'
+import HomeTemplate from '~templates/Home'
 
 const RootPage = (): React.ReactNode => (
   <Layout>
-    <ProductFamilyList />
-
-    <TheLatestNews />
+    <HomeTemplate />
   </Layout>
 )
 

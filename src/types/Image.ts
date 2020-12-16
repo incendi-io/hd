@@ -1,7 +1,13 @@
-import { FluidObject } from 'gatsby-image'
-
 export interface Image {
   id: string
   alt: string
-  fluid: FluidObject
+  url: string
+}
+
+export interface RawImage {
+  id: string
+  alt: string
+  file: {
+    url: string
+  }
 }

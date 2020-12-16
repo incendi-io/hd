@@ -1,28 +1,10 @@
 import { graphql } from 'gatsby'
 import React, { FC } from 'react'
+import Layout from '~components/Layout'
+import { RawNews } from '~types/News'
 
 type RawData = {
-  news: {
-    id: string
-    createdAt: string
-    title: string
-    body: {
-      references: {
-        file: {
-          url: string
-        }
-        title: string
-        description: string
-        createdAt: string
-      }
-      raw: string
-    }
-    images: {
-      file: {
-        url: string
-      }
-    }
-  }
+  news: RawNews
 }
 
 type Props = {
@@ -31,7 +13,11 @@ type Props = {
 
 const NewsTemplate: FC<Props> = ({ data }): React.ReactElement => {
   console.log(data)
-  return <div>News</div>
+  return (
+    <Layout>
+      <div>News</div>
+    </Layout>
+  )
 }
 
 export default NewsTemplate
