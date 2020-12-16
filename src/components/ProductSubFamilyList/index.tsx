@@ -1,19 +1,21 @@
 import React, { FC } from 'react'
+import Row from 'react-bootstrap/cjs/Row'
+
+import { SubfamilyProduct } from '~types/SubfamilyProduct'
 
 import ProductSubFamilyCard from '../ProductSubFamilyCard'
-import { SubFamilyProduct } from '~templates/ProductFamily'
 
 type Props = {
-  items: SubFamilyProduct[]
+  items: SubfamilyProduct[]
 }
 
 const ProductSubFamilyList: FC<Props> = ({ items = [] }): React.ReactElement => {
   return (
-    <div>
+    <Row>
       {items.map((product) => (
         <ProductSubFamilyCard key={product.id} item={product} />
       ))}
-    </div>
+    </Row>
   )
 }
 

@@ -1,5 +1,5 @@
-import Img from 'gatsby-image'
 import React, { FC } from 'react'
+import Card from 'react-bootstrap/Card'
 
 import { Image } from '~types/Image'
 
@@ -10,14 +10,15 @@ type Props = {
 export interface FamilyProduct {
   id: string
   name: string
-  images: Image
+  slug: string
+  image: Image
 }
 
 const ProductFamilyCard: FC<Props> = ({ item }) => (
-  <div>
-    <div>{item.name}</div>
-    <Img fluid={item.images.fluid} alt={item.images.alt} />
-  </div>
+  <Card as="a" href={item.slug} style={{ width: '18rem' }}>
+    <Card.Title>{item.name}</Card.Title>
+    <Card.Img src={item.image.url} />
+  </Card>
 )
 
 export default ProductFamilyCard

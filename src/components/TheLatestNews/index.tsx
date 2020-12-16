@@ -2,37 +2,15 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { Card, Container, Row } from 'react-bootstrap'
 
+import { News, RawNews } from '~types/News'
+
 type Edge = {
-  node: {
-    id: string
-    slug: string
-    title: string
-    createdAt: string
-    images: {
-      id: string
-      alt: string
-      file: {
-        url: string
-      }
-    }
-  }
+  node: RawNews
 }
 
 type RawData = {
   allContentfulNews: {
     edges: Edge[]
-  }
-}
-
-type News = {
-  id: string
-  link: string
-  title: string
-  createAt: string
-  image: {
-    id: string
-    alt: string
-    url: string
   }
 }
 
@@ -45,12 +23,11 @@ const TheLatestNews = (): React.ReactElement => {
       <div>The Latest</div>
       <Row>
         {news.map((item) => (
-          <Card key={item.id} style={{ width: '22rem' }}>
+          <Card as="a" href={item.link} key={item.id} style={{ width: '22rem' }}>
             <Card.Img variant="top" src={item.image.url} alt={item.image.alt} />
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
               <Card.Text>{item.createAt}</Card.Text>
-              <Card.Link href={item.link}>Another Link</Card.Link>
             </Card.Body>
           </Card>
         ))}
@@ -62,29 +39,26 @@ const TheLatestNews = (): React.ReactElement => {
 export default TheLatestNews
 
 function dataMapper(data: Edge[]): News[] {
-  return data.map((item) => ({
-    id: item.node.id,
-    title: item.node.title,
-    link: crateNewsLink(item.node),
+  return data.map(({ node }) => ({
+    id: node.id,
+    title: node.title,
+    link: crateNewsLink(node.slug, node.createdAt),
     image: {
-      id: item.node.images.id,
-      alt: item.node.images.alt,
-      url: item.node.images.file.url,
+      id: node.images.id,
+      alt: node.images.alt,
+      url: node.images.file.url,
     },
-    createAt: item.node.createdAt,
+    createAt: node.createdAt,
   }))
 }
 
-type CreateNewsLinkProps = {
-  slug: string
-  createdAt: string
-}
-
-function crateNewsLink({ slug, createdAt }: CreateNewsLinkProps) {
+function crateNewsLink(slug: string, createdAt: string): string {
   const date = new Date(createdAt)
-  return `/our-business/news-and-media/news/${date.getFullYear()}/${
+  const datePath = `${date.getFullYear()}/${
     date.getMonth() + 1
-  }/${date.getDate()}/${date.getHours()}/${date.getMinutes()}/${slug}`
+  }/${date.getDate()}/${date.getHours()}/${date.getMinutes()}`
+
+  return `/our-business/news-and-media/news/${datePath}/${slug}`.toString()
 }
 
 export const query = graphql`

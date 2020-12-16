@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-import { Layout } from '~components/Layout'
+import Layout from '~components/Layout'
 import ProductFamilyList from '~components/ProductFamilyList'
 
-const NewProducts = (): React.ReactElement => {
+const NewProducts: FC<unknown> = (): React.ReactElement => {
   return (
     <Layout>
       <ProductFamilyList />
