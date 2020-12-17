@@ -5,10 +5,12 @@ import HeaderMenu from '~components/HeaderMenu'
 import { Logo } from '~components/Logo'
 
 export const Header = (): React.ReactElement => (
-  <Navbar bg="dark" variant="dark" expand="lg">
-    <Navbar.Brand href="/">
-      <Logo />
-    </Navbar.Brand>
-    <HeaderMenu />
-  </Navbar>
+  <header>
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar.Brand href="/">
+        <Logo />
+      </Navbar.Brand>
+      <HeaderMenu />
+    </Navbar>
+  </header>
 )

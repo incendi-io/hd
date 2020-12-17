@@ -153,38 +153,40 @@ const footerLinks: FooterLink[] = [
 ]
 
 const Footer: FC<unknown> = (): ReactElement => (
-  <Container className="mr-0" fluid>
-    <Row>
-      {footerLinks.map((item) => (
-        <Col key={item.key}>
-          <div>{item.title}</div>
+  <footer>
+    <Container className="mr-0" fluid>
+      <Row>
+        {footerLinks.map((item) => (
+          <Col key={item.key}>
+            <div>{item.title}</div>
+            <Nav>
+              {item.links.map((node) => (
+                <Nav.Item key={node.key}>
+                  <Nav.Link href={node.link}>{node.title}</Nav.Link>
+                </Nav.Item>
+              ))}
+            </Nav>
+          </Col>
+        ))}
+      </Row>
+      <Row>
+        <Col>{`Hastings Deering © ${new Date().getFullYear()}. All Rights Reserved.`}</Col>
+        <Col>
           <Nav>
-            {item.links.map((node) => (
-              <Nav.Item key={node.key}>
-                <Nav.Link href={node.link}>{node.title}</Nav.Link>
-              </Nav.Item>
-            ))}
+            <Nav.Item>
+              <Nav.Link href="/legal/terms">Terms & Conditions</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/legal/privacy">Privacy Policy</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/legal/disclaimer">Disclaimer</Nav.Link>
+            </Nav.Item>
           </Nav>
         </Col>
-      ))}
-    </Row>
-    <Row>
-      <Col>{`Hastings Deering © ${new Date().getFullYear()}. All Rights Reserved.`}</Col>
-      <Col>
-        <Nav>
-          <Nav.Item>
-            <Nav.Link href="/legal/terms">Terms & Conditions</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/legal/privacy">Privacy Policy</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/legal/disclaimer">Disclaimer</Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Col>
-    </Row>
-  </Container>
+      </Row>
+    </Container>
+  </footer>
 )
 
 export default Footer
