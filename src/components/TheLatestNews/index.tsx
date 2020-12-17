@@ -19,7 +19,7 @@ const TheLatestNews = (): React.ReactElement => {
   console.log(data.allContentfulNews.edges)
   const news = dataMapper(data.allContentfulNews.edges)
   return (
-    <Container>
+    <Container className="mr-0 p-0">
       <div>The Latest</div>
       <Row>
         {news.map((item) => (
