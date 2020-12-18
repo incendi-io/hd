@@ -1,12 +1,19 @@
-import { RawImage } from '~types/Image'
+import { Image, RawImage } from '~types/Image'
 
 export interface RawFamilyProduct {
   id: string
   name: string
-  slug: string
-  family: {
-    name: string
-    slug: string
+  slug?: string
+  description?: {
+    description: string
   }
-  images: RawImage[]
+  images?: RawImage[]
+}
+
+export interface FamilyProduct {
+  id: string
+  name: string
+  description?: string
+  url?: string
+  images?: Image[]
 }

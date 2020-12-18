@@ -3,26 +3,32 @@ import React, { FC } from 'react'
 
 import Layout from '~components/Layout'
 import ProductSubFamilyList from '~components/ProductSubFamilyList'
-import { RawFamilyProduct } from '~types/FamilyProduct'
-import { SubfamilyProduct } from '~types/SubfamilyProduct'
+import { FamilyProduct, RawFamilyProduct } from '~types/FamilyProduct'
+import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
 
 type Edge = {
-  node: RawFamilyProduct
+  node: RawSubfamilyProduct
 }
 
 type Props = {
   data: {
-    products: {
+    family: RawFamilyProduct
+    subFamilies: {
       edges: Edge[]
     }
   }
 }
 
 const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
-  const items = dataMapper(data.products.edges)
-  console.log('---------', items)
+  const items = dataMapper(data.subFamilies.edges)
+  const family = familyDataMapper(data.family)
+
   return (
     <Layout>
+      <div>
+        <h1>{family.name}</h1>
+        <p>{family.description}</p>
+      </div>
       <ProductSubFamilyList items={items} />
     </Layout>
   )
@@ -31,8 +37,15 @@ const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
 export default ProductFamily
 
 export const query = graphql`
-  query ProductSubfamilyByFamilyId($id: String!) {
-    products: allContentfulProductSubfamily(filter: { family: { id: { eq: $id } } }) {
+  query getFamilyData($id: String!) {
+    family: contentfulProductFamily(id: { eq: $id }) {
+      id
+      name
+      description {
+        description
+      }
+    }
+    subFamilies: allContentfulProductSubfamily(filter: { family: { id: { eq: $id } } }) {
       edges {
         node {
           id
@@ -54,6 +67,14 @@ export const query = graphql`
     }
   }
 `
+
+function familyDataMapper(data: RawFamilyProduct): FamilyProduct {
+  return {
+    id: data.id,
+    name: data.name,
+    description: data?.description?.description ?? '',
+  }
+}
 
 function dataMapper(data: Edge[]): SubfamilyProduct[] {
   return data.map(({ node }) => ({
