@@ -20,6 +20,7 @@ type Props = {
 
 const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
   const items = dataMapper(data.products.edges)
+  console.log('---------', items)
   return (
     <Layout>
       <ProductSubFamilyList items={items} />
@@ -59,7 +60,7 @@ function dataMapper(data: Edge[]): SubfamilyProduct[] {
     id: node.id,
     name: node.name,
     familyName: node.family.name,
-    slug: `/products/new/${node.family.slug}/${node.slug}`.toLowerCase(),
+    url: `/products/new/${node.family.slug}/${node.slug}`.toLowerCase(),
     images: node.images.map((image) => ({
       id: image.id,
       alt: image.alt,

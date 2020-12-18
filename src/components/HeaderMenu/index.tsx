@@ -157,7 +157,7 @@ const HeaderMenu = (): React.ReactElement => {
         {headerLinks.map((el) => {
           if (el?.links) {
             return (
-              <NavDropdown title={el.title} id={el.key}>
+              <NavDropdown title={el.title} key={el.key} id={el.key}>
                 {el.links.map((item) => (
                   <NavDropdown.Item href={item.link} key={item.key}>
                     {item.title}
@@ -173,12 +173,6 @@ const HeaderMenu = (): React.ReactElement => {
             </Nav.Item>
           )
         })}
-        <NavDropdown title="Products" id="new-equipments">
-          <NavDropdown.Item href="/products/new">New Equipments</NavDropdown.Item>
-        </NavDropdown>
-        <NavDropdown id="our-business" title="Our Business">
-          <NavDropdown.Item href="/our-business/news-and-media">News & Media</NavDropdown.Item>
-        </NavDropdown>
       </Nav>
     </Navbar.Collapse>
   )
