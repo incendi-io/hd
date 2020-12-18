@@ -11,9 +11,9 @@ type Props = {
 
 const PromoImage: FC<Props> = ({ url, title, subTitle, description }) => (
   <div className={styles.root} style={{ backgroundImage: `url(${url})` }}>
-    {subTitle && <div>{subTitle}</div>}
-    {title && <div>{title}</div>}
-    {description && <div>{description}</div>}
+    {subTitle && <h3>{subTitle}</h3>}
+    {title && <h1>{title}</h1>}
+    {description && <p>{description}</p>}
   </div>
 )
 
