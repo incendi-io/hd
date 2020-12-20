@@ -12,7 +12,6 @@ type Props = {
 }
 
 const NewsTemplate: FC<Props> = ({ data }): React.ReactElement => {
-  console.log(data)
   return (
     <Layout>
       <div>News</div>
