@@ -42,5 +42,26 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
+    {
+      resolve: `@martinreiche/gatsby-firestore`,
+      options: {
+        credential: require(`./credentials.json`),
+        types: [
+          {
+            type: 'eCommerce',
+            collection: 'eCommerce',
+            map: doc => ({
+              brand: doc.brand,
+              images: doc.images,
+              longDescription: doc.longDescription,
+              partName: doc.partName,
+              partNumber: doc.partNumber,
+              shortDescription: doc.shortDescription,
+              slug: doc.partNumber.replace(' ', '-').toLowerCase(),
+            })
+          }
+        ]
+      }
+    }
   ],
 }

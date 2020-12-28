@@ -13,7 +13,7 @@ const TopInfo: FC<unknown> = (): ReactElement => (
         Hastings Deering is the official Cat® equipment supplier in Queensland, Northern Territory,
         Papua New Guinea, the Solomon Islands and New Caledonia. We sell a full range of Cat
         equipment, including mining, construction, demolition, and earth moving equipment. We also
-        offer Cat rental equipment, Cat spare parts and customer support.
+        offer Cat rental.tsx equipment, Cat spare parts and customer support.
       </p>
       <p className="text-white">
         Our skilled and diverse team works with customers across a range of industries, including
@@ -26,7 +26,7 @@ const TopInfo: FC<unknown> = (): ReactElement => (
         <Button variant="outline-light" href="/products/catused">
           USED MACHINERY
         </Button>
-        <Button variant="outline-light" href="/products/rental">
+        <Button variant="outline-light" href="/products/rental.tsx">
           CAT RENTAL
         </Button>
       </div>
