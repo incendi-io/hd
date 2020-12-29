@@ -7,7 +7,39 @@ exports.createPages = async ({ graphql, actions }) => {
     createSubfamilyPages(graphql, createPage),
     createProductFamiliesPages(graphql, createPage),
     createNewsPages(graphql, createPage),
+    createPartsPages(graphql, createPage),
   ])
+}
+
+async function createPartsPages(graphql, createPage) {
+  const result = await graphql(`
+    {
+      items: allECommerce {
+        nodes {
+          id
+          slug
+        }
+      }
+    }
+  `)
+
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  const template = path.resolve('./src/templates/Part/index.tsx')
+  const items = result.data.items.nodes
+
+  items.forEach((item) => {
+    createPage({
+      path: item.slug,
+      component: template,
+      context: {
+        id: item.id,
+      },
+    })
+  })
 }
 
 async function createSubfamilyPages(graphql, createPage) {
