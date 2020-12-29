@@ -57,7 +57,7 @@ module.exports = {
               partName: doc.partName,
               partNumber: doc.partNumber,
               shortDescription: doc.shortDescription,
-              slug: doc.partNumber.replace(' ', '-').toLowerCase(),
+              slug: `/parts/${doc.partNumber.replace(' ', '-').toLowerCase()}`,
             })
           }
         ]
