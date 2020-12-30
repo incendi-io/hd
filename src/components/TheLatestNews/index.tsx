@@ -16,7 +16,6 @@ type RawData = {
 
 const TheLatestNews = (): React.ReactElement => {
   const data = useStaticQuery<RawData>(query)
-  console.log(data.allContentfulNews.edges)
   const news = dataMapper(data.allContentfulNews.edges)
   return (
     <Container className="mr-0 p-0">
