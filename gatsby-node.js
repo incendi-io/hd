@@ -110,7 +110,6 @@ async function createProductFamiliesPages(graphql, createPage) {
 }
 
 async function createNewsPages(graphql, createPage) {
-  console.log(graphql)
   const result = await graphql(`
     {
       news: allContentfulNews {
