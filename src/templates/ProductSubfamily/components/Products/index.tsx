@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react'
+import Button from 'react-bootstrap/cjs/Button'
 
 import { Product } from '~types/Product'
-import Button from 'react-bootstrap/cjs/Button'
 
 type Props = {
   products: Product[]

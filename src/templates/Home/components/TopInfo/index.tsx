@@ -1,9 +1,9 @@
 import React, { FC, ReactElement } from 'react'
-import Row from 'react-bootstrap/cjs/Row'
+import Button from 'react-bootstrap/cjs/Button'
 import Col from 'react-bootstrap/cjs/Col'
+import Row from 'react-bootstrap/cjs/Row'
 
 import styles from './TopInfo.module.css'
-import Button from 'react-bootstrap/cjs/Button'
 
 const TopInfo: FC<unknown> = (): ReactElement => (
   <Row>
@@ -37,9 +37,10 @@ const TopInfo: FC<unknown> = (): ReactElement => (
       </div>
       <div>
         <h4>Want max value across a range of solutions?</h4>
-        <Button variant="outline-dark" href="/buying/current-promotions">VIEW CURRENT PROMOTIONS</Button>
+        <Button variant="outline-dark" href="/buying/current-promotions">
+          VIEW CURRENT PROMOTIONS
+        </Button>
       </div>
-
     </Col>
   </Row>
 )

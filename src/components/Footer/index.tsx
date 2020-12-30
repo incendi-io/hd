@@ -23,7 +23,11 @@ const footerLinks: FooterLink[] = [
     links: [
       { key: 'new-equipment', title: 'New Equipment', link: '/products/new' },
       { key: 'used-equipment', title: 'Used Equipment', link: '/products/catused' },
-      { key: 'cat-rental.tsx-equipment', title: 'Cat Rental Equipment', link: '/products/rental.tsx' },
+      {
+        key: 'cat-rental.tsx-equipment',
+        title: 'Cat Rental Equipment',
+        link: '/products/rental.tsx',
+      },
     ],
   },
   {
