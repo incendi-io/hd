@@ -1,14 +1,14 @@
 import React, { FC, ReactElement } from 'react'
-import Row from 'react-bootstrap/cjs/Row'
-import Col from 'react-bootstrap/cjs/Col'
 import Button from 'react-bootstrap/cjs/Button'
+import Col from 'react-bootstrap/cjs/Col'
+import Row from 'react-bootstrap/cjs/Row'
 
 const YourAdvantage: FC<unknown> = (): ReactElement => (
   <Row style={{ background: 'black' }}>
     <Col>
       <Row>
         <Col md={12}>
-          <h2 className="h4 text-white" >Construction Equipment</h2>
+          <h2 className="h4 text-white">Construction Equipment</h2>
           <p className="text-white">
             Looking for Cat construction equipment solutions? Whether you’re in agriculture, civil
             or residential construction, forestry, landscaping, roadworks or plumbing and drainage,

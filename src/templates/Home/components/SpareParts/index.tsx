@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react'
-import Row from 'react-bootstrap/cjs/Row'
-import Col from 'react-bootstrap/cjs/Col'
 import Button from 'react-bootstrap/cjs/Button'
+import Col from 'react-bootstrap/cjs/Col'
+import Row from 'react-bootstrap/cjs/Row'
 
 const SpareParts: FC<unknown> = (): ReactElement => (
   <Row>

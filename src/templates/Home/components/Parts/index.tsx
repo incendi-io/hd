@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react'
-import Dropdown from 'react-bootstrap/cjs/Dropdown'
 import Container from 'react-bootstrap/cjs/Container'
+import Dropdown from 'react-bootstrap/cjs/Dropdown'
 
 const Parts: FC<unknown> = (): ReactElement => (
   <Container fluid>

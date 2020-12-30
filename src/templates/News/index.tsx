@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import React, { FC } from 'react'
+
 import Layout from '~components/Layout'
 import { RawNews } from '~types/News'
 

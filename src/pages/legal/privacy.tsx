@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+
 import Layout from '~components/Layout'
 
 const Privacy: FC<unknown> = (): React.ReactElement => {
