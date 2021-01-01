@@ -45,16 +45,7 @@ module.exports = {
     {
       resolve: '@deanc/gatsby-source-firestorer',
       options: {
-        config: {
-          apiKey: 'AIzaSyAlFcSh6rlrXU9h7MMzmzRTsAzQ06Vf9pg',
-          authDomain: 'hdweb-9f081.firebaseapp.com',
-          databaseURL: 'https://hdweb-9f081.firebaseio.com',
-          storageBucket: 'hdweb-9f081.appspot.com',
-          projectId: 'hdweb-9f081',
-          messagingSenderId: '123650222952',
-          appId: '1:123650222952:web:bdcdee46e55f19974644dd',
-          measurementId: 'G-4PF8CD4CNV',
-        },
+        credential: require('./credentials.json'),
         types: [
           {
             type: 'eCommerce',
