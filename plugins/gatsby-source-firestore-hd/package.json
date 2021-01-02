@@ -1,0 +1,10 @@
+{
+  "name": "gatsby-source-firestore-hd",
+  "main": "gatsby-node.js",
+  "version": "1.0.0",
+  "dependencies": {
+    "firebase": "^8.2.1",
+    "firebase-admin": "^9.4.2",
+    "gatsby-cli": "^2.16.2"
+  }
+}
