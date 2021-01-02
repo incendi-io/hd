@@ -1,5 +1,3 @@
-const path = require(`path`)
-
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`,
 })
@@ -56,9 +54,10 @@ module.exports = {
       options: contentfulConfig,
     },
     {
-      resolve: '@deanc/gatsby-source-firestorer',
+      resolve: 'gatsby-source-firestore-hd',
       options: {
         credential: creds,
+        projectId: 'hdweb-9f081',
         types: [
           {
             type: 'eCommerce',
