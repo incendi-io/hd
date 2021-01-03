@@ -9,14 +9,13 @@ const applyConditions = (collection, conditions) => {
   return conditions.reduce((coll, condition) => coll.where.apply(coll, condition), collection)
 }
 
-exports.sourceNodes = async ({ actions, createContentDigest }, { types, credential, projectId }) => {
+exports.sourceNodes = async ({ actions, createContentDigest }, { types, credential }) => {
   let firebase = firebaseAdmin
 
   try {
     if (!firebase?.apps?.length) {
       firebase.initializeApp({
         credential: firebase.credential.cert(credential),
-        databaseURL: `https://${projectId}.firebaseio.com`
       })
     }
   } catch (e) {
