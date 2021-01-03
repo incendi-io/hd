@@ -32,6 +32,8 @@ const creds = {
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-c9kd8%40hdweb-9f081.iam.gserviceaccount.com"
 };
 
+console.log(creds);
+
 if (!spaceId || !accessToken) {
   throw new Error('Contentful spaceId and the access token need to be provided.')
 }
