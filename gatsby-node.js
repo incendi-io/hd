@@ -119,7 +119,7 @@ async function createNewsPages(graphql, createPage) {
           createdAt
         }
       }
-    }
+    }  
   `)
 
   if (result.errors) {
@@ -179,6 +179,11 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions, getConfig }) => {
       },
     })
   }
+
+  const definePlugin = config.plugins.find(p => p.definitions);
+  definePlugin.definitions[`process.env.AUTH0_DOMAIN`] = JSON.stringify(process.env.AUTH0_DOMAIN)
+  definePlugin.definitions[`process.env.AUTH0_CLIENTID`] = JSON.stringify(process.env.AUTH0_CLIENTID)
+  definePlugin.definitions[`process.env.AUTH0_CALLBACK`] = JSON.stringify(process.env.AUTH0_CALLBACK)
 
   actions.replaceWebpackConfig(config)
 }

@@ -64,12 +64,7 @@
     "prestart": "npm run clean",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
-    "postinstall": "node ./bin/hello.js",
-    "setup": "node ./bin/setup.js",
-    "netlify:login": "netlify login",
-    "netlify:deploy": "netlify deploy -d public -p",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
