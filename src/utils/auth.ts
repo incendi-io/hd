@@ -43,9 +43,9 @@ const tokens: Tokens = {
   expiresAt: null,
 }
 
-export const isAuthenticated = () => {
+export const isAuthenticated = (): boolean => {
   if (!isBrowser) {
-    return
+    return false
   }
 
   return localStorage.getItem('isLoggedIn') === 'true'
@@ -70,7 +70,7 @@ export const authorize = ({ hasError = false, signUp = false }: AuthorizeOptions
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const setSession = (cb = () => {}) => (err: unknown, authResult: AuthResult) => {
+const setSession = (cb = () => {}) => (err: unknown, authResult: AuthResult): unknown | void => {
   if (err) {
     navigate('/')
     cb()
