@@ -6,14 +6,16 @@ import HeaderMenu from '~components/HeaderMenu'
 import { Logo } from '~components/Logo'
 import { authorize } from '~utils/auth'
 
+import styles from './Header.module.css'
+
 export const Header = (): React.ReactElement => {
   const handleLogin = useCallback(() => {
     authorize({})
   }, [])
 
   return (
-    <header>
-      <Navbar bg="dark" variant="dark" expand="lg">
+    <header className={styles.root}>
+      <Navbar variant="dark" expand="lg">
         <Navbar.Brand href="/">
           <Logo />
         </Navbar.Brand>
