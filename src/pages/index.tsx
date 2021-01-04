@@ -1,6 +1,3 @@
-import '../components/fonts.css'
-import '../components/colors.css'
-
 import * as React from 'react'
 
 import Layout from '~components/Layout'
