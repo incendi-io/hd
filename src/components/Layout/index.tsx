@@ -1,4 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.css'
+import '../fonts.css'
+import '../colors.css'
+import './index.scss'
 
 import React, { FC } from 'react'
 

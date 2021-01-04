@@ -51,6 +51,13 @@ module.exports = {
         ignore: [`**/.*`],
       },
     },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [],
+        precision: 6,
+      },
+    },
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
