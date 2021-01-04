@@ -12,7 +12,7 @@ import YourAdvantage from './components/YourAdvantege'
 
 const HomeTemplate: FC<unknown> = (): React.ReactElement => (
   <>
-    <PromoImage url="/images/home-page-background.jpg" useOverlay={true} />
+    <PromoImage url="/images/home-page-background.jpg" useOverlay />
     <Parts />
     <TopInfo />
     <FeaturedProducts />
