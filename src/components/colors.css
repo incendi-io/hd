@@ -1,7 +1,7 @@
 :root {
-  --primary-black: black;
-  --primary-white: white;
-  --primary-yellow: yellow;
+  --primary-black: #000000;
+  --primary-white: #FFFFFF;
+  --primary-yellow: #FFCC00;
   --secondary-red: #EB5454;
   --secondary-green: #5BA55C;
   --secondary-orange: #F1B769;
