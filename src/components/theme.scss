@@ -1,6 +1,6 @@
 /*
-* Orson http://en.orson.io , autreplanete http://www.autreplanete.com/ 
-*  
+* Orson http://en.orson.io , autreplanete http://www.autreplanete.com/
+*
 **/
 
 
@@ -545,3 +545,11 @@ $enable-transitions: true;
 $enable-hover-media-query: false;
 $enable-grid-classes: true;
 $enable-print-styles: true;
+
+/* import bootstrap to set changes */
+@import "node_modules/bootstrap/scss/bootstrap";
+
+/* customize theme */
+.dropdown-toggle::after {
+  display: none;
+}
