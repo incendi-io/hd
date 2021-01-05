@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .root {
     height: 40vh;
     overflow: hidden;
