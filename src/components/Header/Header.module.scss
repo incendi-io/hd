@@ -1,6 +1,8 @@
+@import "../colors";
+
 .root {
-  background-color: var(--bg-dark-black);
-  padding: 8px 24px;
+  background-color: map-get($incendi-colors, bg-dark-black);
+  padding: 8px 0;
 }
 
 .navbar {

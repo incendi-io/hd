@@ -6,7 +6,7 @@ import HeaderMenu from '~components/HeaderMenu'
 import { Logo } from '~components/Logo'
 import { authorize } from '~utils/auth'
 
-import styles from './Header.module.css'
+import styles from './Header.module.scss'
 
 export const Header = (): React.ReactElement => {
   const handleLogin = useCallback(() => {

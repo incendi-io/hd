@@ -3,6 +3,8 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
+import styles from './HeaderMenu.module.scss'
+
 type Link = {
   key: string
   title: string
@@ -152,14 +154,14 @@ const headerLinks: HeaderLink[] = [
 
 const HeaderMenu = (): React.ReactElement => {
   return (
-    <Navbar.Collapse id="basic-navbar-nav">
+    <Navbar.Collapse id="basic-navbar-nav" className={styles.navbar}>
       <Nav className="mr-auto">
         {headerLinks.map((el) => {
           if (el?.links) {
             return (
-              <NavDropdown title={el.title} key={el.key} id={el.key}>
+              <NavDropdown title={el.title} key={el.key} id={el.key} className={styles.link}>
                 {el.links.map((item) => (
-                  <NavDropdown.Item href={item.link} key={item.key}>
+                  <NavDropdown.Item href={item.link} key={item.key} className={styles.link}>
                     {item.title}
                   </NavDropdown.Item>
                 ))}
@@ -169,7 +171,9 @@ const HeaderMenu = (): React.ReactElement => {
 
           return (
             <Nav.Item key={el.key}>
-              <Nav.Link href={el.link}>{el.title}</Nav.Link>
+              <Nav.Link href={el.link} className={styles.link}>
+                {el.title}
+              </Nav.Link>
             </Nav.Item>
           )
         })}
