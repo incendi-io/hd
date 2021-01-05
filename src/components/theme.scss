@@ -1,3 +1,5 @@
+@import "node_modules/bootstrap/scss/functions";
+
 /*
 * Orson http://en.orson.io , autreplanete http://www.autreplanete.com/
 *
@@ -236,7 +238,7 @@ $custom-file-border-radius: $border-radius;
 $custom-file-box-shadow: inset 0 0.2rem 0.4rem rgba($black, 0.05);
 $custom-file-button-color: $custom-file-color;
 $custom-file-button-bg: $gray-200;
-$custom-file-text: (placeholder: (en: 'Choose file...'), button-label: (en: 'Browse'));
+//$custom-file-text: (placeholder: (en: 'Choose file...'), button-label: (en: 'Browse'));
 $form-feedback-valid-color: theme-color('success');
 $form-feedback-invalid-color: theme-color('danger');
 
@@ -417,7 +419,8 @@ $badge-pill-border-radius: 10rem;
 
 
 // Modals
-$modal-inner-padding: 15px;
+//$modal-inner-padding: 15px;
+//$modal-footer-margin-between: 15px;
 $modal-dialog-margin: 10px;
 $modal-dialog-margin-y-sm-up: 30px;
 $modal-title-line-height: $line-height-base;
