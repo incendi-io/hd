@@ -2,3 +2,24 @@
   background-color: var(--bg-dark-black);
   padding: 8px 24px;
 }
+
+.navbar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 767px) {
+  .navbar {
+    max-width: 1023px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 1023px) {
+  .navbar {
+    max-width: 1440px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
