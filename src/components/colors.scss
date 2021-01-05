@@ -1,0 +1,43 @@
+$incendi-colors: (
+  primary-black: #000000,
+  primary-white: #FFFFFF,
+  primary-yellow: #FFCC00,
+  secondary-red: #EB5454,
+  secondary-green: #5BA55C,
+  secondary-orange: #F1B769,
+  secondary-purple: #6A5BA5,
+
+  border: rgba(0, 0, 0, 0.08),
+
+  text-secondary-orange: #E08812,
+  text-secondary-blue: #49A9CC,
+  text-primary-black: black,
+  text-primary-dark: rgba(0, 0, 0, 0.52),
+  text-primary-lightdark: rgba(0, 0, 0, 0.32),
+  text-primary-white: rgba(255, 255, 255, 0.92),
+  text-primary-light: rgba(255, 255, 255, 0.72),
+
+  icons-grey: rgba(0, 0, 0, 0.52),
+  icons-lightgrey: rgba(0, 0, 0, 0.32),
+  icons-darkgrey: #3D3D3D,
+  icons-cap: rgba(0, 0, 0, 0.16),
+  icons-active: rgba(0, 0, 0, 0.72),
+
+  bg-primary: #E5E5E5,
+  bg-white: rgba(255, 255, 255, 0.64),
+  bg-table-white: #FFFFFF,
+  bg-grey: #F7F7F9,
+  bg-dark-black: #000,
+  bg-light-black: #333,
+
+  input-default: rgba(0, 0, 0, 0.12),
+
+  button-lightgrey: rgba(0, 0, 0, 0.08),
+  button-lightergrey: rgba(0, 0, 0, 0.04),
+);
+
+:root {
+  @each $name, $color in $incendi-colors {
+    --#{$name}: #{$color};
+  }
+}

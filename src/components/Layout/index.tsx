@@ -1,5 +1,4 @@
 import '../fonts.css'
-import '../colors.css'
 import './index.scss'
 
 import React, { FC } from 'react'
