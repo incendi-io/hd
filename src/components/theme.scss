@@ -257,16 +257,16 @@ $form-feedback-invalid-color: theme-color('danger');
 $dropdown-min-width: 10rem;
 $dropdown-padding-y: 0.5rem;
 $dropdown-spacer: 0.125rem;
-$dropdown-bg: $white;
+$dropdown-bg: map-get($incendi-colors, bg-light-black);
 $dropdown-border-color: rgba($black, 0.15);
 $dropdown-border-width: $border-width;
 $dropdown-divider-bg: $gray-200;
 $dropdown-box-shadow: 0 0.5rem 1rem rgba($black, 0.175);
-$dropdown-link-color: $gray-900;
-$dropdown-link-hover-color: darken($gray-900, 5%);
-$dropdown-link-hover-bg: $gray-100;
-$dropdown-link-active-color: $component-active-color;
-$dropdown-link-active-bg: $component-active-bg;
+$dropdown-link-color: map-get($incendi-colors, primary-white);
+$dropdown-link-hover-color: map-get($incendi-colors, primary-yellow);
+$dropdown-link-hover-bg: map-get($incendi-colors, bg-light-black);
+$dropdown-link-active-color: map-get($incendi-colors, primary-yellow);
+$dropdown-link-active-bg: map-get($incendi-colors, primary-black);
 $dropdown-link-disabled-color: $gray-600;
 $dropdown-item-padding-y: 0.25rem;
 $dropdown-item-padding-x: 1.5rem;
@@ -300,8 +300,8 @@ $navbar-toggler-padding-y: 0.25rem;
 $navbar-toggler-padding-x: 0.75rem;
 $navbar-toggler-font-size: $font-size-lg;
 $navbar-toggler-border-radius: $btn-border-radius;
-$navbar-dark-color: rgba($white, 0.5);
-$navbar-dark-hover-color: rgba($white, 0.75);
+$navbar-dark-color: map-get($incendi-colors, primary-white);
+$navbar-dark-hover-color: map-get($incendi-colors, primary-yellow);
 $navbar-dark-active-color: rgba($white, 1);
 $navbar-dark-disabled-color: rgba($white, 0.25);
 $navbar-dark-toggler-border-color: rgba($white, 0.1);
@@ -310,6 +310,8 @@ $navbar-light-hover-color: rgba($black, 0.7);
 $navbar-light-active-color: rgba($black, 0.9);
 $navbar-light-disabled-color: rgba($black, 0.3);
 $navbar-light-toggler-border-color: rgba($black, 0.1);
+$navbar-nav-link-padding-x: 1rem;
+$navbar-padding-x: .5rem;
 
 
 // Tables
@@ -563,6 +565,12 @@ $enable-print-styles: true;
 @import "node_modules/bootstrap/scss/bootstrap";
 
 /* customize theme */
+
+/* Dropdown toggle chevron */
+//TODO: header only? if so, move to HeaderMenu.module.scss
 .dropdown-toggle::after {
   display: none;
+}
+.navbar-dark .navbar-nav .dropdown-menu {
+  margin-left: 1rem !important;
 }

@@ -5,12 +5,12 @@
 }
 
 .link {
-  color: white;
+  -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-weight: 400;
   line-height: 34px;
 
-  &::after{
-    display: none;
+  a {
+    padding-right: .5rem !important;
   }
 }

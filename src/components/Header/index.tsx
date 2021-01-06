@@ -15,7 +15,7 @@ export const Header = (): React.ReactElement => {
 
   return (
     <header className={styles.root}>
-      <Navbar variant="dark" expand="lg" className={styles.navbar}>
+      <Navbar variant="dark" expand="lg" expanded className={styles.navbar}>
         <Navbar.Brand href="/">
           <Logo />
         </Navbar.Brand>
