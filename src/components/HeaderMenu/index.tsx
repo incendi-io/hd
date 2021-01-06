@@ -3,6 +3,8 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
+import { HoverableDropdown } from '~components/HoverableDropdown'
+
 import styles from './HeaderMenu.module.scss'
 
 type Link = {
@@ -159,21 +161,19 @@ const HeaderMenu = (): React.ReactElement => {
         {headerLinks.map((el) => {
           if (el?.links) {
             return (
-              <NavDropdown title={el.title} key={el.key} id={el.key} className={styles.link}>
+              <HoverableDropdown title={el.title} key={el.key} id={el.key} className={styles.link}>
                 {el.links.map((item) => (
-                  <NavDropdown.Item href={item.link} key={item.key} className={styles.link}>
+                  <NavDropdown.Item href={item.link} key={item.key}>
                     {item.title}
                   </NavDropdown.Item>
                 ))}
-              </NavDropdown>
+              </HoverableDropdown>
             )
           }
 
           return (
-            <Nav.Item key={el.key}>
-              <Nav.Link href={el.link} className={styles.link}>
-                {el.title}
-              </Nav.Link>
+            <Nav.Item key={el.key} className={styles.link}>
+              <Nav.Link href={el.link}>{el.title}</Nav.Link>
             </Nav.Item>
           )
         })}
