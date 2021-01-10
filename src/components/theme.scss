@@ -32,6 +32,8 @@ $black: #000;
 $grays: (100: $gray-100, 200: $gray-200, 300: $gray-300, 400: $gray-400, 500: $gray-500, 600: $gray-600, 700: $gray-700, 800: $gray-800, 900: $gray-900);
 $theme-colors: (
   primary: map-get($incendi-colors, primary-yellow),
+  text-primary: map-get($incendi-colors, text-primary-grey),
+  text-secondary: map-get($incendi-colors, text-primary-black),
   secondary: $gray-600,
   success: $green,
   info: $cyan,
@@ -66,7 +68,7 @@ $body-color: $gray-900;
 
 
 // Links
-$link-color: theme-color('primary');
+$link-color: theme-color('text-primary');
 $link-decoration: none;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
