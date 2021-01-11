@@ -584,8 +584,11 @@ a.dropdown-toggle::after {
     background-color: #f4f5f9;
     box-shadow: inset 1px 4px 11px -8px;
   }
+  &.force-shadow {
+    background-color: #f4f5f9;
+    box-shadow: inset 1px 4px 11px -8px
+  }
 }
-
 //TODO: move to _text-emphasis.theme.scss
 h2, a {
   -webkit-font-smoothing: antialiased;
@@ -621,6 +624,12 @@ a.text-light:hover, a.text-light:focus {
   line-height: 1.5;
   border-radius: 0;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-outline-light {
+  color: #ccc;
+  background-color: transparent;
+  background-image: none;
+  border-color: #ccc;
 }
 input, button, select, optgroup, textarea {
   margin: 0;
@@ -680,4 +689,88 @@ input, button, select, optgroup, textarea {
 }
 .pt-0, .py-0 {
   padding-top: 0 !important;
+}
+.p-2 {
+  padding: .5rem !important;
+}
+.mt-2, .my-2 {
+  margin-top: .5rem !important;
+}
+.bg-white {
+  background-color: #fff !important;
+}
+.image img {
+  max-width: 100%;
+  height: auto;
+}
+.is-bg-img {
+  background-position: center;
+}
+.cover-background>.component-content, .fix-background>.component-content, .parallax-background>.component-content, .is-bg-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+//TODO: add (?)typography.scss
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 0;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit
+}
+
+h1, .h1 {
+  font-size: 2.5rem
+}
+
+h2, .h2 {
+  font-size: 2rem
+}
+
+h3, .h3 {
+  font-size: 1.75rem
+}
+
+h4, .h4 {
+  font-size: 1.5rem
+}
+
+h5, .h5 {
+  font-size: 1.25rem
+}
+
+h6, .h6 {
+  font-size: 1rem
+}
+
+.rich-text h1 {
+  margin-bottom: 25px
+}
+
+h4 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Univers LT", Arial, helvetica, sans-serif;
+  font-weight: bold;
+  color: #000;
+  font-size: 22px;
+  letter-spacing: normal;
+  line-height: 28px;
+  font-weight: 700
+}
+
+@media only screen and (max-width: 767px) {
+  h4 {
+    font-size: 20px;
+    line-height: 26px
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1022px) {
+  h4 {
+    font-size: 20px;
+    line-height: 26px
+  }
 }

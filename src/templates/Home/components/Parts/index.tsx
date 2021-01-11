@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/cjs/Container'
 import Dropdown from 'react-bootstrap/cjs/Dropdown'
 
 const Parts: FC<unknown> = (): ReactElement => (
+  //TODO: add Component or something, that will automatically add "component row-splitter" and maybe other classes
   <div className="row-splitter container-dark-background pb-0 pt-0">
     <Container fluid className="container pb-0 pt-0">
       <Dropdown>
