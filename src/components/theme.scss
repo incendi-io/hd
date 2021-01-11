@@ -570,7 +570,7 @@ $enable-print-styles: true;
 
 /* Dropdown toggle chevron */
 //TODO: header only? if so, move to HeaderMenu.module.scss
-.dropdown-toggle::after {
+a.dropdown-toggle::after {
   display: none;
 }
 .navbar-dark .navbar-nav .dropdown-menu {
@@ -586,10 +586,27 @@ $enable-print-styles: true;
   }
 }
 
+//TODO: move to _text-emphasis.theme.scss
 h2, a {
   -webkit-font-smoothing: antialiased;
 }
 
+.text-light {
+  color: #ccc !important;
+}
+a.text-light:hover, a.text-light:focus {
+  color: #b3b3b3 !important;
+}
+
+.text-secondary {
+  color: #000 !important;
+}
+
+.position-center, .position-center * {
+  text-align: center !important;
+}
+
+//TODO: move to _buttons.theme.scss
 .btn {
   display: inline-block;
   font-weight: 700;
@@ -604,6 +621,12 @@ h2, a {
   line-height: 1.5;
   border-radius: 0;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+input, button, select, optgroup, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .border-secondary {
@@ -646,4 +669,15 @@ h2, a {
     padding-left: 40px;
     padding-right: 40px;
   }
+}
+
+.container-dark-background {
+  background: #333 !important;
+}
+
+.pb-0, .py-0 {
+  padding-bottom: 0 !important;
+}
+.pt-0, .py-0 {
+  padding-top: 0 !important;
 }
