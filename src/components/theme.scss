@@ -589,42 +589,8 @@ a.dropdown-toggle::after {
     box-shadow: inset 1px 4px 11px -8px
   }
 }
-//TODO: move to _buttons.theme.scss
-.btn {
-  display: inline-block;
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  user-select: none;
-  border: 1px solid transparent;
-  text-decoration: none;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-.btn-outline-light {
-  color: #ccc;
-  background-color: transparent;
-  background-image: none;
-  border-color: #ccc;
-}
-input, button, select, optgroup, textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
 .border-secondary {
   border-color: #000 !important;
-}
-
-.btn-outline-dark:hover {
-  color: #212529;
-  background-color: #ccc;
 }
 
 .container-dark-background {
@@ -645,6 +611,7 @@ input, button, select, optgroup, textarea {
   background-size: cover;
 }
 
+@import "controls.theme";
 @import "colors.theme";
 @import "grid.theme";
 @import "typography.theme";
