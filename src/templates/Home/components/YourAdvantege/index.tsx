@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from 'react'
 import Button from 'react-bootstrap/cjs/Button'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
-import ReactJWPlayer from 'react-jw-player'
 
 const YourAdvantage: FC<unknown> = (): ReactElement => {
   return (
