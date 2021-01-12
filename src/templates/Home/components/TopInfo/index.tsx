@@ -9,7 +9,7 @@ import styles from './TopInfo.module.css'
 const TopInfo: FC<unknown> = (): ReactElement => (
   <div className="row-splitter force-shadow">
     <Row className="container">
-      <Col className="p-2" md={8}>
+      <Col className="pt-2 px-2 pb-0" md={8}>
         <div className={classNames(styles.left, styles.textShadow, 'row-splitter is-bg-img h-100')}>
           <div className="container rich-text">
             <h1 className="h4 text-white p-0 p-1 pt-0">Cat Equipment</h1>
