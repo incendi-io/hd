@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FC, ReactElement } from 'react'
+import Col from 'react-bootstrap/Col'
 
 import ProductSubFamilyList from '~components/ProductSubFamilyList'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
@@ -12,9 +13,23 @@ type RawData = {
 
 const FeaturedProducts: FC<unknown> = (): ReactElement => {
   const res = useStaticQuery<RawData>(query)
+  //const items = mapData(res.subfamilies.nodes)
+  //TODO: more test items
   const items = mapData(res.subfamilies.nodes)
+    .concat(mapData(res.subfamilies.nodes))
+    .concat(mapData(res.subfamilies.nodes))
+    .concat(mapData(res.subfamilies.nodes))
 
-  return <ProductSubFamilyList items={items} />
+  return (
+    <Col className="border-bottom border-light mt-3">
+      <div className="component rich-text col-12 position-center mt-4">
+        <div className="component-content">
+          <h4 className="h4 mb-0">Featured Products</h4>
+        </div>
+      </div>
+      <ProductSubFamilyList items={items} />
+    </Col>
+  )
 }
 
 export default FeaturedProducts

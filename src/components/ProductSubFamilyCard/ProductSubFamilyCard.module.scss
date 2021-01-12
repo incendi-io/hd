@@ -1,0 +1,31 @@
+.product-list-carousel__slidelink {
+  text-decoration: none;
+  outline: none;
+  border: 0;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.product-list-carousel__wrapper {
+  height: 300px;
+}
+
+.product-list-carousel__slide-image {
+  height: 200px;
+
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.product-list-carousel__slide-text-con {
+  padding: 1rem;
+  background: #fff;
+}
+
+.product-list-carousel .slick-slide>div {
+  padding: 20px 10px;
+}

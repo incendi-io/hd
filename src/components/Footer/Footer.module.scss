@@ -5,31 +5,6 @@
   border-top: 4px solid #ececec;
 }
 
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 767px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-@media (min-width: 767px) {
-  .container {
-    max-width: 1023px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-}
-
-@media (min-width: 1023px) {
-  .container {
-    max-width: 1440px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-
 .row {
   padding-right: 10px;
   padding-left: 10px;
@@ -71,6 +46,7 @@
 .nav-item {
   flex-basis: 100%;
   a, p {
+    text-decoration: none;
     padding: 3px 5px 3px 0;
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -86,6 +62,10 @@
   flex-basis: auto;
   a, p {
     color: map-get($incendi-colors, 'text-secondary-grey');
+    line-height: 16px;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: normal
   }
 }
 

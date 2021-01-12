@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
-import Row from 'react-bootstrap/cjs/Row'
 
+import { CustomSlider } from '~components/CustomSlider'
 import { SubfamilyProduct } from '~types/SubfamilyProduct'
 
 import ProductSubFamilyCard from '../ProductSubFamilyCard'
+import styles from './ProductSubFamilyList.module.scss'
 
 type Props = {
   items: SubfamilyProduct[]
@@ -11,11 +12,15 @@ type Props = {
 
 const ProductSubFamilyList: FC<Props> = ({ items = [] }): React.ReactElement => {
   return (
-    <Row>
-      {items.map((product) => (
-        <ProductSubFamilyCard key={product.id} item={product} />
-      ))}
-    </Row>
+    <div className="border-bottom border-light mt-3">
+      <CustomSlider>
+        {items.map((product, i) => (
+          <div key={i} className={styles.productListItem}>
+            <ProductSubFamilyCard key={product.id} item={product} />
+          </div>
+        ))}
+      </CustomSlider>
+    </div>
   )
 }
 

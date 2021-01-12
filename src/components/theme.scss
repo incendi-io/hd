@@ -589,26 +589,6 @@ a.dropdown-toggle::after {
     box-shadow: inset 1px 4px 11px -8px
   }
 }
-//TODO: move to _text-emphasis.theme.scss
-h2, a {
-  -webkit-font-smoothing: antialiased;
-}
-
-.text-light {
-  color: #ccc !important;
-}
-a.text-light:hover, a.text-light:focus {
-  color: #b3b3b3 !important;
-}
-
-.text-secondary {
-  color: #000 !important;
-}
-
-.position-center, .position-center * {
-  text-align: center !important;
-}
-
 //TODO: move to _buttons.theme.scss
 .btn {
   display: inline-block;
@@ -647,54 +627,8 @@ input, button, select, optgroup, textarea {
   background-color: #ccc;
 }
 
-//TODO: remove duplicate code from component's file
-//TODO: move to _grid.theme.scss
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 767px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-@media (min-width: 767px) {
-  .container {
-    max-width: 1023px;
-  }
-}
-@media (min-width: 1023px) {
-  .container {
-    max-width: 1440px;
-  }
-}
-@media (min-width: 767px) {
-  .container {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-}
-@media (min-width: 1023px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-
 .container-dark-background {
   background: #333 !important;
-}
-
-.pb-0, .py-0 {
-  padding-bottom: 0 !important;
-}
-.pt-0, .py-0 {
-  padding-top: 0 !important;
-}
-.p-2 {
-  padding: .5rem !important;
-}
-.mt-2, .my-2 {
-  margin-top: .5rem !important;
 }
 .bg-white {
   background-color: #fff !important;
@@ -711,66 +645,6 @@ input, button, select, optgroup, textarea {
   background-size: cover;
 }
 
-//TODO: add (?)typography.scss
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  -webkit-font-smoothing: antialiased;
-  margin-bottom: 0;
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.2;
-  color: inherit
-}
-
-h1, .h1 {
-  font-size: 2.5rem
-}
-
-h2, .h2 {
-  font-size: 2rem
-}
-
-h3, .h3 {
-  font-size: 1.75rem
-}
-
-h4, .h4 {
-  font-size: 1.5rem
-}
-
-h5, .h5 {
-  font-size: 1.25rem
-}
-
-h6, .h6 {
-  font-size: 1rem
-}
-
-.rich-text h1 {
-  margin-bottom: 25px
-}
-
-h4 {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "Univers LT", Arial, helvetica, sans-serif;
-  font-weight: bold;
-  color: #000;
-  font-size: 22px;
-  letter-spacing: normal;
-  line-height: 28px;
-  font-weight: 700
-}
-
-@media only screen and (max-width: 767px) {
-  h4 {
-    font-size: 20px;
-    line-height: 26px
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1022px) {
-  h4 {
-    font-size: 20px;
-    line-height: 26px
-  }
-}
+@import "grid.theme";
+@import "typography.theme";
+@import "navbar.theme";

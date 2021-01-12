@@ -169,7 +169,7 @@ const footerLinks: FooterLink[] = [
 ]
 
 const Footer: FC<unknown> = (): ReactElement => (
-  <footer>
+  <footer className="rich-text">
     <hr className={styles.divider} />
     <Container fluid className={styles.container}>
       <Row className={styles.row}>

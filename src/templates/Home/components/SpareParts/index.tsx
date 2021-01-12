@@ -15,15 +15,15 @@ const SpareParts: FC<unknown> = (): ReactElement => (
           alt="cat part warranty seal"
         />
       </Col>
-      <Col md={6}>
+      <Col md={6} className="rich-text">
         <h2 className="h4 p-0">Cat Spare Parts</h2>
-        <div>
-          <p>
+        <div className="mb-4 p-0">
+          <p className="h6">
             Find the spare parts you need fast and search easily online with serial # or part name.
             Hastings Deering offers over 1.4 million genuine Cat spare parts online, with instant
             pricing and availability 24/7, 365.
           </p>
-          <p>Cat Electronic Parts Books (SIS) are also available.</p>
+          <p className="h6 mt-3">Cat Electronic Parts Books (SIS) are also available.</p>
         </div>
         <div>
           <Button
