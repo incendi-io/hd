@@ -1,8 +1,14 @@
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { Card, Container, Row } from 'react-bootstrap'
+import Col from 'react-bootstrap/Col'
+import Moment from 'react-moment'
 
 import { News, RawNews } from '~types/News'
+
+import styles from './TheLatestNews.module.scss'
 
 type Edge = {
   node: RawNews
@@ -18,18 +24,31 @@ const TheLatestNews = (): React.ReactElement => {
   const data = useStaticQuery<RawData>(query)
   const news = dataMapper(data.allContentfulNews.edges)
   return (
-    <Container className="mr-0 p-0">
-      <div>The Latest</div>
-      <Row>
-        {news.map((item) => (
-          <Card as="a" href={item.link} key={item.id} style={{ width: '22rem' }}>
-            <Card.Img variant="top" src={item.image.url} alt={item.image.alt} />
-            <Card.Body>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text>{item.createAt}</Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
+    <Container className="p-0 row-splitter">
+      <Col className="rich-text col-12 position-center">
+        <div className="h4 mb-0">The Latest</div>
+      </Col>
+      <Row className={styles.searchResultRelatedNews}>
+        <ul className={styles.searchResultList}>
+          {news.map((item) => (
+            <li className={styles.li} key={item.id}>
+              <Card as="a" className={styles.item} href={item.link}>
+                <div className={styles.fieldMainImage}>
+                  <Card.Img variant="top" src={item.image.url} alt={item.image.alt} />
+                </div>
+                <Card.Body className={styles.contentContainer}>
+                  <Card.Title className={styles.titleContainer}>
+                    <h5 className={styles.fieldTitle}>{item.title}</h5>
+                    <FontAwesomeIcon icon={faChevronRight} title={'Read'} />
+                  </Card.Title>
+                  <Card.Text className={styles.caption}>
+                    <Moment format="DD MMMM YYYY">{item.createAt}</Moment>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </li>
+          ))}
+        </ul>
       </Row>
     </Container>
   )
