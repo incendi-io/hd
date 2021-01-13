@@ -8,7 +8,6 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 import React, { FC, ReactElement, useState } from 'react'
-import { Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Container from 'react-bootstrap/cjs/Container'
 import Nav from 'react-bootstrap/cjs/Nav'
@@ -183,18 +182,22 @@ const Footer: FC<unknown> = (): ReactElement => {
       <hr className={styles.divider} />
       <Container fluid className={styles.container}>
         <Row className={styles.row}>
-          {footerLinks.map((item) => (
+          {footerLinks.map((item, index) => (
             <Nav
-              a="ul"
+              as="ul"
               key={item.key}
               className={classNames(styles.parentNavItem, 'col d-flex flex-column')}>
-              <div className="position-relative">
+              <div
+                role="button"
+                tabIndex={index}
+                className="position-relative outline-none"
+                onKeyPress={() => expand(item.key)}
+                onClick={() => expand(item.key)}>
                 <div className={styles.navigationTitle}>{item.title}</div>
                 <FontAwesomeIcon
                   icon={expanded === item.key ? faChevronDown : faChevronRight}
                   title={'Read'}
                   className={styles.icon}
-                  onClick={() => expand(item.key)}
                 />
               </div>
               <Navbar
