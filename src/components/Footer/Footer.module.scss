@@ -78,7 +78,7 @@
 
 .parent-nav-item {
   @media only screen and (max-width: map-get($grid-breakpoints, sm)) {
-    flex: 0 0 100%;
+    flex: 0 0 100% !important;
   }
   @media (max-width: 766.98px) {
     border-top: 1px solid #999;

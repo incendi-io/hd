@@ -206,7 +206,7 @@ const Footer: FC<unknown> = (): ReactElement => {
                 expanded={expanded === item.key}
                 className={classNames({ 'p-0': expanded !== item.key })}>
                 <Navbar.Collapse id="responsive-navbar-nav">
-                  <Nav a="ul" className={styles.linksSubmenu}>
+                  <Nav as="ul" className={styles.linksSubmenu}>
                     {item.links.map((node) => (
                       <Nav.Item key={node.key} className={styles.navItem}>
                         <Nav.Link href={node.link}>{node.title}</Nav.Link>
