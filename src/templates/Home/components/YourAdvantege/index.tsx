@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/cjs/Row'
 
 const YourAdvantage: FC<unknown> = (): ReactElement => {
   return (
-    <Row className="row-splitter bg-dark pb-0 pt-0">
+    <Row className="row-splitter bg-dark pb-0 pt-0 w-100 mx-0">
       <div className="bg-dark pb-0 pt-0 container">
         <Col lg={4} className="rich-text p-0 text-white">
           <Row className="px-3 px-md-2 px-lg-0">
