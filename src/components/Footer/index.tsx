@@ -3,9 +3,12 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import React, { FC, ReactElement } from 'react'
+import React, { FC, ReactElement, useState } from 'react'
+import { Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Container from 'react-bootstrap/cjs/Container'
 import Nav from 'react-bootstrap/cjs/Nav'
@@ -168,88 +171,128 @@ const footerLinks: FooterLink[] = [
   },
 ]
 
-const Footer: FC<unknown> = (): ReactElement => (
-  <footer className="rich-text">
-    <hr className={styles.divider} />
-    <Container fluid className={styles.container}>
-      <Row className={styles.row}>
-        {footerLinks.map((item) => (
-          <Col key={item.key}>
-            <div className={styles.navigationTitle}>{item.title}</div>
-            <Nav className={styles.linksSubmenu}>
-              {item.links.map((node) => (
-                <Nav.Item key={node.key} className={styles.navItem}>
-                  <Nav.Link href={node.link}>{node.title}</Nav.Link>
-                </Nav.Item>
-              ))}
+const Footer: FC<unknown> = (): ReactElement => {
+  const [expanded, setExpanded] = useState('')
+
+  const expand = (key: string) => {
+    if (expanded === key) setExpanded('')
+    else setExpanded(key)
+  }
+  return (
+    <footer className="rich-text">
+      <hr className={styles.divider} />
+      <Container fluid className={styles.container}>
+        <Row className={styles.row}>
+          {footerLinks.map((item) => (
+            <Nav
+              a="ul"
+              key={item.key}
+              className={classNames(styles.parentNavItem, 'col d-flex flex-column')}>
+              <div className="position-relative">
+                <div className={styles.navigationTitle}>{item.title}</div>
+                <FontAwesomeIcon
+                  icon={expanded === item.key ? faChevronDown : faChevronRight}
+                  title={'Read'}
+                  className={styles.icon}
+                  onClick={() => expand(item.key)}
+                />
+              </div>
+              <Navbar
+                collapseOnSelect
+                expand="sm"
+                expanded={expanded === item.key}
+                className={classNames({ 'p-0': expanded !== item.key })}>
+                <Navbar.Collapse id="responsive-navbar-nav">
+                  <Nav a="ul" className={styles.linksSubmenu}>
+                    {item.links.map((node) => (
+                      <Nav.Item key={node.key} className={styles.navItem}>
+                        <Nav.Link href={node.link}>{node.title}</Nav.Link>
+                      </Nav.Item>
+                    ))}
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
+            </Nav>
+          ))}
+        </Row>
+      </Container>
+      <hr className={styles.divider} />
+      <Container className={classNames(styles.container, styles.componentContent)}>
+        <Row className="align-items-center justify-content-between">
+          <Col
+            className={classNames(
+              'd-flex justify-content-center visible-sm',
+              styles.navItem,
+              styles.smallNav,
+              styles.privacyBlock
+            )}>
+            <p className="text-center">
+              {`Hastings Deering © ${new Date().getFullYear()}.`}
+              <br />
+              All Rights Reserved.
+            </p>
+          </Col>
+          <Col sm={12} md={6} className={styles.privacyBlock}>
+            <Nav className="justify-content-center flex-nowrap">
+              <Nav.Item className={classNames('d-flex hidden-sm', styles.navItem, styles.smallNav)}>
+                <p>{`Hastings Deering © ${new Date().getFullYear()}. All Rights Reserved.`}</p>
+              </Nav.Item>
+              <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
+                <Nav.Link href="/legal/terms">Terms & Conditions</Nav.Link>
+              </Nav.Item>
+              <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
+                <Nav.Link href="/legal/privacy">Privacy Policy</Nav.Link>
+              </Nav.Item>
+              <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
+                <Nav.Link href="/legal/credit-reporting-privacy-notification">
+                  Credit Reporting Privacy Notification
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
+                <Nav.Link href="/legal/disclaimer">Disclaimer Statement</Nav.Link>
+              </Nav.Item>
             </Nav>
           </Col>
-        ))}
-      </Row>
-    </Container>
-    <hr className={styles.divider} />
-    <Container className={styles.container}>
-      <Row className="flex-nowrap align-items-center justify-content-between">
-        <Col>
-          <Nav className="justify-content-center flex-nowrap">
-            <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
-              <p>{`Hastings Deering © ${new Date().getFullYear()}. All Rights Reserved.`}</p>
-            </Nav.Item>
-            <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
-              <Nav.Link href="/legal/terms">Terms & Conditions</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
-              <Nav.Link href="/legal/privacy">Privacy Policy</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
-              <Nav.Link href="/legal/credit-reporting-privacy-notification">
-                Credit Reporting Privacy Notification
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item className={classNames('d-flex', styles.navItem, styles.smallNav)}>
-              <Nav.Link href="/legal/disclaimer">Disclaimer Statement</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Col>
-        <Col className={styles.col2}>
-          <Nav className={classNames('justify-content-center', styles.externalLinks)}>
-            <Nav.Item>
-              <Nav.Link href="https://www.facebook.com/HastingsDeering/">
-                <FontAwesomeIcon icon={faFacebookF} title={'Facebook'} />
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://twitter.com/hastingsdeering?lang=en">
-                <FontAwesomeIcon icon={faTwitter} title={'Twitter'} />
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://www.linkedin.com/company/hastings-deering/">
-                <FontAwesomeIcon icon={faLinkedinIn} title={'LinkedIn'} />
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://www.instagram.com/hastingsdeering/?hl=en">
-                <FontAwesomeIcon icon={faInstagram} title={'Instagram'} />
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://www.youtube.com/channel/UCcRcI_2Nx53JuyzynfDTxfw">
-                <FontAwesomeIcon icon={faYoutube} title={'Youtube'} />
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Col>
-        <Col className={styles.col3}>
-          <Nav className="justify-content-center">
-            <Navbar.Brand href="/">
-              <Logo className={styles.logo} src="/images/sime-darby-logo.png" />
-            </Navbar.Brand>
-          </Nav>
-        </Col>
-      </Row>
-    </Container>
-  </footer>
-)
+          <Col sm={12} md={4}>
+            <Nav className={classNames('justify-content-center', styles.externalLinks)}>
+              <Nav.Item>
+                <Nav.Link href="https://www.facebook.com/HastingsDeering/">
+                  <FontAwesomeIcon icon={faFacebookF} title={'Facebook'} />
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="https://twitter.com/hastingsdeering?lang=en">
+                  <FontAwesomeIcon icon={faTwitter} title={'Twitter'} />
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="https://www.linkedin.com/company/hastings-deering/">
+                  <FontAwesomeIcon icon={faLinkedinIn} title={'LinkedIn'} />
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="https://www.instagram.com/hastingsdeering/?hl=en">
+                  <FontAwesomeIcon icon={faInstagram} title={'Instagram'} />
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="https://www.youtube.com/channel/UCcRcI_2Nx53JuyzynfDTxfw">
+                  <FontAwesomeIcon icon={faYoutube} title={'Youtube'} />
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Col>
+          <Col sm={12} md={2}>
+            <Nav className="justify-content-center">
+              <Navbar.Brand href="/">
+                <Logo className={styles.logo} src="/images/sime-darby-logo.png" />
+              </Navbar.Brand>
+            </Nav>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  )
+}
 
 export default Footer

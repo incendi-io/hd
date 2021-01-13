@@ -611,6 +611,22 @@ a.dropdown-toggle::after {
   background-size: cover;
 }
 
+.hidden-sm {
+  display: block !important;
+
+  @media only screen and (max-width: 767px) {
+      display: none !important;
+  }
+}
+
+.visible-sm {
+  display: none !important;
+
+  @media only screen and (max-width: 767px) {
+    display: block !important;
+  }
+}
+
 @import "controls.theme";
 @import "colors.theme";
 @import "grid.theme";

@@ -25,11 +25,23 @@
 }
 
 .navigation-title {
+  line-height: 19px;
   color: theme-color('text-secondary');
   font-weight: normal;
   font-size: 16px;
   letter-spacing: normal;
   -webkit-font-smoothing: antialiased;
+
+  @media (max-width: 766.98px) {
+    font-weight: 700;
+    padding: 1rem 0;
+    text-transform: uppercase;
+    position: relative;
+  }
+  @media only screen and (max-width: 767px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 @media (min-width: 767px) {
@@ -40,7 +52,55 @@
 }
 
 .links-submenu {
-  margin-top: 1rem;
+  @media (min-width: 1023px) and (min-width: 767px) {
+    margin-top: 1rem;
+  }
+}
+
+.privacy-block {
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 10px
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1022px) {
+    flex-wrap: wrap;
+    align-items: unset
+  }
+}
+
+.component-content {
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.parent-nav-item {
+  @media only screen and (max-width: map-get($grid-breakpoints, sm)) {
+    flex: 0 0 100%;
+  }
+  @media (max-width: 766.98px) {
+    border-top: 1px solid #999;
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  display: none;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+
+  @media only screen and (max-width: map-get($grid-breakpoints, sm)) {
+    display: block;
+  }
 }
 
 .nav-item {
