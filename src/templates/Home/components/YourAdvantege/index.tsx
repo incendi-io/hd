@@ -5,8 +5,8 @@ import Row from 'react-bootstrap/cjs/Row'
 
 const YourAdvantage: FC<unknown> = (): ReactElement => {
   return (
-    <Row className="row-splitter bg-dark pb-0 pt-0 w-100 mx-0">
-      <div className="bg-dark pb-0 pt-0 container">
+    <div className="row-splitter bg-dark pb-0 pt-0 w-100 mx-0">
+      <Row className="bg-dark pb-0 pt-0 container">
         <Col lg={4} className="rich-text p-0 text-white">
           <Row className="px-3 px-md-2 px-lg-0">
             <Col md={6} lg={12} className="mt-5 pl-3 pr-sm-2 pr-lg-5 ">
@@ -42,11 +42,14 @@ const YourAdvantage: FC<unknown> = (): ReactElement => {
             </Col>
           </Row>
         </Col>
-        <Col lg={8} className="plain-html order-first order-lg-last">
+        <Col
+          lg={8}
+          className="plain-html order-first order-lg-last"
+          style={{ width: 900, height: 506 }}>
           {/* TODO: add video using jwtplayer on in another way */}
         </Col>
-      </div>
-    </Row>
+      </Row>
+    </div>
   )
 }
 

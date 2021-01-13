@@ -24,7 +24,7 @@ const TheLatestNews = (): React.ReactElement => {
   const data = useStaticQuery<RawData>(query)
   const news = dataMapper(data.allContentfulNews.edges)
   return (
-    <Container className="p-0 row-splitter">
+    <Container className="pb-0 row-splitter">
       <Col className="rich-text col-12 position-center">
         <div className="h4 mb-0">The Latest</div>
       </Col>
