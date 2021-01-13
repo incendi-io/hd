@@ -19,6 +19,12 @@
   background-image: none;
   border-color: #ccc;
 }
+.btn-outline-light:hover {
+  color: #212529;
+  background-color: #ccc;
+  border-color: #ccc
+}
+
 input, button, select, optgroup, textarea {
   margin: 0;
   font-family: inherit;

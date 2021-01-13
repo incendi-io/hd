@@ -61,4 +61,8 @@
   text-transform: uppercase;
   outline: none !important;
   box-shadow: unset !important;
+
+  &:hover {
+    color: #000 !important;
+  }
 }
