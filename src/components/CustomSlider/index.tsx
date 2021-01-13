@@ -47,7 +47,7 @@ export const CustomSlider = ({ ...props }) => {
     dots: false,
     infinite: false,
     speed: 500,
-    autoplay: false,
+    autoplay: true,
     slidesToShow: 5,
     slidesToScroll: 5,
     initialSlide: 0,

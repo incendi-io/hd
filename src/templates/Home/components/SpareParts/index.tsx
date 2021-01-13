@@ -8,14 +8,14 @@ import styles from './SpareParts.module.scss'
 const SpareParts: FC<unknown> = (): ReactElement => (
   <div className="row-splitter">
     <Row className="container">
-      <Col md={{ span: 2, offset: 2 }}>
+      <Col xs={{ span: 3, order: 'last' }} md={{ span: 2, offset: 2, order: 'first' }}>
         <img
           className={styles.img}
           src="/images/cat-parts-warranty-seal.png"
           alt="cat part warranty seal"
         />
       </Col>
-      <Col md={6} className="rich-text">
+      <Col xs={9} md={6} className="rich-text">
         <h2 className="h4 p-0">Cat Spare Parts</h2>
         <div className="mb-4 p-0">
           <p className="h6">

@@ -53,3 +53,9 @@ input, button, select, optgroup, textarea {
 .outline-none {
   outline: none;
 }
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  color: #212529;
+  background-color: map-get($incendi-colors, text-secondary-grey);
+  border-color: map-get($incendi-colors, text-secondary-grey);
+}
