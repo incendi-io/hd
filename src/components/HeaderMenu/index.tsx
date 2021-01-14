@@ -1,10 +1,17 @@
-import React from 'react'
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import useWindowSize from '@rooks/use-window-size'
+import classNames from 'classnames'
+import React, { useState } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import Helmet from 'react-helmet'
 
 import { HoverableDropdown } from '~components/HoverableDropdown'
 
+import { gridBreakpointsMd } from '../exports.scss'
 import styles from './HeaderMenu.module.scss'
 
 type Link = {
@@ -155,25 +162,63 @@ const headerLinks: HeaderLink[] = [
 ]
 
 const HeaderMenu = (): React.ReactElement => {
+  const { innerWidth } = useWindowSize()
+
+  const [expanded, setExpanded] = useState('')
+
+  const expand = (key: string) => {
+    if (expanded === key) setExpanded('')
+    else setExpanded(key)
+  }
   return (
     <Navbar.Collapse id="basic-navbar-nav" className={styles.navbar}>
-      <Nav className="mr-auto">
-        {headerLinks.map((el) => {
+      <Helmet
+        bodyAttributes={{
+          class: expanded ? 'no-scroll' : '',
+        }}
+      />
+      <Nav
+        className={classNames({
+          'mr-auto': true,
+          'flex-row': true,
+          'flex-wrap': innerWidth && innerWidth <= parseInt(gridBreakpointsMd),
+        })}>
+        {headerLinks.map((el, index) => {
           if (el?.links) {
             return (
-              <HoverableDropdown title={el.title} key={el.key} id={el.key} className={styles.link}>
-                {el.links.map((item) => (
-                  <NavDropdown.Item href={item.link} key={item.key}>
-                    {item.title}
-                  </NavDropdown.Item>
-                ))}
-              </HoverableDropdown>
+              <div
+                className={classNames(styles.subItem, styles.link)}
+                role="button"
+                tabIndex={index}
+                onKeyPress={() => expand(el.key)}
+                onClick={() => expand(el.key)}>
+                <FontAwesomeIcon
+                  icon={expanded === el.key ? faMinus : faPlus}
+                  title={'Read'}
+                  className={styles.icon}
+                />
+                <HoverableDropdown
+                  title={el.title}
+                  key={el.key}
+                  id={el.key}
+                  show={expanded === el.key}
+                  className={classNames(styles.link, 'transparent-sub-menu')}>
+                  {el.links.map((item) => (
+                    <NavDropdown.Item href={item.link} key={item.key}>
+                      {item.title}
+                    </NavDropdown.Item>
+                  ))}
+                </HoverableDropdown>
+              </div>
             )
           }
 
           return (
-            <Nav.Item key={el.key} className={styles.link}>
-              <Nav.Link href={el.link}>{el.title}</Nav.Link>
+            <Nav.Item key={el.key} className={classNames(styles.subItem, styles.link)}>
+              <Nav.Link href={el.link}>
+                {el.title}
+                <FontAwesomeIcon icon={faChevronRight} title={'Read'} className={styles.icon} />
+              </Nav.Link>
             </Nav.Item>
           )
         })}

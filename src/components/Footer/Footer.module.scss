@@ -98,6 +98,7 @@
   width: 20px;
   height: 20px;
 
+  //TODO: re-check all those media queries and adjust to grid-breakpoints properly
   @media only screen and (max-width: map-get($grid-breakpoints, sm)) {
     display: block;
   }

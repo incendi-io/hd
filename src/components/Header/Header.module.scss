@@ -1,27 +1,53 @@
-@import "../colors";
+@import "../theme";
 
 .root {
   background-color: map-get($incendi-colors, bg-dark-black);
   padding: 8px 0;
+  max-height: 100vh;
 }
 
 .navbar {
   margin-left: auto;
   margin-right: auto;
-}
-
-@media (min-width: 767px) {
-  .navbar {
+  @media (min-width: 767px) {
     max-width: 1023px;
     padding-left: 30px;
     padding-right: 30px;
   }
-}
 
-@media (min-width: 1023px) {
-  .navbar {
+  @media (min-width: 1023px) {
     max-width: 1440px;
     padding-left: 40px;
     padding-right: 40px;
+  }
+}
+
+.navbar-controls {
+  @media only screen and (max-width: map-get($grid-breakpoints, md)) {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.navbar-expand {
+  display: none !important;
+  @media only screen and (max-width: map-get($grid-breakpoints, md)) {
+    display: inline-block !important;
+  }
+}
+
+.collapse-expand {
+  color: map-get($incendi-colors, text-primary-white)
+}
+
+.hd-mobile-divider {
+  @media only screen and (max-width: map-get($grid-breakpoints, md)) {
+    position: absolute;
+    width: 100%;
+    border-bottom: 2px solid #ffc107;
+    top: 79px;
+    z-index: 1103;
+    left: 0
   }
 }

@@ -627,6 +627,10 @@ a.dropdown-toggle::after {
   }
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 @import "controls.theme";
 @import "colors.theme";
 @import "grid.theme";

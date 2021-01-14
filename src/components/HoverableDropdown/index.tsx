@@ -1,16 +1,30 @@
-import React, { useState } from 'react'
+import useWindowSize from '@rooks/use-window-size'
+import React, { useEffect, useState } from 'react'
 import NavDropdown, { NavDropdownProps } from 'react-bootstrap/NavDropdown'
+import { isMobile } from 'react-device-detect'
 
-export const HoverableDropdown = ({ ...props }: NavDropdownProps) => {
-  const [show, setShow] = useState(false)
+import { gridBreakpointsMd } from '../exports.scss'
+
+export const HoverableDropdown = ({ show = false, ...props }: NavDropdownProps) => {
+  const { innerWidth } = useWindowSize()
+
+  const [expanded, setExpanded] = useState(show)
+  useEffect(() => {
+    setExpanded(show)
+  }, [show])
   const showDropdown = () => {
-    setShow(!show)
+    if (!isMobile && innerWidth && innerWidth > parseInt(gridBreakpointsMd)) setExpanded(true)
   }
   const hideDropdown = () => {
-    setShow(false)
+    if (!isMobile && innerWidth && innerWidth > parseInt(gridBreakpointsMd)) setExpanded(false)
   }
 
   return (
-    <NavDropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown} {...props} />
+    <NavDropdown
+      show={expanded}
+      onMouseEnter={showDropdown}
+      onMouseLeave={hideDropdown}
+      {...props}
+    />
   )
 }
