@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import { isMobile } from 'react-device-detect'
 import Helmet from 'react-helmet'
 
 import { HoverableDropdown } from '~components/HoverableDropdown'
@@ -181,7 +182,7 @@ const HeaderMenu = (): React.ReactElement => {
         className={classNames({
           'mr-auto': true,
           'flex-row': true,
-          'flex-wrap': innerWidth && innerWidth <= parseInt(gridBreakpointsMd),
+          'flex-wrap': isMobile || (innerWidth && innerWidth <= parseInt(gridBreakpointsMd)),
         })}>
         {headerLinks.map((el, index) => {
           if (el?.links) {
