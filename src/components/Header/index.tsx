@@ -29,9 +29,11 @@ export const Header = (): React.ReactElement => {
           <Logo />
         </Navbar.Brand>
         <div className={classNames(styles.hdMobileDivider, { 'd-none': !expanded })} />
-        <HeaderMenu />
+        <HeaderMenu handleLogin={handleLogin} />
         <div className={styles.navbarControls}>
-          <Button onClick={handleLogin}>Login</Button>
+          <Button className="hidden-sm" onClick={handleLogin}>
+            Login
+          </Button>
           <Button
             className={classNames(styles.navbarExpand, 'mx-2')}
             variant="outline-light"

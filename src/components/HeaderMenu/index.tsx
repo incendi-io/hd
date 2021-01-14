@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useWindowSize from '@rooks/use-window-size'
 import classNames from 'classnames'
 import React, { useState } from 'react'
+import Button from 'react-bootstrap/cjs/Button'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -162,7 +163,7 @@ const headerLinks: HeaderLink[] = [
   },
 ]
 
-const HeaderMenu = (): React.ReactElement => {
+const HeaderMenu = ({ handleLogin }): React.ReactElement => {
   const { innerWidth } = useWindowSize()
 
   const [expanded, setExpanded] = useState('')
@@ -223,6 +224,11 @@ const HeaderMenu = (): React.ReactElement => {
             </Nav.Item>
           )
         })}
+        <Nav.Link>
+          <Button className="visible-sm" onClick={handleLogin}>
+            Login
+          </Button>
+        </Nav.Link>
       </Nav>
     </Navbar.Collapse>
   )
