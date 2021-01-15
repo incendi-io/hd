@@ -166,6 +166,8 @@ const headerLinks: HeaderLink[] = [
 const HeaderMenu = ({ handleLogin }): React.ReactElement => {
   const { innerWidth } = useWindowSize()
 
+  console.log('innerWidth, isMobile', innerWidth, isMobile)
+
   const [expanded, setExpanded] = useState('')
 
   const expand = (key: string) => {
