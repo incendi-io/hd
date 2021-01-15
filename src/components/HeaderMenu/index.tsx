@@ -166,7 +166,12 @@ const headerLinks: HeaderLink[] = [
 const HeaderMenu = ({ handleLogin }): React.ReactElement => {
   const { innerWidth } = useWindowSize()
 
-  console.log('innerWidth, isMobile', innerWidth, isMobile)
+  console.log(
+    'innerWidth, isMobile, gridBreakpointsMd',
+    innerWidth,
+    isMobile,
+    parseInt(gridBreakpointsMd)
+  )
 
   const [expanded, setExpanded] = useState('')
 
