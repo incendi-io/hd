@@ -10,6 +10,13 @@
   }
 }
 
+.nav-flex {
+  @media only screen and (max-width: map-get($grid-breakpoints, md)) {
+    flex-wrap: wrap !important;
+  }
+}
+
+
 .link {
   -webkit-font-smoothing: antialiased;
   font-size: 16px;

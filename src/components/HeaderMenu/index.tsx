@@ -186,12 +186,7 @@ const HeaderMenu = ({ handleLogin }): React.ReactElement => {
           class: expanded ? 'no-scroll' : '',
         }}
       />
-      <Nav
-        className={classNames({
-          'mr-auto': true,
-          'flex-row': true,
-          'flex-wrap': isMobile || (innerWidth && innerWidth <= parseInt(gridBreakpointsMd)),
-        })}>
+      <Nav className={classNames(styles.navFlex, 'mr-auto', 'flex-row')}>
         {headerLinks.map((el, index) => {
           if (el?.links) {
             return (
