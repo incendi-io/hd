@@ -166,13 +166,6 @@ const headerLinks: HeaderLink[] = [
 const HeaderMenu = ({ handleLogin }): React.ReactElement => {
   const { innerWidth } = useWindowSize()
 
-  console.log(
-    'innerWidth, isMobile, gridBreakpointsMd',
-    innerWidth,
-    isMobile,
-    parseInt(gridBreakpointsMd)
-  )
-
   const [expanded, setExpanded] = useState('')
 
   const expand = (key: string) => {
@@ -191,6 +184,7 @@ const HeaderMenu = ({ handleLogin }): React.ReactElement => {
           if (el?.links) {
             return (
               <div
+                key={el.key}
                 className={classNames(styles.subItem, styles.link)}
                 role="button"
                 tabIndex={index}
@@ -203,7 +197,6 @@ const HeaderMenu = ({ handleLogin }): React.ReactElement => {
                 />
                 <HoverableDropdown
                   title={el.title}
-                  key={el.key}
                   id={el.key}
                   show={expanded === el.key}
                   className={classNames(styles.link, 'transparent-sub-menu')}>
