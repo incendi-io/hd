@@ -1,0 +1,71 @@
+.promo-cta-section {
+  position: relative;
+  text-align: left;
+}
+
+.promo-text-h2 {
+  margin-bottom: 0;
+  text-align: inherit;
+  white-space: pre-line;
+  font-size: 44px;
+  line-height: 80px;
+  letter-spacing: normal;
+  color: #fff;
+
+  @media only screen and (max-width: 1022px) and (min-width: 768px) {
+    font-size: 32px;
+  }
+}
+
+.promo-heading {
+  text-align: inherit;
+  white-space: pre-line;
+  font-size: 68px;
+  line-height: 80px;
+  letter-spacing: normal;
+  margin-bottom: 25px;
+  color: #fff;
+  word-wrap: break-word;
+
+  @media only screen and (max-width: 1022px) and (min-width: 768px) {
+    font-size: 54px;
+    line-height: 60px;
+    max-width: 390px;
+  }
+}
+
+.promo-text {
+  position: relative;
+  padding-top: 20px;
+  text-align: left;
+}
+
+.background-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+}
+
+.background-overlay {
+  background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2));
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.promo.promo-hero {
+  position: relative;
+  text-align: center;
+}
+.promo.promo-hero {
+  height: 50vh;
+  padding: 0;
+}
