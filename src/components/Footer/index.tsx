@@ -204,7 +204,7 @@ const Footer: FC<unknown> = (): ReactElement => {
                 collapseOnSelect
                 expand="sm"
                 expanded={expanded === item.key}
-                className={classNames({ 'p-0': expanded !== item.key })}>
+                className={classNames({ 'pl-0': true, 'p-0': expanded !== item.key })}>
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav as="ul" className={styles.linksSubmenu}>
                     {item.links.map((node) => (
