@@ -9,6 +9,7 @@ const NewProducts: FC<unknown> = (): React.ReactElement => {
     <Layout>
       <PromoImage
         url="/images/motor-graders-blade.jpg"
+        useOverlay={true}
         title="Equipment"
         subTitle="NEW"
         description="With the best range of new Cat® Machines and Equipment in QLD and NT, your local Hastings Deering branch is the ideal place to find new Cat® Equipment for sale. Check out our full range of new Caterpillar construction, earthmoving and mining machinery below and contact your local branch for expert advice on the Cat® machines and equipment that your business needs to get the job done right."

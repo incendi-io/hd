@@ -1,0 +1,73 @@
+.container {
+  position: relative;
+}
+
+.root {
+    height: 40vh;
+    overflow: hidden;
+    background-size: cover;
+}
+.overlay {
+  background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2));
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.promo-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+
+.background-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+}
+
+.promo-text {
+  position: relative;
+  text-align: left;
+  min-height: 24rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  padding: 0;
+
+  @media (min-width: 767px) {
+    margin-top: 3rem;
+    margin-left: 8.3%;
+  }
+}
+
+.promo-text-h3 {
+  color: #fc0;
+}
+
+.promo-heading {
+  text-align: inherit;
+  white-space: pre-line;
+  font-size: 68px;
+  line-height: 80px;
+  letter-spacing: normal;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.promo-text-p {
+  color: #fff;
+  @media (min-width: 1023px) {
+    max-width: 70%;
+  }
+}
