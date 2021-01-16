@@ -1,5 +1,9 @@
+//TODO: css modules not working again, wtf, how even debug it?
+import './ProductFamilyList.modules.scss'
+
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
+import { Col } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 
 import ProductFamilyCard, { FamilyProduct } from '~components/ProductFamilyCard'
@@ -7,12 +11,21 @@ import ProductFamilyCard, { FamilyProduct } from '~components/ProductFamilyCard'
 const ProductFamilyList = (): React.ReactElement => {
   const data = useStaticQuery(query)
   const list = familyProductsMapper(data.familyProducts)
+
   return (
-    <Row>
-      {list.map((product) => (
-        <ProductFamilyCard key={product.id} item={product} />
-      ))}
-    </Row>
+    <Col className="container">
+      <Row>
+        <Col xs={12} className="component search-results search-result-product-category">
+          <ul className="search-result-list">
+            {list.map((product) => (
+              <li key={product.id}>
+                <ProductFamilyCard item={product} />
+              </li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
+    </Col>
   )
 }
 

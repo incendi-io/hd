@@ -1,0 +1,15 @@
+.title {
+  position: relative;
+  padding: 1rem;
+  background: #ececec;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.none {
+  text-decoration: none !important;
+}
