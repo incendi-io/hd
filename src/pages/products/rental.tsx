@@ -1,4 +1,8 @@
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF'
+import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { FC, ReactElement } from 'react'
+import { Breadcrumb } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import FormGroup from 'react-bootstrap/cjs/FormGroup'
 import Nav from 'react-bootstrap/cjs/Nav'
@@ -19,50 +23,70 @@ const RentalProducts: FC<unknown> = (): ReactElement => (
       subTitle="PRODUCTS"
       useOverlay
     />
-    <Row>
-      <Col>
-        <h2>Big or Small, Rent it All</h2>
-        <p>
-          We have a broad range of Cat® Rental Equipment available for hire wherever and whenever
-          you need it. With daily, weekly and long-term Cat® Machinery Rental options, on-site
-          delivery, competitive rates and high-quality Cat® Equipment at the best Cat® Rental prices
-          in QLD and NT — we&apos;ve got you covered! An extensive range of Cat® Rental Store
-          machinery and equipment is available from Hastings Deering branches throughout Queensland
-          and the Northern Territory.
-        </p>
-
-        <h2>Tailored Solutions</h2>
-        <p>
-          The Hastings Deering Cat® Rental team is committed to sourcing the best equipment and
-          matching it to your application to achieve the highest level of productivity. Working
-          together, we can tailor a rental solution to meet your unique requirements. Please view
-          our standard conditions of hire here:&nbsp;
-          <a
-            href="https://sdi-sc-prod-cd-cdn.azureedge.net/-/media/project/hdweb/public/legals/hdal-standard-conditions-of-hire-august-2012.pdf?rev=12b9c184e72e44149e8ce5014f78ea72"
-            title="Cat Hire Conditions">
-            Hire Conditions
-          </a>
-        </p>
-      </Col>
-      <Col>
-        <div>
-          <h4>Want more detail?</h4>
-          <p>Fill out the form to get started.</p>
-        </div>
-        <div>
-          <form action="">
-            <FormGroup>
-              <input name="" placeholder="Full Name*" />
-            </FormGroup>
-          </form>
-        </div>
-      </Col>
-    </Row>
+    <div className="component row-splitter ">
+      <div className="container">
+        <Row className="column-splitter">
+          <Col xs={12} md={{ span: 6, offset: 1 }} lg={{ span: 6, offset: 1 }}>
+            <Col xs={12} className="component navigation-title initialized">
+              <div className="component-content">
+                <Breadcrumb className={styles.breadcrump}>
+                  <Breadcrumb.Item href="/">
+                    <FontAwesomeIcon icon={faHome} title={'Home'} className={styles.homeIcon} />
+                  </Breadcrumb.Item>
+                  <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+                  <Breadcrumb.Item href="/products">Products</Breadcrumb.Item>
+                  <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+                  <Breadcrumb.Item href="/products/rental">Cat Rental Equipment</Breadcrumb.Item>
+                </Breadcrumb>
+              </div>
+            </Col>
+            <Col xs={12} className="component rich-text">
+              <div className="component-content">
+                <h2>Big or Small, Rent it All</h2>
+                <p>
+                  We have a broad range of Cat® Rental Equipment available for hire wherever and
+                  whenever you need it. With daily, weekly and long-term Cat® Machinery Rental
+                  options, on-site delivery, competitive rates and high-quality Cat® Equipment at
+                  the best Cat® Rental prices in QLD and NT — we&apos;ve got you covered! An
+                  extensive range of Cat® Rental Store machinery and equipment is available from
+                  Hastings Deering branches throughout Queensland and the Northern Territory.
+                </p>
+                <h2>Tailored Solutions</h2>
+                <p>
+                  The Hastings Deering Cat® Rental team is committed to sourcing the best equipment
+                  and matching it to your application to achieve the highest level of productivity.
+                  Working together, we can tailor a rental solution to meet your unique
+                  requirements. Please view our standard conditions of hire here:{' '}
+                  <a
+                    href="https://sdi-sc-prod-cd-cdn.azureedge.net/-/media/project/hdweb/public/legals/hdal-standard-conditions-of-hire-august-2012.pdf?rev=12b9c184e72e44149e8ce5014f78ea72"
+                    title="Cat Hire Conditions">
+                    Hire Conditions
+                  </a>
+                </p>
+              </div>
+            </Col>
+          </Col>
+          <Col xs={12} sm={12} md={10} lg={4} className="container-clean-background">
+            <div>
+              <h4>Want more detail?</h4>
+              <p>Fill out the form to get started.</p>
+            </div>
+            <div>
+              <form action="">
+                <FormGroup>
+                  <input name="" placeholder="Full Name*" />
+                </FormGroup>
+              </form>
+            </div>
+          </Col>
+        </Row>
+      </div>
+    </div>
     <div className="component row-splitter ">
       <div className="container">
         <Row>
           <Col xs={12} className="component rich-text">
-            <Tab.Container defaultActiveKey="articulated-trucks" className="component-content">
+            <Tab.Container defaultActiveKey="articulated-trucks">
               <Row>
                 <Col xs={4} lg={3} className="mr-0 px-0 py-0">
                   <Nav variant="pills" className="flex-column list-group list-group-flush">

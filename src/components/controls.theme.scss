@@ -104,3 +104,23 @@ input, button, select, optgroup, textarea {
     }
   }
 }
+
+.breadcrumb {
+  background-color: transparent;
+
+  a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #747474;
+
+    &:hover {
+      color: #fc0;
+      text-decoration: none;
+    }
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    display: none !important;
+  }
+}

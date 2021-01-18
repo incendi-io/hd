@@ -589,12 +589,21 @@ a.dropdown-toggle::after {
     box-shadow: inset 1px 4px 11px -8px
   }
 }
+.column-splitter {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+  width: 100%;
+}
 .border-secondary {
   border-color: #000 !important;
 }
 
 .container-dark-background {
   background: #333 !important;
+}
+.container-clean-background {
+  background: #fff !important;
 }
 .bg-white {
   background-color: #fff !important;
