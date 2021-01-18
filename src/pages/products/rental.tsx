@@ -8,12 +8,16 @@ import Tab from 'react-bootstrap/cjs/Tab'
 import Layout from '~components/Layout'
 import PromoImage from '~components/PromoImage'
 
+import HydraulicHoseTick from '../../../static/images/hydraulic-hose-tick.png'
+import styles from './Products.module.scss'
+
 const RentalProducts: FC<unknown> = (): ReactElement => (
   <Layout>
     <PromoImage
       url="/images/cat-rental-store-1920x1080.jpg"
       title="Cat Rental Equipment"
       subTitle="PRODUCTS"
+      useOverlay
     />
     <Row>
       <Col>
@@ -150,6 +154,160 @@ const RentalProducts: FC<unknown> = (): ReactElement => (
         </Row>
       </Tab.Container>
     </Row>
+    <div className="component row-splitter  container-dark-background">
+      <div className=" container-dark-background container">
+        <Row>
+          <Col xs={12} className="component plain-html">
+            <div className="component-content">
+              <div className="my-4 text-center">
+                <p className="h4 text-primary text-uppercase pb-0 mb-0">
+                  Can&apos;t find the equipment you need?
+                </p>
+                <p className="text-primary pb-0 mb-0">
+                  We can help you find what you are looking for.
+                </p>
+                <p className="h2 text-white text-uppercase display-4">
+                  CALL&nbsp;
+                  <a
+                    href="tel:1300852962"
+                    data-xa-trigger-goal="Click To Call"
+                    className={`text-white ${styles.phoneNumber}`}>
+                    1300-852-962
+                  </a>
+                </p>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </div>
+    </div>
+    <div className="component row-splitter">
+      <Col className="container">
+        <Row>
+          <Col xs={12} md={{ span: 10, offset: 1 }} className="component rich-text position-center">
+            <div className="component-content">
+              <h2>Top 10 Benefits of Cat® Rental</h2>
+            </div>
+          </Col>
+        </Row>
+      </Col>
+      <Col className="container">
+        <Row>
+          <Col xs={12} md={4} className="component rich-text">
+            <div className="component-content">
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">No repair costs</h4>
+                  <div className="small text-muted">
+                    With Cat® Rental Equipment there is no need for your own workshops, helping you
+                    reduce your operating and maintenance costs.
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">Reduce your disposal</h4>
+                  <div className="small text-muted">
+                    With Cat® Rental Equipment there is no need for your own workshops, helping you
+                    reduce your operating and maintenance costs.
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">Flexibility to support your demand</h4>
+                  <div className="small text-muted">
+                    Access to quality Cat® Equipment when you need it most, to support you in those
+                    unplanned and emergency situations.
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">Minimise your equipment fleet</h4>
+                  <div className="small text-muted">
+                    Cat® Rental gives you access to the latest equipment when you need it, so you
+                    don’t waste time and investment on underutilised equipment.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Col>
+          <div className="component rich-text col-12 col-md-4">
+            <div className="component-content">
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">The right equipment for the job</h4>
+                  <div className="small text-muted">
+                    Our team work with you to select the right Cat® Rental Equipment to suit your
+                    project, helping you be more productive and keeping you safe.
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">No need for storage</h4>
+                  <div className="small text-muted">
+                    With Cat® Equipment Rental you remove the need for space, releasing capital and
+                    reducing your maintenance and security costs.
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">Control project costs</h4>
+                  <div className="small text-muted">
+                    Cost your project in detail, paying for equipment when you need it and helping
+                    you budget effectively, resulting in improved profitability.
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">Gain access to the latest technology</h4>
+                  <div className="small text-muted">
+                    At Hastings Deering, we’re constantly upgrading our Cat® Rental fleet to provide
+                    you access to the latest technology and newer, more efficient models.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="component rich-text col-12 col-md-4">
+            <div className="component-content">
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">Improve cash flow</h4>
+                  <div className="small text-muted">
+                    Renting helps release capital and removed associated charges, allowing you to
+                    invest in other areas of your business.
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex flex-row justify-content-start align-items-start mb-2">
+                <img height="57" alt="Tested" width="57" src={HydraulicHoseTick} />
+                <div>
+                  <h4 className="mb-1 mt-3">Try before you buy</h4>
+                  <div className="small text-muted">
+                    With Cat® Rental you can make sure the equipment is right for you and your
+                    business. We also provide purchase options to suit you.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Row>
+      </Col>
+    </div>
   </Layout>
 )
 
