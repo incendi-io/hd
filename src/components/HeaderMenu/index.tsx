@@ -172,11 +172,14 @@ const HeaderMenu = ({ handleLogin }): React.ReactElement => {
     if (expanded === key) setExpanded('')
     else setExpanded(key)
   }
+
+  const mobileView = isMobile || (innerWidth && innerWidth < parseInt(gridBreakpointsMd))
+
   return (
     <Navbar.Collapse id="basic-navbar-nav" className={styles.navbar}>
       <Helmet
         bodyAttributes={{
-          class: expanded ? 'no-scroll' : '',
+          class: mobileView ? 'no-scroll' : '',
         }}
       />
       <Nav className={classNames(styles.navFlex, 'mr-auto', 'flex-row')}>
