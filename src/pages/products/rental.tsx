@@ -58,102 +58,110 @@ const RentalProducts: FC<unknown> = (): ReactElement => (
         </div>
       </Col>
     </Row>
-    <Row>
-      <Tab.Container defaultActiveKey="articulated-trucks">
+    <div className="component row-splitter ">
+      <div className="container">
         <Row>
-          <Col sm={3}>
-            <Nav variant="pills" className="flex-column">
-              <Nav.Item>
-                <Nav.Link eventKey="articulated-trucks">Articulated Trucks</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="backhoe-loaders">Backhoe Loaders</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="compactors">Compactors</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="dozers">Dozers</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="excavators">Excavators</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="motor-graders">Motor Graders</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="skid-steer-compact-track-loaders">
-                  Skid Steer & Compact Track Loaders
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="wheel-loaders">Wheel Loaders</Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Col>
-          <Col sm={8}>
-            <Tab.Content>
-              <Tab.Pane eventKey="articulated-trucks">
-                <TabContent
-                  title="ARTICULATED TRUCKS"
-                  description="We offer a range of flexible articulated truck hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 730, 740 and 745."
-                  imageUrl="/images/articulated-trucks-788x391.jpg"
-                />
-              </Tab.Pane>
-              <Tab.Pane eventKey="backhoe-loaders">
-                <TabContent
-                  title="BACKHOE LOADERS"
-                  description="We offer a range of flexible backhoe loader hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 432."
-                  imageUrl="/images/backhoe-loader-788x391.jpg"
-                />
-              </Tab.Pane>
-              <Tab.Pane eventKey="compactors">
-                <TabContent
-                  title="COMPACTORS"
-                  description="We offer a range of flexible compactor hire options and are always happy to tailor a solution to meet your needs. We rent the Cat CS-56B, CS-78B, CW14, CW34, 815, 825."
-                  imageUrl="/images/compactor-788x391.jpg"
-                />
-              </Tab.Pane>
-              <Tab.Pane eventKey="dozers">
-                <TabContent
-                  title="DOZERS"
-                  description="We offer a range of flexible dozer hire options and are always happy to tailor a solution to meet your needs. We rent the Cat D6T, D7R, D8T and Cat D9T."
-                  imageUrl="/images/dozers-788x391.jpg"
-                />
-              </Tab.Pane>
-              <Tab.Pane eventKey="excavators">
-                <TabContent
-                  title="EXCAVATORS"
-                  description="We offer a range of flexible excavator hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 304, 305 ,308, 311, 312, 315F, 320F, 325F, 330F, 335F, 349F."
-                  imageUrl="/images/excavators-788x391.jpg"
-                />
-              </Tab.Pane>
-              <Tab.Pane eventKey="motor-graders">
-                <TabContent
-                  title="MOTOR GRADERS"
-                  description="We offer a range of flexible motor grader truck hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 12M, 14M, 16M, 140M and 160M."
-                  imageUrl="/images/motor-graders-788x391.jpg"
-                />
-              </Tab.Pane>
-              <Tab.Pane eventKey="skid-steer-compact-track-loaders">
-                <TabContent
-                  title="SKID STEER & COMPACT TRACK LOADERS"
-                  description="We offer a range of flexible skid steer and compact track loader hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 226, 239, 279 and 299."
-                  imageUrl="/images/skid-steers-788x391.jpg"
-                />
-              </Tab.Pane>
-              <Tab.Pane eventKey="wheel-loaders">
-                <TabContent
-                  title="WHEEL LOADERS"
-                  description="We offer a range of flexible wheel loader hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 938, 950, 962, 966, 972, 980 and 982."
-                  imageUrl="/images/wheel-loader-788x391.jpg"
-                />
-              </Tab.Pane>
-            </Tab.Content>
+          <Col xs={12} className="component rich-text">
+            <Tab.Container defaultActiveKey="articulated-trucks" className="component-content">
+              <Row>
+                <Col xs={4} lg={3} className="mr-0 px-0 py-0">
+                  <Nav variant="pills" className="flex-column list-group list-group-flush">
+                    {Object.entries({
+                      'articulated-trucks': 'Articulated Trucks',
+                      'backhoe-loaders': 'Backhoe Loaders',
+                      compactors: 'Compactors',
+                      dozers: 'Dozers',
+                      excavators: 'Excavators',
+                      'motor-graders': 'Motor Graders',
+                      'skid-steer-compact-track-loaders': 'Skid Steer & Compact Track Loaders',
+                      'wheel-loaders': 'Wheel Loaders',
+                    }).map(([k, v]) => (
+                      <Nav.Item key={k}>
+                        <Nav.Link
+                          className={`${styles.listGroupItem} list-group-item-action`}
+                          eventKey={k}>
+                          {v}
+                        </Nav.Link>
+                      </Nav.Item>
+                    ))}
+                  </Nav>
+                </Col>
+                <Col xs={8} lg={9} className="bg-muted border p-0 text-center">
+                  <Tab.Content className="h-100">
+                    {[
+                      {
+                        key: 'articulated-trucks',
+                        title: 'ARTICULATED TRUCKS',
+                        description:
+                          'We offer a range of flexible articulated truck hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 730, 740 and 745.',
+                        imageUrl: '/images/articulated-trucks-788x391.jpg',
+                      },
+                      {
+                        key: 'backhoe-loaders',
+                        title: 'BACKHOE LOADERS',
+                        description:
+                          'We offer a range of flexible backhoe loader hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 432.',
+                        imageUrl: '/images/backhoe-loader-788x391.jpg',
+                      },
+                      {
+                        key: 'compactors',
+                        title: 'COMPACTORS',
+                        description:
+                          'We offer a range of flexible compactor hire options and are always happy to tailor a solution to meet your needs. We rent the Cat CS-56B, CS-78B, CW14, CW34, 815, 825.',
+                        imageUrl: '/images/compactor-788x391.jpg',
+                      },
+                      {
+                        key: 'dozers',
+                        title: 'DOZERS',
+                        description:
+                          'We offer a range of flexible dozer hire options and are always happy to tailor a solution to meet your needs. We rent the Cat D6T, D7R, D8T and Cat D9T.',
+                        imageUrl: '/images/dozers-788x391.jpg',
+                      },
+                      {
+                        key: 'excavators',
+                        title: 'EXCAVATORS',
+                        description:
+                          'We offer a range of flexible excavator hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 304, 305 ,308, 311, 312, 315F, 320F, 325F, 330F, 335F, 349F.',
+                        imageUrl: '/images/excavators-788x391.jpg',
+                      },
+                      {
+                        key: 'motor-graders',
+                        title: 'MOTOR GRADERS',
+                        description:
+                          'We offer a range of flexible motor grader truck hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 12M, 14M, 16M, 140M and 160M.',
+                        imageUrl: '/images/motor-graders-788x391.jpg',
+                      },
+                      {
+                        key: 'skid-steer-compact-track-loaders',
+                        title: 'SKID STEER & COMPACT TRACK LOADERS',
+                        description:
+                          'We offer a range of flexible skid steer and compact track loader hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 226, 239, 279 and 299.',
+                        imageUrl: '/images/skid-steers-788x391.jpg',
+                      },
+                      {
+                        key: 'wheel-loaders',
+                        title: 'WHEEL LOADERS',
+                        description:
+                          'We offer a range of flexible wheel loader hire options and are always happy to tailor a solution to meet your needs. We rent the Cat 938, 950, 962, 966, 972, 980 and 982.',
+                        imageUrl: '/images/wheel-loader-788x391.jpg',
+                      },
+                    ].map((item) => (
+                      <TabContent
+                        key={item.key}
+                        eventKey={item.key}
+                        title={item.title}
+                        description={item.description}
+                        imageUrl={item.imageUrl}
+                      />
+                    ))}
+                  </Tab.Content>
+                </Col>
+              </Row>
+            </Tab.Container>
           </Col>
         </Row>
-      </Tab.Container>
-    </Row>
+      </div>
+    </div>
     <div className="component row-splitter  container-dark-background">
       <div className=" container-dark-background container">
         <Row>
@@ -313,11 +321,20 @@ const RentalProducts: FC<unknown> = (): ReactElement => (
 
 export default RentalProducts
 
-function TabContent({ title, description, imageUrl }) {
+interface TabContentProps {
+  eventKey: string
+  title: string
+  description: string
+  imageUrl: string
+}
+function TabContent({ eventKey, title, description, imageUrl }: TabContentProps) {
   return (
-    <div style={{ backgroundImage: `url("${imageUrl}")` }}>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
+    <Tab.Pane
+      eventKey={eventKey}
+      className={`${styles.tabPane} h-100 p-5 fade`}
+      style={{ backgroundImage: `url("${imageUrl}")` }}>
+      <h3 className="text-white">{title}</h3>
+      <p className="text-white">{description}</p>
+    </Tab.Pane>
   )
 }

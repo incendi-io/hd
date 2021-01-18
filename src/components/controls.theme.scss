@@ -92,3 +92,15 @@ input, button, select, optgroup, textarea {
 .btn-white:not(:disabled):not(.disabled):active:focus, .btn-white:not(:disabled):not(.disabled).active:focus, .show > .btn-white.dropdown-toggle:focus {
   box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .5)
 }
+
+//TODO: create component that passes .active state outside so it can be styled
+.list-group-flush {
+  .list-group-item-action {
+    &.active {
+      z-index: 2;
+      color: #fc0;
+      background-color: #000;
+      border-color: #000;
+    }
+  }
+}
