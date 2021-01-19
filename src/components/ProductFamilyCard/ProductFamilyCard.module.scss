@@ -1,15 +1,27 @@
-.title {
-  position: relative;
-  padding: 1rem;
-  background: #ececec;
-  display: flex;
-  justify-content: space-between;
-
-  &:hover {
-    text-decoration: none !important;
-  }
-}
-
-.none {
+.card {
   text-decoration: none !important;
+
+  .title {
+    position: relative;
+    padding: 1rem;
+    background: #ececec;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover, &:focus {
+      text-decoration: none !important;
+    }
+  }
+
+  &:hover, &:focus {
+    color: #fff;
+    background: #000;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px 0 rgba(0,0,0,.7);
+
+    .title, .field-title {
+      color: #fff;
+      background: #000;
+    }
+  }
 }
