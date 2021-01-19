@@ -1,6 +1,7 @@
 .container {
   position: relative;
   text-shadow: black 2px 2px 7px;
+  height: unset !important;
 }
 
 .root {
@@ -36,6 +37,10 @@
   background-position: 50% 50%;
 }
 
+.container-small {
+  padding: 5px !important;
+}
+
 .promo-text {
   position: relative;
   text-align: left;
@@ -64,6 +69,17 @@
   letter-spacing: normal;
   margin-bottom: 25px;
   color: #fff;
+
+  @media only screen and (max-width: 767px) {
+    font-size: 40px;
+    line-height: 46px;
+    margin-bottom: 15px
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1022px) {
+    font-size: 54px;
+    line-height: 60px
+  }
 }
 
 .promo-text-p {
