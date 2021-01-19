@@ -179,7 +179,7 @@ const HeaderMenu = ({ handleLogin }): React.ReactElement => {
     <Navbar.Collapse id="basic-navbar-nav" className={styles.navbar}>
       <Helmet
         bodyAttributes={{
-          class: mobileView ? 'no-scroll' : '',
+          class: expanded && mobileView ? 'no-scroll' : '',
         }}
       />
       <Nav className={classNames(styles.navFlex, 'mr-auto', 'flex-row')}>
