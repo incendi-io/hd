@@ -1,10 +1,17 @@
+import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql } from 'gatsby'
 import React, { FC } from 'react'
+import { Breadcrumb, Col } from 'react-bootstrap'
+import Row from 'react-bootstrap/Row'
 
 import Layout from '~components/Layout'
+import ProductSearch from '~components/ProductSearch'
 import ProductSubFamilyList from '~components/ProductSubFamilyList'
 import { FamilyProduct, RawFamilyProduct } from '~types/FamilyProduct'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
+
+import styles from '../../pages/products/Products.module.scss'
 
 type Edge = {
   node: RawSubfamilyProduct
@@ -25,10 +32,34 @@ const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
 
   return (
     <Layout>
-      <div>
-        <h1>{family.name}</h1>
-        <p>{family.description}</p>
-      </div>
+      <Col className="component row-splitter">
+        <div className="container">
+          <Row>
+            <Breadcrumb className={styles.breadcrump}>
+              <Breadcrumb.Item href="/">
+                <FontAwesomeIcon icon={faHome} title={'Home'} className={styles.homeIcon} />
+              </Breadcrumb.Item>
+              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+              <Breadcrumb.Item href="/products">Products</Breadcrumb.Item>
+              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+              <Breadcrumb.Item href="/products/new">New Equipment</Breadcrumb.Item>
+              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+              <Breadcrumb.Item href={family.url}>{family.name}</Breadcrumb.Item>
+            </Breadcrumb>
+          </Row>
+        </div>
+        <div className="container">
+          <div className="row">
+            <div className="component content col-12 indent-top">
+              <div className="component-content">
+                <h1 className="field-title">{family.name}</h1>
+                <p className="mt-3 field-content">{family.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ProductSearch />
+      </Col>
       <ProductSubFamilyList items={items} />
     </Layout>
   )
