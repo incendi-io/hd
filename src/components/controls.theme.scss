@@ -60,6 +60,9 @@ input, button, select, optgroup, textarea {
   border-color: map-get($incendi-colors, text-secondary-grey);
 }
 
+.btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active {
+  box-shadow: none !important;
+}
 
 .btn-white {
   color: #212529;
