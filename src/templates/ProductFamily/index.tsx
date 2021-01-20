@@ -85,6 +85,7 @@ const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
               </li>
             ))}
           </ul>
+          {/*TODO: add load more button*/}
         </div>
       </Col>
     </Layout>
