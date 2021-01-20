@@ -27,6 +27,7 @@ const RentalProducts: FC<unknown> = (): ReactElement => (
       <div className="container">
         <Row className="column-splitter">
           <Col xs={12} md={{ span: 6, offset: 1 }} lg={{ span: 6, offset: 1 }}>
+            {/*TODO: in order to make Breadcrumb component we need to be able to fetch routes info, so either need to create some routes list file, or just use some routes plugin like https://www.gatsbyjs.com/plugins/gatsby-plugin-dynamic-routes/ which have configuration in separate file already*/}
             <Col xs={12} className="component navigation-title initialized">
               <div className="component-content">
                 <Breadcrumb className={styles.breadcrump}>
