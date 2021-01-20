@@ -1,13 +1,13 @@
 import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql } from 'gatsby'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Breadcrumb, Col } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 
 import Layout from '~components/Layout'
+import ProductCard from '~components/ProductCard'
 import ProductSearch from '~components/ProductSearch'
-import ProductSubFamilyList from '~components/ProductSubFamilyList'
 import { FamilyProduct, RawFamilyProduct } from '~types/FamilyProduct'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
 
@@ -27,8 +27,22 @@ type Props = {
 }
 
 const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
+  const [searchValue, setSearchValue] = useState('')
+
+  //TODO: more test items
   const items = dataMapper(data.subFamilies.edges)
+    .concat(dataMapper(data.subFamilies.edges))
+    .concat(dataMapper(data.subFamilies.edges))
+    .concat(dataMapper(data.subFamilies.edges))
+    .concat(dataMapper(data.subFamilies.edges))
+    .concat(dataMapper(data.subFamilies.edges))
+    .concat(dataMapper(data.subFamilies.edges))
+    .concat(dataMapper(data.subFamilies.edges))
+    .concat(dataMapper(data.subFamilies.edges))
   const family = familyDataMapper(data.family)
+
+  //TODO: add search to graphql query instead
+  const filteredList = items.filter((product) => product.name.match(new RegExp(searchValue, 'i')))
 
   return (
     <Layout>
@@ -58,9 +72,21 @@ const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
             </div>
           </div>
         </div>
-        <ProductSearch />
+        <ProductSearch searchValueChange={(q) => setSearchValue(q)} />
       </Col>
-      <ProductSubFamilyList items={items} />
+      <Col xs={12} className="component row-splitter">
+        <div className="search-results search-result-product-category">
+          {!filteredList.length && <div className="no-results">No results found</div>}
+          <ul className="search-result-list">
+            {filteredList.map((product, index) => (
+              /*TODO: remove index after removing testing duplicates*/
+              <li key={index /*product.id*/}>
+                <ProductCard item={product} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Col>
     </Layout>
   )
 }
