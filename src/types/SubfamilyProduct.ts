@@ -6,6 +6,7 @@ export interface SubfamilyProduct {
   url?: string
   familyName: string
   images: Image[]
+  description?: string
 }
 
 export interface RawSubfamilyProduct {
@@ -17,4 +18,5 @@ export interface RawSubfamilyProduct {
     slug: string
   }
   images: RawImage[]
+  description?: string
 }

@@ -1,0 +1,50 @@
+.product-specification {
+  background: #fff;
+  padding: 1rem 1.9rem !important;
+  border-top: 3px solid #fc0;
+
+  .col {
+    margin-top: 1rem
+  }
+
+  .product-specification-title {
+    position: relative;
+    margin-bottom: 1.2rem;
+
+    &:after {
+      border: 1px solid #e5e5e5;
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: -16px;
+      left: 0
+    }
+  }
+
+  .product-spec-container {
+    padding-top: 1rem
+  }
+
+  .field-productspecs {
+    position: relative;
+    padding-bottom: 5px;
+
+    &:after {
+      border: 1px solid #e5e5e5;
+      content: "";
+      width: 100%;
+      position: absolute;
+      left: 0
+    }
+  }
+
+  .product-spec-row {
+    padding-top: 1px;
+    padding-bottom: 1rem
+  }
+
+  .product-spec-col-item {
+    color: #555;
+    padding-top: 1rem
+  }
+}

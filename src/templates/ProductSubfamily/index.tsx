@@ -1,5 +1,14 @@
+import {
+  faCalculator,
+  faChevronRight,
+  faHome,
+  faMapMarkerAlt,
+  faPencilAlt,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql } from 'gatsby'
 import React, { FC } from 'react'
+import { Breadcrumb } from 'react-bootstrap'
 import Button from 'react-bootstrap/cjs/Button'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
@@ -9,7 +18,9 @@ import Layout from '~components/Layout'
 import { Product, RawProduct } from '~types/Product'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
 
+import styles from '../../pages/products/Products.module.scss'
 import Products from './components/Products'
+import productsStyles from './components/Products/Products.module.scss'
 
 type RawData = {
   subFamily: RawSubfamilyProduct
@@ -28,38 +39,85 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
 
   return (
     <Layout>
-      <Row>
-        <Col md={4}>
-          <h3>{subFamily.familyName}</h3>
-          <h1>{subFamily.name}</h1>
-
-          <Button
-            size="lg"
-            href="/overlays/request-quote-overlay?Product=Cat 725 - Quote&Type=New&Goal=Quote&Model=725">
-            REQUEST A QUOTE
-          </Button>
-          <Button size="lg" href="/our-business/locations">
-            FIND YOUR LOCAL BRANCH
-          </Button>
-          <Button
-            size="lg"
-            href={`https://triggerfish.outgrow.us/hastings-test-finance?width=85vw&height=98vh&Product=${subFamily.name}`}>
-            FINANCE CALCULATOR
-          </Button>
-        </Col>
-        <Col md={8}>
-          <HDSlider images={subFamily.images} />
-        </Col>
-      </Row>
-      <Row>
-        <Col dangerouslySetInnerHTML={{ __html: subFamily.description }}></Col>
-        <Col>
-          <Products products={products} />
-          <Button size="lg" href={`/contact-us`}>
-            CONTACT US
-          </Button>
-        </Col>
-      </Row>
+      {/*this div is to make even-odd coloring work*/} <div />
+      <div className="component row-splitter">
+        <div className="container">
+          <Row>
+            <Breadcrumb className={styles.breadcrump}>
+              <Breadcrumb.Item href="/">
+                <FontAwesomeIcon icon={faHome} title={'Home'} className={styles.homeIcon} />
+              </Breadcrumb.Item>
+              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+              <Breadcrumb.Item href="/products">Products</Breadcrumb.Item>
+              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+              <Breadcrumb.Item href="/products/new">New Equipment</Breadcrumb.Item>
+              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+              <Breadcrumb.Item href={data.subFamily.slug}>{data.subFamily.name}</Breadcrumb.Item>
+            </Breadcrumb>
+          </Row>
+        </div>
+        <div className="container">
+          <Row>
+            <Col xs={12} lg={3} className="component content indent-top">
+              <h3 className="normal field-category">{subFamily.familyName}</h3>
+              <h1 className="mt-3 field-title">{subFamily.name}</h1>
+              <Row className="mt-3">
+                <Col xs={12} md={6} lg={12}>
+                  <Button
+                    size="lg"
+                    className={`${styles.buttonWithIcon} hd-btn btn-primary btn-block mb-2`}
+                    href="/overlays/request-quote-overlay?Product=Cat 725 - Quote&Type=New&Goal=Quote&Model=725">
+                    <span className={styles.ellipsis}>REQUEST A QUOTE</span>
+                    <FontAwesomeIcon icon={faPencilAlt} />
+                  </Button>
+                </Col>
+                <Col xs={12} md={6} lg={12}>
+                  <Button
+                    size="lg"
+                    className={`${styles.buttonWithIcon} hd-btn btn-dark btn-block mb-2`}
+                    href="/our-business/locations">
+                    <span className={styles.ellipsis}>FIND YOUR LOCAL BRANCH</span>
+                    <FontAwesomeIcon icon={faMapMarkerAlt} />
+                  </Button>
+                </Col>
+                <Col xs={12} md={6} lg={12}>
+                  <Button
+                    size="lg"
+                    className={`${styles.buttonWithIcon} hd-btn bd-grey-1 btn-white btn-block mb-2`}
+                    href={`https://triggerfish.outgrow.us/hastings-test-finance?width=85vw&height=98vh&Product=${subFamily.name}`}>
+                    <span className={styles.ellipsis}>FINANCE CALCULATOR</span>
+                    <FontAwesomeIcon icon={faCalculator} />
+                  </Button>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={12} lg={8} className="component content offset-lg-1 m-md-3">
+              <HDSlider images={subFamily.images} />
+            </Col>
+          </Row>
+        </div>
+      </div>
+      <div className="component row-splitter">
+        <div className="container">
+          <Row>
+            <Col
+              xs={12}
+              lg={7}
+              className="pl-md-3 mb-3 hd-p rich-text"
+              dangerouslySetInnerHTML={{ __html: subFamily.description as string }}
+            />
+            <Col
+              xs={12}
+              lg={{ span: 4, offset: 1 }}
+              className={productsStyles.productSpecification}>
+              <Products products={products} />
+              <Button size="lg" className="hd-btn btn-primary btn-block mt-2" href={`/contact-us`}>
+                CONTACT US
+              </Button>
+            </Col>
+          </Row>
+        </div>
+      </div>
     </Layout>
   )
 }
