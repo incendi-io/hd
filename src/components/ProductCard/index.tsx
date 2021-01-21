@@ -14,7 +14,7 @@ type Props = {
 
 const ProductCard: FC<Props> = ({ item }) => (
   <Card as="a" href={item.url} className={styles.card}>
-    <div className="field-main-image">
+    <div className="field-main-image mx-n3 mt-n3">
       {item.images[0] && (
         <Card.Img
           src={item.images[0].url}

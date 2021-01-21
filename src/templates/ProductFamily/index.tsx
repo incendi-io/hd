@@ -29,16 +29,7 @@ type Props = {
 const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
   const [searchValue, setSearchValue] = useState('')
 
-  //TODO: more test items
   const items = dataMapper(data.subFamilies.edges)
-    .concat(dataMapper(data.subFamilies.edges))
-    .concat(dataMapper(data.subFamilies.edges))
-    .concat(dataMapper(data.subFamilies.edges))
-    .concat(dataMapper(data.subFamilies.edges))
-    .concat(dataMapper(data.subFamilies.edges))
-    .concat(dataMapper(data.subFamilies.edges))
-    .concat(dataMapper(data.subFamilies.edges))
-    .concat(dataMapper(data.subFamilies.edges))
   const family = familyDataMapper(data.family)
 
   //TODO: add search to graphql query instead
@@ -79,17 +70,19 @@ const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
         </div>
       </Col>
       <Col xs={12} className="component row-splitter">
-        <div className="search-results search-result-product-category">
-          {!filteredList.length && <div className="no-results">No results found</div>}
-          <ul className="search-result-list">
-            {filteredList.map((product, index) => (
-              /*TODO: remove index after removing testing duplicates*/
-              <li key={index /*product.id*/}>
-                <ProductCard item={product} />
-              </li>
-            ))}
-          </ul>
-          {/*TODO: add load more button*/}
+        <div className="container">
+          <div className="search-results search-result-product-category mx-n2">
+            {!filteredList.length && <div className="no-results">No results found</div>}
+            <ul className="search-result-list">
+              {filteredList.map((product, index) => (
+                /*TODO: remove index after removing testing duplicates*/
+                <li key={index /*product.id*/}>
+                  <ProductCard item={product} />
+                </li>
+              ))}
+            </ul>
+            {/*TODO: add load more button*/}
+          </div>
         </div>
       </Col>
     </Layout>
