@@ -29,7 +29,7 @@ const ProductSearch: FC<Props> = ({ className, searchValueChange }) => {
               <input
                 value={searchValue}
                 type="text"
-                className="search-box-input form-control tt-hint"
+                className="search-box-input form-control tt-hint h-100"
                 autoComplete="off"
                 spellCheck="false"
                 placeholder="Search"
