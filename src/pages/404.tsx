@@ -11,11 +11,11 @@ import styles from './404.modules.scss'
 const NotFoundPage: FC<unknown> = (): ReactElement => (
   <Layout>
     <div className="component promo promo-hero col-12">
-      <div className="component-content">
+      <div className="component-content d-flex justify-content-center align-items-center h-100">
         <div className="promo-background">
           <div>
-            <span className="background-section"></span>
-            <span className="background-overlay"></span>
+            <span className="background-section" />
+            <span className="background-overlay" />
           </div>
         </div>
         <div className="container">
