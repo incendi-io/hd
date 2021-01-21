@@ -1,4 +1,4 @@
-import { faDownload, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { FC, ReactElement } from 'react'
 import { Col, Row } from 'react-bootstrap'
@@ -37,10 +37,10 @@ const Products: FC<Props> = ({ products }): ReactElement => (
         </div>
         <Button
           size="lg"
-          className={`${productStyles.buttonWithIcon} hd-btn hd-btn-1 btn-light btn-block mt-3 px-3`}
+          className={`${productStyles.buttonWithIcon} hd-btn hd-btn-1 btn-light btn-block mt-3 px-3 justify-content-center`}
           href={product.brochureUrl}
           target="_blank">
-          <FontAwesomeIcon icon={faDownload} />
+          <FontAwesomeIcon icon={faDownload} className="mr-3" />
           <span>DOWNLOAD BROCHURE</span>
         </Button>
       </div>
