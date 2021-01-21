@@ -23,7 +23,7 @@ const ProductCard: FC<Props> = ({ item }) => (
         />
       )}
     </div>
-    <div className="content-container">
+    <div className="content-container pt-3">
       <Card.Title className={`${styles.title} title-container `}>
         <h5 className={styles.fieldTitle}>{item.name}</h5>
         {/*TODO: check if can be improved to be more semantic using Card.{Subtitle|Body|Footer}. Will it break layout?*/}
