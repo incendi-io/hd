@@ -63,16 +63,20 @@ const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
           </Row>
         </div>
         <div className="container">
-          <div className="row">
-            <div className="component content col-12 indent-top">
+          <Row>
+            <Col xs={12} className="component content indent-top">
               <div className="component-content">
                 <h1 className="field-title">{family.name}</h1>
                 <p className="mt-3 field-content">{family.description}</p>
               </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
-        <ProductSearch searchValueChange={(q) => setSearchValue(q)} />
+        <div className="container">
+          <Row className="px-2">
+            <ProductSearch searchValueChange={(q) => setSearchValue(q)} />
+          </Row>
+        </div>
       </Col>
       <Col xs={12} className="component row-splitter">
         <div className="search-results search-result-product-category">

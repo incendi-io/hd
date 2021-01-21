@@ -9,9 +9,10 @@ import { StringParam, useQueryParam } from 'use-query-params'
 
 type Props = {
   searchValueChange?: (searchValue: string) => void
+  className?: string
 }
 
-const ProductSearch: FC<Props> = ({ searchValueChange }) => {
+const ProductSearch: FC<Props> = ({ className, searchValueChange }) => {
   const [q, setQ] = useQueryParam('q', StringParam)
   const [searchValue, setSearchValue] = useState(q as string)
 
@@ -20,7 +21,7 @@ const ProductSearch: FC<Props> = ({ searchValueChange }) => {
   }, [q])
 
   return (
-    <Col className="container">
+    <Col className={className}>
       <Row>
         <Col xs={12} lg={6} className="component search-box horizontal product-search initialized">
           <div className="component-content">

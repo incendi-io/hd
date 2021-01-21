@@ -20,8 +20,8 @@ const ProductFamilyList = (): React.ReactElement => {
   return (
     <Col className="container">
       <Row>
-        <ProductSearch searchValueChange={(q) => setSearchValue(q)} />
-        <Col xs={12} className="component search-results search-result-product-category">
+        <ProductSearch searchValueChange={(q) => setSearchValue(q)} className="mx-n2" />
+        <Col xs={12} className="component search-results search-result-product-category mx-n2">
           {!filteredList.length && <div className="no-results">No results found</div>}
           <ul className="search-result-list">
             {filteredList.map((product) => (
