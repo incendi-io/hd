@@ -112,7 +112,10 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
               lg={{ span: 4, offset: 1 }}
               className={productsStyles.productSpecification}>
               <Products products={products} />
-              <Button size="lg" className="hd-btn btn-primary btn-block mt-2" href={`/contact-us`}>
+              <Button
+                size="lg"
+                className="hd-btn btn-primary btn-block mt-2 d-flex justify-content-center align-items-center"
+                href={`/contact-us`}>
                 CONTACT US
               </Button>
             </Col>

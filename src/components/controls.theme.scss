@@ -24,6 +24,17 @@
   background-color: #ccc;
   border-color: #ccc
 }
+.btn-light {
+  color: #212529;
+  background-color: #ccc;
+  border-color: #ccc
+}
+
+.btn-light:hover {
+  color: #212529;
+  background-color: #b9b9b9;
+  border-color: #b3b3b3
+}
 
 input, button, select, optgroup, textarea {
   margin: 0;
@@ -141,27 +152,83 @@ input, button, select, optgroup, textarea {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-top-color: rgb(206, 212, 218);
-  border-top-style: solid;
-  border-top-width: 1px;
   border-right-color: rgb(206, 212, 218);
-  border-right-style: solid;
-  border-right-width: 1px;
   border-bottom-color: rgb(206, 212, 218);
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
   border-left-color: rgb(206, 212, 218);
-  border-left-style: solid;
-  border-left-width: 1px;
   border-image-source: initial;
   border-image-slice: initial;
-  border-image-width: initial;
-  border-image-outset: initial;
   border-image-repeat: initial;
   border-radius: 0;
   -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.hd-btn {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: "Univers LT", Arial, helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: normal;
+  overflow: hidden;
+  padding-left: 25px;
+  padding-right: 25px;
+  position: relative;
+  text-transform: uppercase;
+  outline: none;
+  height: 60px
+}
+
 .hd-btn.bd-grey-1 {
+  border: 2px solid #e5e5e5
+}
+
+.hd-btn-1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: "Univers LT", Arial, helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: normal;
+  overflow: hidden;
+  padding-left: 25px;
+  padding-right: 25px;
+  position: relative;
+  text-transform: uppercase;
+  outline: none;
+  height: 60px;
+  background-color: #ececec
+}
+
+.hd-btn-1.bd-grey-1 {
+  border: 2px solid #e5e5e5
+}
+
+.hd-btn-form {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: "Univers LT", Arial, helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: normal;
+  overflow: hidden;
+  padding-left: 25px;
+  padding-right: 25px;
+  position: relative;
+  text-transform: uppercase;
+  outline: none;
+  height: 50px
+}
+
+.hd-btn-form.bd-grey-1 {
   border: 2px solid #e5e5e5
 }
