@@ -44,7 +44,7 @@ export default PartTemplate
 
 export const query = graphql`
   query PartById($id: String!) {
-    part: eCommerce(id: { eq: $id }) {
+    part: eCommerceTest(id: { eq: $id }) {
       id
       brand
       longDescription
