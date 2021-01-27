@@ -69,7 +69,7 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
                     className={`${styles.buttonWithIcon} hd-btn btn-primary btn-block mb-2`}
                     href="/overlays/request-quote-overlay?Product=Cat 725 - Quote&Type=New&Goal=Quote&Model=725">
                     <span className={styles.ellipsis}>REQUEST A QUOTE</span>
-                    <FontAwesomeIcon icon={faPencilAlt} />
+                    <FontAwesomeIcon icon={faPencilAlt} width={20} />
                   </Button>
                 </Col>
                 <Col xs={12} md={6} lg={12}>
