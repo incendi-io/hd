@@ -53,7 +53,7 @@ const ProductSearch: FC<Props> = ({
                 type="submit"
                 size={'lg'}
                 onClick={() => setQ(searchValue)}>
-                <FontAwesomeIcon icon={faSearch} title={'Find'} />
+                <FontAwesomeIcon icon={faSearch} title={'Find'} width={18} />
               </Button>
             )}
             <span className="twitter-typeahead">
@@ -94,7 +94,7 @@ const ProductSearch: FC<Props> = ({
                 type="submit"
                 size={'lg'}
                 onClick={() => setQ(searchValue)}>
-                <FontAwesomeIcon icon={faSearch} title={'Find'} />
+                <FontAwesomeIcon icon={faSearch} title={'Find'} width={18} />
               </Button>
             )}
           </div>
