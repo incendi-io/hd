@@ -29,7 +29,14 @@ async function createPartsPages(graphql, createPage) {
   }
 
   const template = path.resolve('./src/templates/Part/index.tsx')
+  const categoryTemplate = path.resolve('./src/templates/PartCategory/index.tsx')
   const items = result.data.items.nodes
+
+  createPage({
+    //TODO: update with generated data from query
+    path: 'parts/air-condition-kits',
+    component: categoryTemplate
+  })
 
   items.forEach((item) => {
     createPage({
