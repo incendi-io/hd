@@ -13,7 +13,6 @@ type RawData = {
 
 const FeaturedProducts: FC<unknown> = (): ReactElement => {
   const res = useStaticQuery<RawData>(query)
-  //const items = mapData(res.subfamilies.nodes)
   const items = mapData(res.subfamilies.nodes)
 
   return (

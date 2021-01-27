@@ -1,5 +1,24 @@
 @import "../theme";
 
+.slick-dots {
+  position: relative;
+  bottom: initial;
+  margin-top: .5rem;
+
+  li {
+    width: initial;
+    height: initial;
+
+    a img {
+      width: 160px;
+    }
+  }
+
+  li.slick-active a img {
+    border: 2px solid #fc0;
+  }
+}
+
 .product-list-carousel__arrow{
   &.carousel-control-prev, &.carousel-control-next {
     background-color: #f0f0f0;

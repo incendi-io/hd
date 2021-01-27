@@ -93,7 +93,7 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
               </Row>
             </Col>
             <Col xs={12} lg={8} className="component content offset-lg-1 m-md-3">
-              <HDSlider images={subFamily.images} />
+              <HDSlider images={subFamily.images} useCustomButtons />
             </Col>
           </Row>
         </div>
