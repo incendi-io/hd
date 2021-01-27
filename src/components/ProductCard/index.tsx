@@ -28,7 +28,12 @@ const ProductCard: FC<Props> = ({ item }) => (
         <h5 className={styles.fieldTitle}>{item.name}</h5>
         {/*TODO: check if can be improved to be more semantic using Card.{Subtitle|Body|Footer}. Will it break layout?*/}
         <h5 className="normal">{item.familyName}</h5>
-        <FontAwesomeIcon className={`${styles.icon} icon`} icon={faChevronRight} title={'Read'} />
+        <FontAwesomeIcon
+          className={`${styles.icon} icon`}
+          icon={faChevronRight}
+          title={'Read'}
+          width={18}
+        />
       </Card.Title>
       <div className={`${styles.caption} field-productspecs-3`}>
         {/*TODO: need product info from database*/}

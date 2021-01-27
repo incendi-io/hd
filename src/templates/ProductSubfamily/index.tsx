@@ -69,7 +69,7 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
                     className={`${styles.buttonWithIcon} hd-btn btn-primary btn-block mb-2`}
                     href="/overlays/request-quote-overlay?Product=Cat 725 - Quote&Type=New&Goal=Quote&Model=725">
                     <span className={styles.ellipsis}>REQUEST A QUOTE</span>
-                    <FontAwesomeIcon icon={faPencilAlt} width={20} />
+                    <FontAwesomeIcon icon={faPencilAlt} width={18} />
                   </Button>
                 </Col>
                 <Col xs={12} md={6} lg={12}>
@@ -78,7 +78,7 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
                     className={`${styles.buttonWithIcon} hd-btn btn-dark btn-block mb-2`}
                     href="/our-business/locations">
                     <span className={styles.ellipsis}>FIND YOUR LOCAL BRANCH</span>
-                    <FontAwesomeIcon icon={faMapMarkerAlt} />
+                    <FontAwesomeIcon icon={faMapMarkerAlt} width={18} />
                   </Button>
                 </Col>
                 <Col xs={12} md={6} lg={12}>
@@ -87,7 +87,7 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
                     className={`${styles.buttonWithIcon} hd-btn bd-grey-1 btn-white btn-block mb-2`}
                     href={`https://triggerfish.outgrow.us/hastings-test-finance?width=85vw&height=98vh&Product=${subFamily.name}`}>
                     <span className={styles.ellipsis}>FINANCE CALCULATOR</span>
-                    <FontAwesomeIcon icon={faCalculator} />
+                    <FontAwesomeIcon icon={faCalculator} width={18} />
                   </Button>
                 </Col>
               </Row>

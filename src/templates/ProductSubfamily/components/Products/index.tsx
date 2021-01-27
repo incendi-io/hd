@@ -40,7 +40,7 @@ const Products: FC<Props> = ({ products }): ReactElement => (
           className={`${productStyles.buttonWithIcon} hd-btn hd-btn-1 btn-light btn-block mt-3 px-3 justify-content-center`}
           href={product.brochureUrl}
           target="_blank">
-          <FontAwesomeIcon icon={faDownload} className="mr-3" />
+          <FontAwesomeIcon icon={faDownload} className="mr-3" width={18} />
           <span>DOWNLOAD BROCHURE</span>
         </Button>
       </div>

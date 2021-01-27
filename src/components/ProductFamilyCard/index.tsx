@@ -22,7 +22,7 @@ const ProductFamilyCard: FC<Props> = ({ item }) => (
   <Card as="a" href={item.slug} className={styles.card}>
     <Card.Title className={`${styles.title} title-container `}>
       <h5 className={styles.fieldTitle}>{item.name}</h5>
-      <FontAwesomeIcon className="icon" icon={faChevronRight} title={'Read'} />
+      <FontAwesomeIcon className="icon" icon={faChevronRight} title={'Read'} width={18} />
     </Card.Title>
     <div className="field-main-image">
       <Card.Img

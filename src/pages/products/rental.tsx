@@ -1,4 +1,3 @@
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF'
 import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { FC, ReactElement } from 'react'
