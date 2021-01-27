@@ -24,7 +24,7 @@ const Layout: FC<Props> = (props): React.ReactElement => (
       mainStyle={{
         background: 'var(--bg-grey)',
       }}
-      offsetTop={20}
+      offsetTop={0}
       step={50}
       isPercent={false}>
       <FontAwesomeIcon icon={faChevronUp} title={'Read'} />
