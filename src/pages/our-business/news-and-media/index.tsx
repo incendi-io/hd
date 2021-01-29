@@ -22,7 +22,7 @@ const mockCategories = [
   { title: 'People', count: 52 },
 ]
 
-const mockNews: News[] = [
+export const mockNews: News[] = [
   {
     id: '1',
     link: 'news/2020/12/14/5/38/qantas-airstairs-come-a-full-circle',

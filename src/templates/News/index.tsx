@@ -8,9 +8,11 @@ import Row from 'react-bootstrap/cjs/Row'
 import Moment from 'react-moment'
 
 import Layout from '~components/Layout'
+import NewsList from '~components/NewsList'
 import PromoImage from '~components/PromoImage'
 import { RawNews } from '~types/News'
 
+import { mockNews } from '../../pages/our-business/news-and-media'
 import styles from '../../pages/our-business/news-and-media/NewsAndMedia.module.scss'
 
 type RawData = {
@@ -100,6 +102,20 @@ const NewsTemplate: FC<Props> = ({ data }): React.ReactElement => {
                   })}
                 </div>
               </div>
+            </Col>
+          </Row>
+        </div>
+      </div>
+      <div className="component row-splitter ">
+        <div className="container">
+          <Row>
+            <Col xs={12} className="component rich-text">
+              <div className="component-content">
+                <h3 className="mt-3">Industry News</h3>
+              </div>
+            </Col>
+            <Col xs={12} className="component search-results search-result-related-news">
+              <NewsList news={mockNews.splice(0, 3)} />
             </Col>
           </Row>
         </div>
