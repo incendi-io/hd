@@ -1,4 +1,5 @@
 const path = require('path')
+const {createNewsPagePath} = require("./src/utils/createNewsPagePath");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -147,13 +148,6 @@ async function createNewsPages(graphql, createPage) {
       },
     })
   })
-}
-
-function createNewsPagePath({ slug, createdAt }) {
-  const date = new Date(createdAt)
-  return `our-business/news-and-media/news/${date.getFullYear()}/${
-    date.getMonth() + 1
-  }/${date.getDate()}/${date.getHours()}/${date.getMinutes()}/${slug}`
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions, getConfig }) => {

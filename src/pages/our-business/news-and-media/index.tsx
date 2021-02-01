@@ -1,6 +1,7 @@
 import { faChevronRight, faHome, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
+import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState } from 'react'
 import { Breadcrumb, Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
@@ -92,6 +93,10 @@ export const mockNews: News[] = [
 ]
 
 const NewsAndMediaPage = (): React.ReactElement => {
+  const data = useStaticQuery(query)
+  const news = newsMapper(data.news)
+  //if (!news.length) news = mockNews
+
   const [activeFacet, setActiveFacet] = useState('')
 
   return (
@@ -156,7 +161,7 @@ const NewsAndMediaPage = (): React.ReactElement => {
               </div>
             </Col>
             <Col xs={9} lg={9} className="component search-results search-result-related-news">
-              <NewsList news={mockNews} />
+              <NewsList news={news} />
             </Col>
             <Col xs={12} lg={{ span: 4, offset: 4 }} className="component load-more">
               <div className="component-content hd-btn icon-right icon-chevron-right p-0">
@@ -177,14 +182,89 @@ const NewsAndMediaPage = (): React.ReactElement => {
 
 export default NewsAndMediaPage
 
-// export const query = graphql`
-//   query News() {
-//     news: allContentfulNews {
-//         nodes {
-//           id
-//           slug
-//           createdAt
-//         }
-//       }
-//   }
-// `
+export type RawSingleNews = {
+  id: string
+  slug: string
+  createdAt: string
+  title: string
+  node_locale: string
+  children: {
+    id: string
+  }[]
+  parent?: {
+    id: string
+  } | null
+  sys: {
+    type: string
+    revision: string
+  }
+  body: {
+    raw: string
+  }
+  images: {
+    id: string
+    title: string
+    file: {
+      url: string
+      fileName: string
+      contentType: string
+    }
+  }
+}
+
+export interface RawNews {
+  nodes: RawSingleNews[]
+}
+
+function newsMapper(rawData: RawNews): News[] {
+  if (!rawData?.nodes?.length) {
+    return []
+  }
+  return rawData.nodes.map((item) => ({
+    id: item.id,
+    link: item.slug,
+    title: item.title,
+    createAt: item.createdAt,
+    image: {
+      id: item.images.id,
+      alt: item.images.title,
+      url: item.images.file.url,
+    },
+  }))
+}
+
+export const query = graphql`
+  query News {
+    news: allContentfulNews {
+      nodes {
+        id
+        slug
+        createdAt
+        title
+        node_locale
+        children {
+          id
+        }
+        parent {
+          id
+        }
+        sys {
+          type
+          revision
+        }
+        body {
+          raw
+        }
+        images {
+          id
+          title
+          file {
+            url
+            fileName
+            contentType
+          }
+        }
+      }
+    }
+  }
+`

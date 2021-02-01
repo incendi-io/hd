@@ -4,6 +4,7 @@ import React, { FC } from 'react'
 import Card from 'react-bootstrap/Card'
 
 import { News } from '~types/News'
+import { createNewsPagePath } from '~utils/createNewsPagePath'
 
 import styles from './NewsCard.module.scss'
 
@@ -12,7 +13,10 @@ type Props = {
 }
 
 const NewsCard: FC<Props> = ({ item }) => (
-  <Card as="a" href={`/our-business/news-and-media/${item.link}`} className={styles.card}>
+  <Card
+    as="a"
+    href={createNewsPagePath({ slug: item.link, createdAt: item.createAt })}
+    className={styles.card}>
     <div className="field-main-image mx-n3 mt-n3">
       {item.image && (
         <Card.Img
