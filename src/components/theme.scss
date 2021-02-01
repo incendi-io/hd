@@ -640,6 +640,10 @@ body.no-scroll {
   overflow: hidden;
 }
 
+.promo.promo-with-background {
+  height: 380px;
+}
+
 @import "controls.theme";
 @import "colors.theme";
 @import "grid.theme";
