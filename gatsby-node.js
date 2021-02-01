@@ -2,13 +2,14 @@ const path = require('path')
 const {createNewsPagePath} = require("./src/utils/createNewsPagePath");
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   await Promise.all([
     createSubfamilyPages(graphql, createPage),
     createProductFamiliesPages(graphql, createPage),
     createNewsPages(graphql, createPage),
     createPartsPages(graphql, createPage),
+    createRedirect({ fromPath: '/our-business', toPath: '/our-business/about-us', isPermanent: true })
   ])
 }
 
