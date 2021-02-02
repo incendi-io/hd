@@ -1,15 +1,14 @@
-import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useStaticQuery } from 'gatsby'
 import React from 'react'
-import { Breadcrumb, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 
 import Breadcrumbs from '~components/Breadcrumbs'
 import FacetSearch from '~components/FacetSearch'
 import Layout from '~components/Layout'
-import NewsList from '~components/NewsList'
 import PromoImage from '~components/PromoImage'
 import StudiesList from '~components/StudiesList'
 import { News } from '~types/News'
@@ -99,9 +98,9 @@ const CaseStudiesPage = (): React.ReactElement => {
   return (
     <Layout>
       <PromoImage
-        url="/images/longwall-shearer--el3000.jpg"
+        url="/images/leadership_800x533.jpg"
         useOverlay={true}
-        title="News. Events. Media."
+        title="Case Studies"
         subTitle="OUR BUSINESS"
       />
       <div className="component row-splitter ">
