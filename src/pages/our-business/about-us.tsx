@@ -8,6 +8,7 @@ import YouTube from 'react-youtube'
 
 import Breadcrumbs from '~components/Breadcrumbs'
 import Layout from '~components/Layout'
+import PromoCard from '~components/PromoCard'
 import PromoImage from '~components/PromoImage'
 
 import styles from './AboutUs.module.scss'
@@ -86,109 +87,23 @@ const OurBusinessPage = (): React.ReactElement => {
                 </p>
               </div>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={{ span: 4, offset: 2 }}
-              lg={{ span: 4, offset: 2 }}
-              className="component promo promo-with-background">
-              <div className="component-content">
-                <div className="promo-background">
-                  <div>
-                    <span
-                      className={styles.backgroundSection}
-                      style={{
-                        backgroundImage: `url(/images/our-history_800x533.jpg)`,
-                      }}
-                    />
-                    <span className={`${styles.backgroundSection} background-overlay`} />
-                  </div>
-                </div>
-                <div className={styles.promoText}>
-                  <h3 className="text-white field-promotitle">Our History</h3>
-                  <p className="promo-subheading hd-p1 field-promodescription" />
-                </div>
-                <div className={styles.promoCtaSection}>
-                  <div className={styles.fieldPromocta}>
-                    <Button
-                      as={'a'}
-                      size={'lg'}
-                      variant={'outline-light'}
-                      className={`${styles.promoButton} text-white mt-3`}
-                      href="/our-business/about-us/our-history">
-                      Learn more
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={4} lg={4} className="component promo promo-with-background">
-              <div className="component-content">
-                <div className="promo-background">
-                  <div>
-                    <span
-                      className={styles.backgroundSection}
-                      style={{
-                        backgroundImage: `url(/images/leadership_800x533.jpg)`,
-                      }}
-                    />
-                    <span className={`${styles.backgroundSection} background-overlay`} />
-                  </div>
-                </div>
-                <div className={styles.promoText}>
-                  <h3 className="text-white field-promotitle">Leadership</h3>
-                  <p className="promo-subheading hd-p1 field-promodescription" />
-                </div>
-                <div className={styles.promoCtaSection}>
-                  <div className={styles.fieldPromocta}>
-                    <Button
-                      as={'a'}
-                      size={'lg'}
-                      variant={'outline-light'}
-                      className={`${styles.promoButton} text-white mt-3`}
-                      href="/our-business/about-us/leadership">
-                      Learn more
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={{ span: 8, offset: 2 }}
-              lg={{ span: 8, offset: 2 }}
-              className="component promo promo-with-background">
-              <div className="component-content">
-                <div className="promo-background">
-                  <div>
-                    <span
-                      className={styles.backgroundSection}
-                      style={{
-                        backgroundImage: `url(/images/our-values-tile-1000x600.jpg)`,
-                      }}
-                    />
-                    <span className={`${styles.backgroundSection} background-overlay`} />
-                  </div>
-                </div>
-                <div className={styles.promoText}>
-                  <h3 className="text-white field-promotitle">Our Values</h3>
-                  <p className="promo-subheading hd-p1 field-promodescription" />
-                </div>
-                <div className={styles.promoCtaSection}>
-                  <div className={styles.fieldPromocta}>
-                    <Button
-                      as={'a'}
-                      size={'lg'}
-                      variant={'outline-light'}
-                      className={`${styles.promoButton} text-white mt-3`}
-                      href="/our-business/about-us/our-values">
-                      Learn more
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </Col>
+            <PromoCard
+              url="/images/our-history_800x533.jpg"
+              title="Our History"
+              link="/our-business/about-us/our-history"
+              className="offset-lg-2 offset-md-2"
+            />
+            <PromoCard
+              url="/images/leadership_800x533.jpg"
+              title="Leadership"
+              link="/our-business/about-us/leadership"
+            />
+            <PromoCard
+              url="/images/our-values-tile-1000x600.jpg"
+              title="Our Values"
+              link="/our-business/about-us/our-values"
+              size="big"
+            />
           </Row>
         </div>
       </div>
