@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 import Moment from 'react-moment'
 
+import Breadcrumbs from '~components/Breadcrumbs'
 import Layout from '~components/Layout'
 import NewsList from '~components/NewsList'
 import PromoImage from '~components/PromoImage'
@@ -49,33 +50,31 @@ const NewsTemplate: FC<Props> = ({ data }): React.ReactElement => {
     <Layout>
       <PromoImage url={data.news.images.file.url} useOverlay={true} title={data.news.title} />
       <div className="component rich-text col-12">
-        <div className="component-content"></div>
+        <div className="component-content" />
       </div>
       <div className="component row-splitter ">
         <div className="container">
           <Row>
-            {/*TODO: in order to make Breadcrumb component we need to be able to fetch routes info, so either need to create some routes list file, or just use some routes plugin like https://www.gatsbyjs.com/plugins/gatsby-plugin-dynamic-routes/ which have configuration in separate file already*/}
             <Col
               xs={12}
               lg={{ span: 8, offset: 2 }}
               className="component navigation-title initialized">
-              <div className="component-content">
-                <Breadcrumb className={styles.breadcrump}>
-                  <Breadcrumb.Item href="/">
-                    <FontAwesomeIcon icon={faHome} title={'Home'} className={styles.homeIcon} />
-                  </Breadcrumb.Item>
-                  <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-                  <Breadcrumb.Item href="/our-business">Our Business</Breadcrumb.Item>
-                  <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-                  <Breadcrumb.Item href="/our-business/news-and-media">
-                    News & Media
-                  </Breadcrumb.Item>
-                  <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-                  <Breadcrumb.Item href={`/our-business/news-and-media/${data.news.slug}`}>
-                    {data.news.title}
-                  </Breadcrumb.Item>
-                </Breadcrumb>
-              </div>
+              <Breadcrumbs
+                list={[
+                  {
+                    title: 'Our Business',
+                    url: '/our-business',
+                  },
+                  {
+                    title: 'News & Media',
+                    url: '/our-business/news-and-media',
+                  },
+                  {
+                    title: data.news.title,
+                    url: `/our-business/news-and-media/${data.news.slug}`,
+                  },
+                ]}
+              />
             </Col>
             <Col xs={12} lg={{ span: 8, offset: 2 }} className="component content rich-text">
               <div className="component-content">

@@ -5,6 +5,7 @@ import { Breadcrumb } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 
+import Breadcrumbs from '~components/Breadcrumbs'
 import Layout from '~components/Layout'
 import PromoCard from '~components/PromoCard'
 import PromoImage from '~components/PromoImage'
@@ -23,21 +24,19 @@ const OurBusinessPage = (): React.ReactElement => {
       <div className="component row-splitter ">
         <div className="container">
           <Row>
-            {/*TODO: in order to make Breadcrumb component we need to be able to fetch routes info, so either need to create some routes list file, or just use some routes plugin like https://www.gatsbyjs.com/plugins/gatsby-plugin-dynamic-routes/ which have configuration in separate file already*/}
             <Col md={{ span: 10, offset: 1 }} className="component navigation-title initialized">
-              <div className="component-content">
-                <Breadcrumb className={`${styles.breadcrump} ml-n2`}>
-                  <Breadcrumb.Item href="/">
-                    <FontAwesomeIcon icon={faHome} title={'Home'} className={styles.homeIcon} />
-                  </Breadcrumb.Item>
-                  <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-                  <Breadcrumb.Item href="/our-business">Our Business</Breadcrumb.Item>
-                  <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-                  <Breadcrumb.Item href="/our-business/our-commitment">
-                    Our Commitment
-                  </Breadcrumb.Item>
-                </Breadcrumb>
-              </div>
+              <Breadcrumbs
+                list={[
+                  {
+                    title: 'Our Business',
+                    url: '/our-business',
+                  },
+                  {
+                    title: 'Our Commitment',
+                    url: '/our-business/our-commitment',
+                  },
+                ]}
+              />
             </Col>
             <Col
               xs={12}

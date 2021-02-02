@@ -1,6 +1,6 @@
 import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { graphql, useStaticQuery } from 'gatsby'
+import { useStaticQuery } from 'gatsby'
 import React from 'react'
 import { Breadcrumb, Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
@@ -11,17 +11,15 @@ import FacetSearch from '~components/FacetSearch'
 import Layout from '~components/Layout'
 import NewsList from '~components/NewsList'
 import PromoImage from '~components/PromoImage'
+import StudiesList from '~components/StudiesList'
 import { News } from '~types/News'
 
-import styles from './NewsAndMedia.module.scss'
+import styles from './CaseStudies.module.scss'
+import { query } from './news-and-media'
 
 const mockCategories = [
   { title: 'Civil', count: 2 },
-  { title: 'Construction', count: 12 },
-  { title: 'Corporate', count: 22 },
-  { title: 'Mining', count: 5 },
-  { title: 'Partnerships', count: 13 },
-  { title: 'People', count: 52 },
+  { title: 'Plumbing and Drainage', count: 1 },
 ]
 
 export const mockNews: News[] = [
@@ -93,10 +91,10 @@ export const mockNews: News[] = [
   },
 ]
 
-const NewsAndMediaPage = (): React.ReactElement => {
+const CaseStudiesPage = (): React.ReactElement => {
   const data = useStaticQuery(query)
-  const news = newsMapper(data.news)
-  //if (!news.length) news = mockNews
+  let news = newsMapper(data.news)
+  if (!news.length) news = mockNews
 
   return (
     <Layout>
@@ -117,11 +115,16 @@ const NewsAndMediaPage = (): React.ReactElement => {
                     url: '/our-business',
                   },
                   {
-                    title: 'News & Media',
-                    url: '/our-business/news-and-media',
+                    title: 'Case Studies',
+                    url: '/our-business/case-studies',
                   },
                 ]}
               />
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={12} className="component rich-text">
+              <div className="component-content">
+                <h1>Case Studies</h1>
+              </div>
             </Col>
             <Col
               xs={3}
@@ -130,7 +133,7 @@ const NewsAndMediaPage = (): React.ReactElement => {
               <FacetSearch list={mockCategories} />
             </Col>
             <Col xs={9} lg={9} className="component search-results search-result-related-news">
-              <NewsList news={news} />
+              <StudiesList news={news} />
             </Col>
             <Col xs={12} lg={{ span: 4, offset: 4 }} className="component load-more">
               <div className="component-content hd-btn icon-right icon-chevron-right p-0">
@@ -149,7 +152,7 @@ const NewsAndMediaPage = (): React.ReactElement => {
   )
 }
 
-export default NewsAndMediaPage
+export default CaseStudiesPage
 
 export type RawSingleNews = {
   id: string
@@ -201,39 +204,3 @@ function newsMapper(rawData: RawNews): News[] {
     },
   }))
 }
-
-export const query = graphql`
-  query News {
-    news: allContentfulNews {
-      nodes {
-        id
-        slug
-        createdAt
-        title
-        node_locale
-        children {
-          id
-        }
-        parent {
-          id
-        }
-        sys {
-          type
-          revision
-        }
-        body {
-          raw
-        }
-        images {
-          id
-          title
-          file {
-            url
-            fileName
-            contentType
-          }
-        }
-      }
-    }
-  }
-`
