@@ -1,0 +1,174 @@
+@charset "UTF-8";
+.sitecore-form form .form-group {
+  margin-bottom: 1.875rem
+}
+
+.sitecore-form form .form-group label {
+  font-size: 1.125rem;
+  color: #000;
+  display: inline
+}
+
+.sitecore-form form .form-group.has-check label input[type="radio"], .sitecore-form form .form-group.has-check label input[type="checkbox"], .sitecore-form form .form-group.has-check-radio label input[type="radio"], .sitecore-form form .form-group.has-check-radio label input[type="checkbox"] {
+  margin-right: .8rem;
+  position: relative;
+  cursor: pointer
+}
+
+.sitecore-form form .form-group.has-check label input[type="radio"]:before, .sitecore-form form .form-group.has-check label input[type="checkbox"]:before, .sitecore-form form .form-group.has-check-radio label input[type="radio"]:before, .sitecore-form form .form-group.has-check-radio label input[type="checkbox"]:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  left: -6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  -webkit-transition: border .15s ease-in-out, color .15s ease-in-out;
+  transition: border .15s ease-in-out, color .15s ease-in-out;
+  position: relative;
+  margin-right: 10px;
+  top: -5px
+}
+
+.sitecore-form form .form-group.has-check label input[type="radio"]:after, .sitecore-form form .form-group.has-check label input[type="checkbox"]:after, .sitecore-form form .form-group.has-check-radio label input[type="radio"]:after, .sitecore-form form .form-group.has-check-radio label input[type="checkbox"]:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 15px;
+  top: -6px;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 1px;
+  font-size: 16px;
+  color: #555;
+  font-family: 'FontAwesome';
+  color: #fff
+}
+
+.sitecore-form form .form-group.has-check label input[type="radio"].is-checked:before, .sitecore-form form .form-group.has-check label input[type="checkbox"].is-checked:before, .sitecore-form form .form-group.has-check-radio label input[type="radio"].is-checked:before, .sitecore-form form .form-group.has-check-radio label input[type="checkbox"].is-checked:before {
+  background-color: #000;
+  border-color: #000
+}
+
+.sitecore-form form .form-group.has-check label input[type="radio"].is-checked:after, .sitecore-form form .form-group.has-check label input[type="checkbox"].is-checked:after, .sitecore-form form .form-group.has-check-radio label input[type="radio"].is-checked:after, .sitecore-form form .form-group.has-check-radio label input[type="checkbox"].is-checked:after {
+  content: ""
+}
+
+.sitecore-form form .form-group.has-check label input[type="radio"]:before, .sitecore-form form .form-group.has-check-radio label input[type="radio"]:before {
+  border-radius: 50%
+}
+
+.sitecore-form form .form-control {
+  height: 3.125rem;
+  border: 2px solid #ccc;
+  font-size: 1.125rem;
+  color: #555
+}
+
+.sitecore-form form .form-control:focus {
+  border-color: #555;
+  box-shadow: none
+}
+
+.is-bg-img .sitecore-form form, .overlay .sitecore-form form {
+  width: 100%;
+  background-color: #f4f5f9;
+  padding: 3rem;
+  opacity: .95
+}
+
+@media only screen and (max-width: 767px) {
+  .is-bg-img .sitecore-form form, .overlay .sitecore-form form {
+    padding: 1rem;
+    padding-top: 2rem
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .is-bg-img .sitecore-form, .overlay .sitecore-form {
+    padding: 0
+  }
+}
+
+.sitecore-form.full-width form {
+  width: 100%
+}
+
+.sitecore-form.shrink-width form {
+  width: 80%
+}
+
+@media only screen and (max-width: 767px) {
+  .sitecore-form.shrink-width form {
+    width: 100%
+  }
+}
+
+.form-group label {
+  font-weight: bold
+}
+
+.form-group .input-validation-error {
+  border: 2px solid #e14508
+}
+
+.form-group .field-validation-error {
+  color: #e14508
+}
+
+.sitecore-form form .form-group.has-check-radio label, .sitecore-form form .form-group.has-check label {
+  font-weight: normal;
+  margin-left: .4rem
+}
+
+.sitecore-form form .form-group.has-check-radio label.check-label, .sitecore-form form .form-group.has-check label.check-label {
+  font-weight: bold;
+  margin-left: 0
+}
+
+.sitecore-form form .form-group.has-check-radio label input, .sitecore-form form .form-group.has-check label input {
+  margin-right: .5rem
+}
+
+@media only screen and (max-width: 767px) {
+  .sitecore-form form .form-group.has-check-radio label, .sitecore-form form .form-group.has-check label {
+    display: block
+  }
+}
+
+.sitecore-form form .form-group.has-check-radio label {
+  margin-right: 1.25rem
+}
+
+.sitecore-form form .form-control.input-validation-error {
+  border: 2px solid #e14508
+}
+
+.validation-summary-errors {
+  color: #e14508;
+  font-weight: bold;
+  font-size: 18px
+}
+
+.validation-summary-errors ul {
+  margin: 2rem 0;
+  padding: 0
+}
+
+.validation-summary-errors ul li {
+  list-style: none
+}
+
+.hd-form-thank-you {
+  display: none
+}
+
+.on-page-editor .hd-form-thank-you {
+  display: block
+}
+
+.sitecore-form.dark-theme .form-group label {
+  color: #fff
+}
