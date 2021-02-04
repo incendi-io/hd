@@ -3,11 +3,14 @@ export interface RawPart {
 }
 
 export interface Part {
-  brand: string
   id: string
-  images: string[]
-  longDescription: string
+  slug: string
   partName: string
   partNumber: string
+  brand: string
   shortDescription: string
+  longDescription: string
+  category: string
+  subCategory: string
+  images: string[]
 }

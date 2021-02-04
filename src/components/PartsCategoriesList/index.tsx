@@ -30,8 +30,8 @@ const PartsCategoriesList: FC<Props> = ({ title, categories }): React.ReactEleme
           <Col xs={12} className="component search-results search-result-product-category mx-n2">
             {!categories.length && <div className="no-results">No results found</div>}
             <ul className="search-result-list">
-              {categories.map((category) => (
-                <li key={category.id}>
+              {categories.map((category, index) => (
+                <li key={index}>
                   <PartCategoryCard item={category} />
                 </li>
               ))}

@@ -7,118 +7,21 @@ import PartsList from '~components/PartsList'
 import { FamilyProduct } from '~components/ProductFamilyCard'
 import ProductSearch from '~components/ProductSearch'
 import PromoImage from '~components/PromoImage'
-import { Part } from '~types/Part'
-import { PartCategory } from '~types/PartCategory'
+import { partsListMock, recentListMock } from '~utils/mocks/categories'
 
 import styles from './Parts.module.scss'
-
-const categoriesMock: PartCategory[] = [
-  {
-    id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat1.png',
-    },
-  },
-  {
-    id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat2.png',
-    },
-    children: [
-      { id: '1', slug: 'test', title: 'Augers', partsCount: 48 },
-      { id: '1', slug: 'test', title: 'Bale Grabs', partsCount: 52 },
-      { id: '1', slug: 'test', title: 'Bale Spears', partsCount: 148 },
-    ],
-  },
-  {
-    id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat3.png',
-    },
-    children: [
-      { id: '1', slug: 'test', title: 'Augers', partsCount: 48 },
-      { id: '1', slug: 'test', title: 'Bale Grabs', partsCount: 52 },
-      { id: '1', slug: 'test', title: 'Bale Spears', partsCount: 148 },
-    ],
-  },
-  {
-    id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat4.png',
-    },
-  },
-  {
-    id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat5.png',
-    },
-  },
-  {
-    id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat6.png',
-    },
-  },
-  {
-    id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat7.png',
-    },
-  },
-]
-const bestSellersListMock: Part[] = []
-const recentListMock: Part[] = []
 
 const NewProducts: FC<unknown> = (): React.ReactElement => {
   const [searchValue, setSearchValue] = useState('')
 
   const data = useStaticQuery(query)
-  //const catList = familyProductsMapper(data.categories)
-  const catList = categoriesMock
-  //const bestSellersList = familyProductsMapper(data.bestSellers)
-  const bestSellersList = bestSellersListMock
+  //const partsList = familyProductsMapper(data.categories)
+  const partsList = partsListMock
   //const recentList = familyProductsMapper(data.recent)
   const recentList = recentListMock
 
   //TODO: add search to graphql query instead
-  const filteredCatList = catList.filter((cat) => cat.title.match(new RegExp(searchValue, 'i')))
-  //TODO: add search to graphql query instead
-  const filteredBestSellersList = bestSellersList.filter((part) =>
+  const filteredPartsList = partsList.filter((part) =>
     part.partName.match(new RegExp(searchValue, 'i'))
   )
   //TODO: add search to graphql query instead
@@ -147,7 +50,7 @@ const NewProducts: FC<unknown> = (): React.ReactElement => {
             />
           </Row>
         </Col>
-        <PartsList title="Batteries" parts={filteredBestSellersList} />
+        <PartsList title="Batteries" parts={filteredPartsList} />
       </div>
       <PartsList title="Recently viewed products" parts={filteredRecentList} />
     </Layout>
@@ -193,19 +96,18 @@ function familyProductsMapper(rawData: RawFamilyProducts): FamilyProduct[] {
 
 const query = graphql`
   query {
-    familyProducts: allContentfulProductFamily {
+    items: allECommerce(limit: 10) {
       edges {
         node {
           id
-          name
           slug
-          images {
-            id
-            alt: title
-            file {
-              url
-            }
-          }
+          partName
+          partNumber
+          brand
+          shortDescription
+          category
+          subCategory
+          images
         }
       }
     }

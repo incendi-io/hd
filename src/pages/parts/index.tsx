@@ -10,101 +10,11 @@ import { FamilyProduct } from '~components/ProductFamilyCard'
 import ProductSearch from '~components/ProductSearch'
 import PromoImage from '~components/PromoImage'
 import { Part } from '~types/Part'
-import { PartCategory } from '~types/PartCategory'
+import { categoriesMock, recentListMock } from '~utils/mocks/categories'
 
 import styles from './Parts.module.scss'
 
-const categoriesMock: PartCategory[] = [
-  {
-    id: '1',
-    slug: 'attachments',
-    title: 'Attachments',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat1.png',
-    },
-  },
-  {
-    id: '1',
-    slug: 'attachments',
-    title: 'Attachments',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat2.png',
-    },
-    children: [
-      { id: '1', slug: 'buckets', title: 'Buckets', partsCount: 48 },
-      { id: '1', slug: 'buckets', title: 'Bale Grabs', partsCount: 52 },
-      { id: '1', slug: 'buckets', title: 'Bale Spears', partsCount: 148 },
-    ],
-  },
-  {
-    id: '1',
-    slug: 'attachments',
-    title: 'Attachments',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat3.png',
-    },
-    children: [
-      { id: '1', slug: 'buckets', title: 'Augers', partsCount: 48 },
-      { id: '1', slug: 'buckets', title: 'Bale Grabs', partsCount: 52 },
-      { id: '1', slug: 'buckets', title: 'Bale Spears', partsCount: 148 },
-    ],
-  },
-  {
-    id: '1',
-    slug: 'attachments',
-    title: 'Attachments',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat4.png',
-    },
-  },
-  {
-    id: '1',
-    slug: 'attachments',
-    title: 'Attachments',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat5.png',
-    },
-  },
-  {
-    id: '1',
-    slug: 'attachments',
-    title: 'Attachments',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat6.png',
-    },
-  },
-  {
-    id: '1',
-    slug: 'attachments',
-    title: 'Attachments',
-    partsCount: 2015,
-    image: {
-      id: '1',
-      alt: 'image',
-      url: '/images/mock/cat7.png',
-    },
-  },
-]
-const bestSellersListMock: Part[] = []
-const recentListMock: Part[] = []
+const bestSellersListMock: Part[] = recentListMock
 
 const PartsCategoryPage: FC<unknown> = (): React.ReactElement => {
   const [searchValue, setSearchValue] = useState('')
