@@ -1,10 +1,16 @@
 import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 import React, { FC, ReactElement } from 'react'
+import { Nav, Tab } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
-import Container from 'react-bootstrap/cjs/Container'
 import Row from 'react-bootstrap/cjs/Row'
+import slugify from 'slugify'
 
+import Breadcrumbs from '~components/Breadcrumbs'
+import styles from '~components/Footer/Footer.module.scss'
+import HDSlider from '~components/HDSlider'
 import Layout from '~components/Layout'
+import { Image } from '~types/Image'
 import { RawPart } from '~types/Part'
 
 type Props = {
@@ -15,27 +21,82 @@ const PartTemplate: FC<Props> = ({ data }): ReactElement => {
   const { part } = data
   return (
     <Layout>
-      <Container>
-        <Row>
-          <Col>
-            {part?.images?.map((url) => (
-              <img src={url} alt={url} key={url} />
-            ))}
-          </Col>
-          <Col>
-            <div>
-              {part?.partNumber}: {part?.partName}
-            </div>
-            <div>Brand: {part.brand}</div>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={12}>
-            <div id="description-section">DESCRIPTION</div>
-            <div>{part?.longDescription}</div>
-          </Col>
-        </Row>
-      </Container>
+      <div className="component row-splitter ">
+        <div className="container">
+          <Row className="column-splitter">
+            <Col xs={12} className="component navigation-title initialized">
+              <Breadcrumbs
+                list={[
+                  {
+                    title: 'Parts',
+                    url: '/parts',
+                  },
+                  {
+                    title: part?.category,
+                    url: `/parts/${slugify(part?.category, { lower: true })}`,
+                  },
+                  ...(part?.subCategory
+                    ? [
+                        {
+                          title: part?.subCategory,
+                          url: `/parts/${slugify(part?.category, {
+                            lower: true,
+                          })}/${slugify(part?.subCategory, { lower: true })}`,
+                        },
+                      ]
+                    : [null]),
+                ]}
+              />
+            </Col>
+            <Col xs={12} sm={6} md={6} lg={6} className="component">
+              <HDSlider
+                images={part?.images.map(
+                  (image, index): Image => ({ url: image, alt: '', id: index })
+                )}
+                useCustomButtons
+              />
+            </Col>
+            <Col xs={12} sm={6} md={6} lg={6} className="component rich-text">
+              <div className="component-content">
+                <h2>
+                  {part?.partNumber}: {part?.partName}
+                </h2>
+                <h5>Brand: {part.brand}</h5>
+              </div>
+            </Col>
+            <Col xs={12} className="component">
+              <Tab.Container id="left-tabs-example" defaultActiveKey="description">
+                <Row>
+                  <Col xs={12}>
+                    <Nav variant="pills" className="flex-row">
+                      <Nav.Item>
+                        <Nav.Link eventKey="description">Description</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="specifications">Specifications</Nav.Link>
+                      </Nav.Item>
+                    </Nav>
+                  </Col>
+                  <Col xs={12}>
+                    <Tab.Content>
+                      <Tab.Pane eventKey="description">
+                        <Row>
+                          <Col md={12}>
+                            <h3 id="description-section">DESCRIPTION</h3>
+                            <hr className={styles.divider} />
+                            <div>{parse(parse(part?.longDescription))}</div>
+                          </Col>
+                        </Row>
+                      </Tab.Pane>
+                      <Tab.Pane eventKey="specifications"></Tab.Pane>
+                    </Tab.Content>
+                  </Col>
+                </Row>
+              </Tab.Container>
+            </Col>
+          </Row>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -46,12 +107,15 @@ export const query = graphql`
   query PartById($id: String!) {
     part: eCommerce(id: { eq: $id }) {
       id
-      brand
-      longDescription
-      images
+      slug
       partName
       partNumber
+      brand
       shortDescription
+      longDescription
+      category
+      subCategory
+      images
     }
   }
 `

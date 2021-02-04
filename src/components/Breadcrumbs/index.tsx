@@ -6,10 +6,10 @@ import { Breadcrumb } from 'react-bootstrap'
 import styles from './Breadcrumbs.module.scss'
 
 type Props = {
-  list: {
+  list: Array<{
     title: string
     url: string
-  }[]
+  } | null>
 }
 
 const Breadcrumbs: FC<Props> = ({ list }) => {
@@ -20,12 +20,15 @@ const Breadcrumbs: FC<Props> = ({ list }) => {
         <Breadcrumb.Item href="/">
           <FontAwesomeIcon icon={faHome} title={'Home'} className={styles.homeIcon} />
         </Breadcrumb.Item>
-        {list.map((link, index) => (
-          <React.Fragment key={index}>
-            <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-            <Breadcrumb.Item href={link.url}>{link.title}</Breadcrumb.Item>
-          </React.Fragment>
-        ))}
+        {list.map(
+          (link, index) =>
+            link && (
+              <React.Fragment key={index}>
+                <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
+                <Breadcrumb.Item href={link?.url}>{link?.title}</Breadcrumb.Item>
+              </React.Fragment>
+            )
+        )}
       </Breadcrumb>
     </div>
   )
