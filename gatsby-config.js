@@ -71,8 +71,8 @@ module.exports = {
         credential: creds,
         types: [
           {
-            type: 'eCommerceTest', //eCommerce
-            collection: 'eCommerceTest', //eCommerce
+            type: 'eCommerce', //eCommerce
+            collection: 'eCommerce', //eCommerce
             map: (doc) => ({
               ...doc,
               slug: `/parts/${doc.partNumber}`.toLowerCase(),

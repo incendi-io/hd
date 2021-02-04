@@ -16,7 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
 async function createPartsPages(graphql, createPage) {
   const result = await graphql(`
     {
-      items: allECommerceTest {
+      items: allECommerce {
         nodes {
           id
           slug
