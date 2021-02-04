@@ -33,13 +33,13 @@ const PartTemplate: FC<Props> = ({ data }): ReactElement => {
                   },
                   {
                     title: part?.category,
-                    url: `/parts/${slugify(part?.category, { lower: true })}`,
+                    url: `/cat/${slugify(part?.category, { lower: true })}`,
                   },
                   ...(part?.subCategory
                     ? [
                         {
                           title: part?.subCategory,
-                          url: `/parts/${slugify(part?.category, {
+                          url: `/cat/${slugify(part?.category, {
                             lower: true,
                           })}/${slugify(part?.subCategory, { lower: true })}`,
                         },
