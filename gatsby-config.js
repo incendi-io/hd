@@ -15,6 +15,8 @@ if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
 }
 
+const contentfulLimit = process.env.CONTENTFUL_LIMIT;
+
 const { spaceId, accessToken } = contentfulConfig
 
 const creds = {
@@ -73,6 +75,7 @@ module.exports = {
           {
             type: 'eCommerce', //eCommerce
             collection: 'eCommerce', //eCommerce
+            limit: contentfulLimit, //use 0 or skip for no limit
             map: (doc) => ({
               ...doc,
               slug: `/parts/${doc.partNumber}`.toLowerCase(),

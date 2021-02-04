@@ -27,8 +27,9 @@ exports.sourceNodes = async ({ actions, createContentDigest }, { types, credenti
 
   const { createNode } = actions
 
-  const promises = types.map(async ({ collection, type, map = (node) => node, conditions }) => {
-    const conditionedCollection = applyConditions(db.collection(collection), conditions)
+  const promises = types.map(async ({ collection, type, map = (node) => node, conditions, limit }) => {
+    const limitedCollection = limit ? db.collection(collection).limit(parseInt(limit)) : db.collection(collection);
+    const conditionedCollection = applyConditions(limitedCollection, conditions)
     const snapshot = await conditionedCollection.get()
     for (let doc of snapshot.docs) {
       const nodeData = map(doc.data())
