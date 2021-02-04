@@ -84,7 +84,7 @@ const PartTemplate: FC<Props> = ({ data }): ReactElement => {
                           <Col md={12}>
                             <h3 id="description-section">DESCRIPTION</h3>
                             <hr className={styles.divider} />
-                            <div>{parse(parse(part?.longDescription))}</div>
+                            <div>{parse(parse(part?.longDescription).toString())}</div>
                           </Col>
                         </Row>
                       </Tab.Pane>
