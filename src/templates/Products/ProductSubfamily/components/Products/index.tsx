@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/cjs/Button'
 import { Product } from '~types/Product'
 
 //TODO: organize styles
-import productStyles from '../../../../pages/products/Products.module.scss'
+import productStyles from '../../../../../pages/products/Products.module.scss'
 import styles from './Products.module.scss'
 
 type Props = {

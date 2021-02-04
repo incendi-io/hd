@@ -11,7 +11,7 @@ import ProductSearch from '~components/ProductSearch'
 import { FamilyProduct, RawFamilyProduct } from '~types/FamilyProduct'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
 
-import styles from '../../pages/products/Products.module.scss'
+import styles from '../../../pages/products/Products.module.scss'
 
 type Edge = {
   node: RawSubfamilyProduct

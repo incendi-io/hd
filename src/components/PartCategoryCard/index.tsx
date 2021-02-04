@@ -13,7 +13,7 @@ type Props = {
 }
 
 const PartCategoryCard: FC<Props> = ({ item }) => (
-  <Card as="a" href={`/parts/${item.slug}`} className={styles.card}>
+  <Card as="a" href={`/cat/${item.slug}`} className={styles.card}>
     <div className="field-main-image mx-n3 mt-n3 h-auto">
       {item.image && (
         <Card.Img

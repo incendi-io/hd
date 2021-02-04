@@ -3,7 +3,6 @@ import React, { FC, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 
 import Layout from '~components/Layout'
-import PartsCategoriesList from '~components/PartsCategoriesList'
 import PartsList from '~components/PartsList'
 import { FamilyProduct } from '~components/ProductFamilyCard'
 import ProductSearch from '~components/ProductSearch'

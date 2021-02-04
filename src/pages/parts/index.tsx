@@ -17,8 +17,8 @@ import styles from './Parts.module.scss'
 const categoriesMock: PartCategory[] = [
   {
     id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
+    slug: 'attachments',
+    title: 'Attachments',
     partsCount: 2015,
     image: {
       id: '1',
@@ -28,8 +28,8 @@ const categoriesMock: PartCategory[] = [
   },
   {
     id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
+    slug: 'attachments',
+    title: 'Attachments',
     partsCount: 2015,
     image: {
       id: '1',
@@ -37,15 +37,15 @@ const categoriesMock: PartCategory[] = [
       url: '/images/mock/cat2.png',
     },
     children: [
-      { id: '1', slug: 'test', title: 'Augers', partsCount: 48 },
-      { id: '1', slug: 'test', title: 'Bale Grabs', partsCount: 52 },
-      { id: '1', slug: 'test', title: 'Bale Spears', partsCount: 148 },
+      { id: '1', slug: 'buckets', title: 'Buckets', partsCount: 48 },
+      { id: '1', slug: 'buckets', title: 'Bale Grabs', partsCount: 52 },
+      { id: '1', slug: 'buckets', title: 'Bale Spears', partsCount: 148 },
     ],
   },
   {
     id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
+    slug: 'attachments',
+    title: 'Attachments',
     partsCount: 2015,
     image: {
       id: '1',
@@ -53,15 +53,15 @@ const categoriesMock: PartCategory[] = [
       url: '/images/mock/cat3.png',
     },
     children: [
-      { id: '1', slug: 'test', title: 'Augers', partsCount: 48 },
-      { id: '1', slug: 'test', title: 'Bale Grabs', partsCount: 52 },
-      { id: '1', slug: 'test', title: 'Bale Spears', partsCount: 148 },
+      { id: '1', slug: 'buckets', title: 'Augers', partsCount: 48 },
+      { id: '1', slug: 'buckets', title: 'Bale Grabs', partsCount: 52 },
+      { id: '1', slug: 'buckets', title: 'Bale Spears', partsCount: 148 },
     ],
   },
   {
     id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
+    slug: 'attachments',
+    title: 'Attachments',
     partsCount: 2015,
     image: {
       id: '1',
@@ -71,8 +71,8 @@ const categoriesMock: PartCategory[] = [
   },
   {
     id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
+    slug: 'attachments',
+    title: 'Attachments',
     partsCount: 2015,
     image: {
       id: '1',
@@ -82,8 +82,8 @@ const categoriesMock: PartCategory[] = [
   },
   {
     id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
+    slug: 'attachments',
+    title: 'Attachments',
     partsCount: 2015,
     image: {
       id: '1',
@@ -93,8 +93,8 @@ const categoriesMock: PartCategory[] = [
   },
   {
     id: '1',
-    slug: 'air-condition-kits',
-    title: 'Air Condition Kits',
+    slug: 'attachments',
+    title: 'Attachments',
     partsCount: 2015,
     image: {
       id: '1',
@@ -106,7 +106,7 @@ const categoriesMock: PartCategory[] = [
 const bestSellersListMock: Part[] = []
 const recentListMock: Part[] = []
 
-const NewProducts: FC<unknown> = (): React.ReactElement => {
+const PartsCategoryPage: FC<unknown> = (): React.ReactElement => {
   const [searchValue, setSearchValue] = useState('')
 
   const data = useStaticQuery(query)
@@ -157,7 +157,7 @@ const NewProducts: FC<unknown> = (): React.ReactElement => {
   )
 }
 
-export default NewProducts
+export default PartsCategoryPage
 
 export type RawFamilyProduct = {
   node: {

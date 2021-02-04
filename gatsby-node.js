@@ -25,19 +25,101 @@ async function createPartsPages(graphql, createPage) {
     }
   `)
 
+  //TODO: add categories query
+  const mockCategories = [{
+    title: 'Attachments',
+    slug: 'attachments',
+    children: [{
+      title: 'Buckets',
+      slug: 'buckets',
+    },{
+      title: 'Machine Work Lights',
+      slug: 'machine-work-lights',
+    },{
+      title: 'Flywheel',
+      slug: 'flywheel',
+    },{
+      title: 'Connectors and Terminals',
+      slug: 'connectors-and-terminals',
+    },{
+      title: 'Springs',
+      slug: 'springs',
+    },{
+      title: 'Cooling System Components',
+      slug: 'cooling-system-components',
+    },{
+      title: 'Turbocharger',
+      slug: 'turbocharger',
+    },]
+  },{
+    title: 'Electronics',
+    slug: 'electronics',
+    children: [{
+      title: 'Bucket GET',
+      slug: 'bucket-get',
+    },{
+      title: 'Cooling System Components',
+      slug: 'cooling-system-components',
+    },]
+  },{
+    title: 'Drive Train',
+    slug: 'drive-train',
+    children: [{
+      title: 'Gears',
+      slug: 'gears',
+    },{
+      title: 'Transmissions',
+      slug: 'transmissions',
+    },{
+      title: 'Differentials',
+      slug: 'differentials',
+    },{
+      title: 'Fittings and Adapters',
+      slug: 'fittings-and-adapters',
+    },{
+      title: 'Final Drive',
+      slug: 'final-drive',
+    },]
+  },{
+    title: 'Shop Supplies',
+    slug: 'shop-supplies',
+    children: [{
+      title: 'Harnesses and Wire',
+      slug: 'harnesses-and-wire',
+    }]
+  },{
+    title: 'Hydraulics',
+    slug: 'hydraulics',
+    children: []
+  }]
+
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
 
-  const template = path.resolve('./src/templates/Part/index.tsx')
-  const categoryTemplate = path.resolve('./src/templates/PartCategory/index.tsx')
+  const template = path.resolve('./src/templates/Parts/Part/index.tsx')
+  const categoryTemplate = path.resolve('./src/templates/Parts/PartCategory/index.tsx')
+  const subCategoryTemplate = path.resolve('./src/templates/Parts/PartCategory/index.tsx')
   const items = result.data.items.nodes
 
-  createPage({
-    //TODO: update with generated data from query
-    path: 'parts/air-condition-kits',
-    component: categoryTemplate
+  mockCategories.forEach((cat) => {
+    createPage({
+      path: `cat/${cat.slug}`,
+      component: categoryTemplate,
+      context: {
+        id: '123',
+      },
+    })
+    cat.children.forEach((subcat) => {
+      createPage({
+        path: `cat/${cat.slug}/${subcat.slug}`,
+        component: subCategoryTemplate,
+        context: {
+          id: '123',
+        },
+      })
+    })
   })
 
   items.forEach((item) => {
@@ -71,7 +153,7 @@ async function createSubfamilyPages(graphql, createPage) {
     return
   }
 
-  const template = path.resolve('./src/templates/ProductSubfamily/index.tsx')
+  const template = path.resolve('./src/templates/Products/ProductSubfamily/index.tsx')
   const items = result.data.items.nodes
 
   items.forEach((item) => {
@@ -105,7 +187,7 @@ async function createProductFamiliesPages(graphql, createPage) {
     return
   }
 
-  const template = path.resolve('./src/templates/ProductFamily/index.tsx')
+  const template = path.resolve('./src/templates/Products/ProductFamily/index.tsx')
   const items = result.data.productFamilies.edges
   items.forEach(({ node }) => {
     createPage({

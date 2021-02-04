@@ -19,7 +19,7 @@ import { Product, RawProduct } from '~types/Product'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
 
 //TODO: organize styles
-import styles from '../../pages/products/Products.module.scss'
+import styles from '../../../pages/products/Products.module.scss'
 import Products from './components/Products'
 import productsStyles from './components/Products/Products.module.scss'
 
