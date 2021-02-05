@@ -72,15 +72,17 @@ const PartsList: FC<Props> = ({
             </ul>
           </Col>
         </Row>
-        <Row className="d-flex justify-content-end">
-          <Pagination>
-            {[...Array(6)].map((i, index) => (
-              <Pagination.Item key={index} active={index === 1}>
-                {index}
-              </Pagination.Item>
-            ))}
-          </Pagination>
-        </Row>
+        {hasPageSizeInfo && (
+          <Row className="d-flex justify-content-end">
+            <Pagination>
+              {[...Array(6)].map((i, index) => (
+                <Pagination.Item key={index} active={index === 1}>
+                  {index}
+                </Pagination.Item>
+              ))}
+            </Pagination>
+          </Row>
+        )}
       </Col>
     </>
   )
