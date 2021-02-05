@@ -1,3 +1,5 @@
+import './navbar.scss'
+
 import { graphql } from 'gatsby'
 import parse from 'html-react-parser'
 import React, { FC, ReactElement } from 'react'
@@ -65,15 +67,21 @@ const PartTemplate: FC<Props> = ({ data }): ReactElement => {
               </div>
             </Col>
             <Col xs={12} className="component">
-              <Tab.Container id="left-tabs-example" defaultActiveKey="description">
+              <Tab.Container id="product-tabs" defaultActiveKey="description">
                 <Row>
-                  <Col xs={12}>
-                    <Nav variant="pills" className="flex-row">
+                  <Col xs={12} className="product-tabs mb-5">
+                    <Nav variant="pills" className="flex-row py-2">
                       <Nav.Item>
                         <Nav.Link eventKey="description">Description</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
                         <Nav.Link eventKey="specifications">Specifications</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="diagram">Diagram</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="compatible-models">Compatible Models</Nav.Link>
                       </Nav.Item>
                     </Nav>
                   </Col>
@@ -84,11 +92,14 @@ const PartTemplate: FC<Props> = ({ data }): ReactElement => {
                           <Col md={12}>
                             <h3 id="description-section">DESCRIPTION</h3>
                             <hr className={styles.divider} />
+                            <p>{part?.shortDescription}</p>
                             <div>{parse(parse(part?.longDescription).toString())}</div>
                           </Col>
                         </Row>
                       </Tab.Pane>
-                      <Tab.Pane eventKey="specifications"></Tab.Pane>
+                      <Tab.Pane eventKey="specifications" />
+                      <Tab.Pane eventKey="diagram" />
+                      <Tab.Pane eventKey="compatible-models" />
                     </Tab.Content>
                   </Col>
                 </Row>
