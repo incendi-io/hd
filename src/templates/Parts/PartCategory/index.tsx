@@ -25,7 +25,7 @@ const PartCategory: FC<unknown> = ({ pageContext }): React.ReactElement => {
   const [searchValue, setSearchValue] = useState('')
 
   const data = useStaticQuery(query)
-  console.log(data, query, pageContext)
+  //console.log(data, query, pageContext)
 
   const totalCount = data.items.totalCount
   const pageSize = 10

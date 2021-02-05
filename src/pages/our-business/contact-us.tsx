@@ -96,7 +96,7 @@ const ContactUsPage = (): React.ReactElement => {
   const [expanded, setExpanded] = useState(
     contactList.reduce((acc, item, i) => ({ ...acc, [i]: false }), {})
   )
-  console.log(expanded)
+  //console.log(expanded)
   return (
     <Layout>
       <PromoImage

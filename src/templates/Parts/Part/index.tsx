@@ -6,6 +6,7 @@ import React, { FC, ReactElement } from 'react'
 import { Nav, Tab } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
+import sanitizeHtml from 'sanitize-html'
 import slugify from 'slugify'
 
 import Breadcrumbs from '~components/Breadcrumbs'
@@ -21,6 +22,7 @@ type Props = {
 
 const PartTemplate: FC<Props> = ({ data }): ReactElement => {
   const { part } = data
+  const longDescription = parse(sanitizeHtml(part?.longDescription).toString())
   return (
     <Layout>
       <div className="component row-splitter ">
@@ -93,7 +95,7 @@ const PartTemplate: FC<Props> = ({ data }): ReactElement => {
                             <h3 id="description-section">DESCRIPTION</h3>
                             <hr className={styles.divider} />
                             <p>{part?.shortDescription}</p>
-                            <div>{parse(parse(part?.longDescription).toString())}</div>
+                            <div dangerouslySetInnerHTML={{ __html: longDescription }} />
                           </Col>
                         </Row>
                       </Tab.Pane>

@@ -39,7 +39,7 @@ type Props = {
 }
 
 const NewsTemplate: FC<Props> = ({ data }): React.ReactElement => {
-  console.log(data, JSON.parse(data.news.body.raw))
+  //console.log(data, JSON.parse(data.news.body.raw))
   const newsContent: NewsContent = JSON.parse(data.news.body.raw)
   return (
     <Layout>

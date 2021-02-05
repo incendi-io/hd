@@ -7,11 +7,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 import React, { FC } from 'react'
 import { Breadcrumb } from 'react-bootstrap'
 import Button from 'react-bootstrap/cjs/Button'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
+import sanitizeHtml from 'sanitize-html'
 
 import HDSlider from '~components/HDSlider'
 import Layout from '~components/Layout'
@@ -105,7 +107,7 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
               xs={12}
               lg={7}
               className="pl-md-3 mb-3 hd-p rich-text"
-              dangerouslySetInnerHTML={{ __html: subFamily.description as string }}
+              dangerouslySetInnerHTML={{ __html: parse(sanitizeHtml(subFamily.description)) }}
             />
             <Col
               xs={12}

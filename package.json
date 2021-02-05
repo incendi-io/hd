@@ -43,6 +43,7 @@
     "react-moment": "~1.1.1",
     "react-slick": "~0.27.14",
     "react-youtube": "~7.13.1",
+    "sanitize-html": "~2.3.2",
     "slick-carousel": "~1.8.1",
     "slugify": "~1.4.6",
     "use-query-params": "~1.1.9"
