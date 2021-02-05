@@ -109,6 +109,8 @@ async function createPartsPages(graphql, createPage) {
       component: categoryTemplate,
       context: {
         id: '123',
+        cat: cat.title,
+        limit: 10
       },
     })
     cat.children.forEach((subcat) => {
@@ -117,6 +119,8 @@ async function createPartsPages(graphql, createPage) {
         component: subCategoryTemplate,
         context: {
           id: '123',
+          cat: cat.title,
+          limit: 10
         },
       })
     })

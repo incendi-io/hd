@@ -11,12 +11,14 @@ import { partsListMock, recentListMock } from '~utils/mocks/categories'
 
 import styles from './Parts.module.scss'
 
-const NewProducts: FC<unknown> = (): React.ReactElement => {
+const PartCategory: FC<unknown> = ({ pageContext }): React.ReactElement => {
   const [searchValue, setSearchValue] = useState('')
 
   const data = useStaticQuery(query)
+  console.log(data, query, pageContext)
   //const partsList = familyProductsMapper(data.categories)
-  const partsList = partsListMock
+  //const partsList = partsListMock
+  const partsList = data.items.edges.map((item) => item.node)
   //const recentList = familyProductsMapper(data.recent)
   const recentList = recentListMock
 
@@ -57,7 +59,7 @@ const NewProducts: FC<unknown> = (): React.ReactElement => {
   )
 }
 
-export default NewProducts
+export default PartCategory
 
 export type RawFamilyProduct = {
   node: {
@@ -95,8 +97,9 @@ function familyProductsMapper(rawData: RawFamilyProducts): FamilyProduct[] {
 }
 
 const query = graphql`
-  query {
-    items: allECommerce(limit: 10) {
+  query GetParts($cat: String, $limit: Int) {
+    items: allECommerce(limit: $limit, filter: { category: { eq: $cat } }) {
+      totalCount
       edges {
         node {
           id

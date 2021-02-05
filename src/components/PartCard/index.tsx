@@ -38,7 +38,7 @@ const PartCard: FC<Props> = ({ item }) => (
           </Col>
           <Col xs={6} className="text-right">
             <Button
-              as={'a'}
+              as={'button'}
               size={'lg'}
               variant={'primary'}
               className={`w-50 p-1 rounded`}
