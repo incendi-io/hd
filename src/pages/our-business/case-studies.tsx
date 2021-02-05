@@ -12,6 +12,7 @@ import Layout from '~components/Layout'
 import PromoImage from '~components/PromoImage'
 import StudiesList from '~components/StudiesList'
 import { News } from '~types/News'
+import { mockNews } from '~utils/mocks/news'
 
 import styles from './CaseStudies.module.scss'
 import { query } from './news-and-media'
@@ -19,75 +20,6 @@ import { query } from './news-and-media'
 const mockCategories = [
   { title: 'Civil', count: 2 },
   { title: 'Plumbing and Drainage', count: 1 },
-]
-
-export const mockNews: News[] = [
-  {
-    id: '1',
-    link: 'news/2020/12/14/5/38/qantas-airstairs-come-a-full-circle',
-    title: 'October/November 2020 Events',
-    createAt: '01 October 2020',
-    image: {
-      id: '1',
-      alt: '',
-      url: '/images/mock/news-1-big.jpg',
-    },
-  },
-  {
-    id: '1',
-    link: 'news/2020/12/14/5/38/qantas-airstairs-come-a-full-circle',
-    title: 'October/November 2020 Events',
-    createAt: '01 October 2020',
-    image: {
-      id: '1',
-      alt: '',
-      url: '/images/mock/news-1-big.jpg',
-    },
-  },
-  {
-    id: '1',
-    link: 'news/2020/12/14/5/38/qantas-airstairs-come-a-full-circle',
-    title: 'October/November 2020 Events',
-    createAt: '01 October 2020',
-    image: {
-      id: '1',
-      alt: '',
-      url: '/images/mock/news-1-big.jpg',
-    },
-  },
-  {
-    id: '1',
-    link: 'news/2020/12/14/5/38/qantas-airstairs-come-a-full-circle',
-    title: 'October/November 2020 Events',
-    createAt: '01 October 2020',
-    image: {
-      id: '1',
-      alt: '',
-      url: '/images/mock/news-1-big.jpg',
-    },
-  },
-  {
-    id: '1',
-    link: 'news/2020/12/14/5/38/qantas-airstairs-come-a-full-circle',
-    title: 'October/November 2020 Events',
-    createAt: '01 October 2020',
-    image: {
-      id: '1',
-      alt: '',
-      url: '/images/mock/news-1-big.jpg',
-    },
-  },
-  {
-    id: '1',
-    link: 'news/2020/12/14/5/38/qantas-airstairs-come-a-full-circle',
-    title: 'October/November 2020 Events',
-    createAt: '01 October 2020',
-    image: {
-      id: '1',
-      alt: '',
-      url: '/images/mock/news-1-big.jpg',
-    },
-  },
 ]
 
 const CaseStudiesPage = (): React.ReactElement => {

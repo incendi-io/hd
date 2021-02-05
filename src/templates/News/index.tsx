@@ -1,8 +1,5 @@
-import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql } from 'gatsby'
 import React, { FC } from 'react'
-import { Breadcrumb } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 import Moment from 'react-moment'
@@ -12,9 +9,7 @@ import Layout from '~components/Layout'
 import NewsList from '~components/NewsList'
 import PromoImage from '~components/PromoImage'
 import { RawNews } from '~types/News'
-
-import { mockNews } from '../../pages/our-business/news-and-media'
-import styles from '../../pages/our-business/news-and-media/NewsAndMedia.module.scss'
+import { mockNews } from '~utils/mocks/news'
 
 type RawData = {
   news: RawNews

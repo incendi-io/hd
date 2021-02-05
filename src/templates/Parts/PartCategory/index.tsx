@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React, { FC, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 
+import FacetSearch from '~components/FacetSearch'
 import Layout from '~components/Layout'
 import PartsList from '~components/PartsList'
 import { FamilyProduct } from '~components/ProductFamilyCard'
@@ -10,6 +11,15 @@ import PromoImage from '~components/PromoImage'
 import { partsListMock, recentListMock } from '~utils/mocks/categories'
 
 import styles from './Parts.module.scss'
+
+const mockCategories = [
+  { title: 'Civil', count: 2 },
+  { title: 'Construction', count: 12 },
+  { title: 'Corporate', count: 22 },
+  { title: 'Mining', count: 5 },
+  { title: 'Partnerships', count: 13 },
+  { title: 'People', count: 52 },
+]
 
 const PartCategory: FC<unknown> = ({ pageContext }): React.ReactElement => {
   const [searchValue, setSearchValue] = useState('')
@@ -56,14 +66,24 @@ const PartCategory: FC<unknown> = ({ pageContext }): React.ReactElement => {
             />
           </Row>
         </Col>
-        <PartsList
-          title={pageContext.cat}
-          parts={filteredPartsList}
-          totalCount={totalCount}
-          pageSize={pageSize}
-          skip={skip}
-          hasFilter
-        />
+        <Col className="container">
+          <Row>
+            <Col xs={12} sm={3} className="mt-5">
+              <FacetSearch list={mockCategories} />
+            </Col>
+            <Col xs={12} sm={9}>
+              <div></div>
+              <PartsList
+                title={pageContext.cat}
+                parts={filteredPartsList}
+                totalCount={totalCount}
+                pageSize={pageSize}
+                skip={skip}
+                hasFilter
+              />
+            </Col>
+          </Row>
+        </Col>
       </div>
       <PartsList title="Recently viewed products" parts={filteredRecentList} />
     </Layout>
