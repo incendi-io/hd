@@ -644,6 +644,10 @@ body.no-scroll {
   height: 380px;
 }
 
+.page-link {
+  text-decoration: none;
+}
+
 @import "controls.theme";
 @import "colors.theme";
 @import "grid.theme";

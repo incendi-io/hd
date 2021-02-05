@@ -2,7 +2,7 @@
 import './PartsList.modules.scss'
 
 import React, { FC } from 'react'
-import { Col, Dropdown } from 'react-bootstrap'
+import { Col, Dropdown, Pagination } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 
 import PartCard from '~components/PartCard'
@@ -15,15 +15,17 @@ type Props = {
   totalCount?: number
   skip?: number
   hasFilter?: boolean
+  hasPageSizeInfo?: boolean
 }
 
 const PartsList: FC<Props> = ({
   title,
   parts,
-  pageSize,
+  pageSize = 0,
   totalCount,
-  skip,
+  skip = 0,
   hasFilter,
+  hasPageSizeInfo,
 }): React.ReactElement => {
   return (
     <>
@@ -34,7 +36,7 @@ const PartsList: FC<Props> = ({
           <Col xs={12} className="component plain-html">
             <div className="component-content d-flex align-items-center">
               <h2 className="d-inline-block">{title}</h2>
-              {totalCount && (
+              {hasPageSizeInfo && (
                 <h5 className="d-inline-block text-light ml-3">
                   {skip + 1}-{pageSize + 1} of {totalCount}
                 </h5>
@@ -69,6 +71,15 @@ const PartsList: FC<Props> = ({
               ))}
             </ul>
           </Col>
+        </Row>
+        <Row className="d-flex justify-content-end">
+          <Pagination>
+            {[...Array(6)].map((i, index) => (
+              <Pagination.Item key={index} active={index === 1}>
+                {index}
+              </Pagination.Item>
+            ))}
+          </Pagination>
         </Row>
       </Col>
     </>

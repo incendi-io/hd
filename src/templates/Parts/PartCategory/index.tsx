@@ -80,6 +80,7 @@ const PartCategory: FC<unknown> = ({ pageContext }): React.ReactElement => {
                 pageSize={pageSize}
                 skip={skip}
                 hasFilter
+                hasPageSizeInfo
               />
             </Col>
           </Row>
