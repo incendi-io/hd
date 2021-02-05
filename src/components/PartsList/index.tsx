@@ -2,7 +2,7 @@
 import './PartsList.modules.scss'
 
 import React, { FC } from 'react'
-import { Col } from 'react-bootstrap'
+import { Col, Dropdown } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 
 import PartCard from '~components/PartCard'
@@ -11,9 +11,20 @@ import { Part } from '~types/Part'
 type Props = {
   title: string
   parts: Part[]
+  pageSize?: number
+  totalCount?: number
+  skip?: number
+  hasFilter?: boolean
 }
 
-const PartsList: FC<Props> = ({ title, parts }): React.ReactElement => {
+const PartsList: FC<Props> = ({
+  title,
+  parts,
+  pageSize,
+  totalCount,
+  skip,
+  hasFilter,
+}): React.ReactElement => {
   return (
     <>
       {/*this div to make row-splitter even*/}
@@ -21,8 +32,29 @@ const PartsList: FC<Props> = ({ title, parts }): React.ReactElement => {
       <Col className="container row-splitter">
         <Row>
           <Col xs={12} className="component plain-html">
-            <div className="component-content">
-              <h2>{title}</h2>
+            <div className="component-content d-flex align-items-center">
+              <h2 className="d-inline-block">{title}</h2>
+              {totalCount && (
+                <h5 className="d-inline-block text-light ml-3">
+                  {skip + 1}-{pageSize + 1} of {totalCount}
+                </h5>
+              )}
+              {hasFilter && (
+                <div className="ml-auto">
+                  <h5 className="text-dark d-inline-block">Sort by:</h5>
+                  <Dropdown className="d-inline-block ml-2">
+                    <Dropdown.Toggle variant="outline-light" id="dropdown-basic">
+                      Featured
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-1">Featured</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">Featured</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">Featured</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              )}
             </div>
           </Col>
         </Row>

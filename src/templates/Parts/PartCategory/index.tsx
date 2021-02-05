@@ -16,6 +16,10 @@ const PartCategory: FC<unknown> = ({ pageContext }): React.ReactElement => {
 
   const data = useStaticQuery(query)
   console.log(data, query, pageContext)
+
+  const totalCount = data.items.totalCount
+  const pageSize = 10
+  const skip = 0
   //const partsList = familyProductsMapper(data.categories)
   //const partsList = partsListMock
   const partsList = data.items.edges.map((item) => item.node)
@@ -52,7 +56,14 @@ const PartCategory: FC<unknown> = ({ pageContext }): React.ReactElement => {
             />
           </Row>
         </Col>
-        <PartsList title="Batteries" parts={filteredPartsList} />
+        <PartsList
+          title={pageContext.cat}
+          parts={filteredPartsList}
+          totalCount={totalCount}
+          pageSize={pageSize}
+          skip={skip}
+          hasFilter
+        />
       </div>
       <PartsList title="Recently viewed products" parts={filteredRecentList} />
     </Layout>
@@ -97,8 +108,8 @@ function familyProductsMapper(rawData: RawFamilyProducts): FamilyProduct[] {
 }
 
 const query = graphql`
-  query GetParts($cat: String, $limit: Int) {
-    items: allECommerce(limit: $limit, filter: { category: { eq: $cat } }) {
+  query GetParts($cat: String) {
+    items: allECommerce(limit: 10, filter: { category: { eq: $cat } }) {
       totalCount
       edges {
         node {
