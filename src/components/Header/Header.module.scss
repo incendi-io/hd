@@ -9,13 +9,13 @@
 .navbar {
   margin-left: auto;
   margin-right: auto;
-  @media (min-width: 767px) {
+  @media (min-width: map-get($grid-breakpoints, md) - 1px) {
     max-width: 1023px;
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  @media (min-width: 1023px) {
+  @media (min-width: map-get($container-mobile-breakpoint, lg)) {
     max-width: 1440px;
     padding-left: 40px;
     padding-right: 40px;

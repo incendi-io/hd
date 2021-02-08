@@ -106,7 +106,7 @@
   margin-left: -10px;
   margin-right: -10px;
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: map-get($grid-breakpoints, md) - 1px) {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -121,11 +121,11 @@
   .promo-subheading {
     color: #fff;
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: map-get($grid-breakpoints, md) - 1px) {
       height: 145px
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1022px) {
+    @media only screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($container-mobile-breakpoint, lg) - 1px) {
       margin-bottom: 10px
     }
   }
@@ -139,13 +139,13 @@
       height: 100%
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1022px) {
+    @media only screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($container-mobile-breakpoint, lg) - 1px) {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
       flex: 0 0 50%
     }
 
-    @media only screen and (min-width: 1023px) {
+    @media only screen and (min-width: map-get($container-mobile-breakpoint, lg)) {
       max-width: 300px
     }
 
@@ -165,7 +165,7 @@
     flex-grow: 1;
     padding: 25px 30px;
 
-    @media only screen and (min-width: 768px) and (max-width: 1022px) {
+    @media only screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($container-mobile-breakpoint, lg) - 1px) {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
       flex: 0 0 50%;
@@ -176,7 +176,7 @@
       padding: 20px 0
     }
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: map-get($grid-breakpoints, md) - 1px) {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -193,12 +193,12 @@
       padding-top: 17px;
       padding-bottom: 17px;
 
-      @media only screen and (min-width: 768px) and (max-width: 1022px) {
+      @media only screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($container-mobile-breakpoint, lg) - 1px) {
         margin: unset;
         padding-top: unset
       }
 
-      @media only screen and (max-width: 767px) {
+      @media only screen and (max-width: map-get($grid-breakpoints, md) - 1px) {
         margin: unset;
         padding-left: unset;
         padding-top: unset
@@ -209,11 +209,11 @@
   .promo-cta-section-large {
     margin: unset;
 
-    @media only screen and (min-width: 768px) and (max-width: 1022px) {
+    @media only screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($container-mobile-breakpoint, lg) - 1px) {
       padding-left: 25px
     }
 
-    @media only screen and (min-width: 1023px) {
+    @media only screen and (min-width: map-get($container-mobile-breakpoint, lg)) {
       margin: auto
     }
 

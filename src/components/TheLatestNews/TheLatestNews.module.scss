@@ -1,3 +1,5 @@
+@import "../theme";
+
 .search-result-related-news {
   margin: 2rem 0;
   padding: 0;
@@ -26,12 +28,12 @@
     padding-right: 10px;
     padding-left: 10px;
 
-    @media (min-width: 767px) {
+    @media (min-width: map-get($grid-breakpoints, md) - 1px) {
       flex: unset !important;
       flex-basis: 50% !important
     }
 
-    @media (min-width: 1023px) {
+    @media (min-width: map-get($container-mobile-breakpoint, lg)) {
       flex: unset !important;
       flex-basis: 33% !important
     }

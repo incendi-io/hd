@@ -17,14 +17,14 @@
   padding-left: 10px;
 }
 
-@media (min-width: 767px) {
+@media (min-width: map-get($grid-breakpoints, md) - 1px) {
   .row {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
 }
 
-@media (min-width: 1023px) and (min-width: 767px) {
+@media (min-width: map-get($container-mobile-breakpoint, lg)) and (min-width: map-get($grid-breakpoints, md) - 1px) {
   .row {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -45,13 +45,13 @@
     text-transform: uppercase;
     position: relative;
   }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: map-get($grid-breakpoints, md) - 1px) {
     font-size: 16px;
     line-height: 19px;
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: map-get($grid-breakpoints, md) - 1px) {
   .navigation-title {
     font-weight: 700;
     text-transform: uppercase;
@@ -59,24 +59,24 @@
 }
 
 .links-submenu {
-  @media (min-width: 1023px) and (min-width: 767px) {
+  @media (min-width: map-get($container-mobile-breakpoint, lg)) and (min-width: map-get($grid-breakpoints, md) - 1px) {
     margin-top: 1rem;
   }
 }
 
 .privacy-block {
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: map-get($grid-breakpoints, md) - 1px) {
     margin-bottom: 10px
   }
 
-  @media only screen and (min-width: 768px) and (max-width: 1022px) {
+  @media only screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($container-mobile-breakpoint, lg) - 1px) {
     flex-wrap: wrap;
     align-items: unset
   }
 }
 
 .component-content {
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: map-get($grid-breakpoints, md) - 1px) {
     flex-direction: column;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -142,7 +142,7 @@
   padding-left: 10px;
 }
 
-@media (min-width: 767px) {
+@media (min-width: map-get($grid-breakpoints, md) - 1px) {
   .logo {
     margin-top: 1rem !important;
     margin-bottom: 1.25rem !important;
