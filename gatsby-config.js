@@ -73,8 +73,8 @@ module.exports = {
         credential: creds,
         types: [
           {
-            type: 'eCommerce', //eCommerce
-            collection: 'eCommerce', //eCommerce
+            type: 'eCommerceTest', //eCommerce
+            collection: 'eCommerceTest', //eCommerce
             limit: contentfulLimit, //use 0 or skip for no limit
             map: (doc) => ({
               ...doc,
