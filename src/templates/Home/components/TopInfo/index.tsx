@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/cjs/Button'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 
-import styles from './TopInfo.module.css'
+import styles from './TopInfo.module.scss'
 
 const TopInfo: FC<unknown> = (): ReactElement => (
   <div className="row-splitter force-shadow">
