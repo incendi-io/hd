@@ -1,29 +1,23 @@
-import {
-  faCalculator,
-  faChevronRight,
-  faHome,
-  faMapMarkerAlt,
-  faPencilAlt,
-} from '@fortawesome/free-solid-svg-icons'
+import { faCalculator, faMapMarkerAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql } from 'gatsby'
 import parse from 'html-react-parser'
 import React, { FC } from 'react'
-import { Breadcrumb } from 'react-bootstrap'
 import Button from 'react-bootstrap/cjs/Button'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 import sanitizeHtml from 'sanitize-html'
 
+import Breadcrumbs from '~components/Breadcrumbs'
 import HDSlider from '~components/HDSlider'
 import Layout from '~components/Layout'
 import { Product, RawProduct } from '~types/Product'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
 
-//TODO: organize styles
-import styles from '../../../pages/products/Products.module.scss'
 import Products from './components/Products'
 import productsStyles from './components/Products/Products.module.scss'
+//TODO: organize styles
+import styles from './Products.module.scss'
 
 type RawData = {
   subFamily: RawSubfamilyProduct
@@ -46,17 +40,22 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
       <div className="component row-splitter">
         <div className="container">
           <Row>
-            <Breadcrumb className={styles.breadcrump}>
-              <Breadcrumb.Item href="/">
-                <FontAwesomeIcon icon={faHome} title={'Home'} className={styles.homeIcon} />
-              </Breadcrumb.Item>
-              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-              <Breadcrumb.Item href="/products">Products</Breadcrumb.Item>
-              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-              <Breadcrumb.Item href="/products/new">New Equipment</Breadcrumb.Item>
-              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-              <Breadcrumb.Item href={data.subFamily.slug}>{data.subFamily.name}</Breadcrumb.Item>
-            </Breadcrumb>
+            <Breadcrumbs
+              list={[
+                {
+                  title: 'Products',
+                  url: '/products',
+                },
+                {
+                  title: 'New Equipment',
+                  url: '/products/new',
+                },
+                {
+                  title: data.subFamily.name,
+                  url: data.subFamily.slug as string,
+                },
+              ]}
+            />
           </Row>
         </div>
         <div className="container">
@@ -107,7 +106,9 @@ const ProductSubfamilyTemplate: FC<Props> = ({ data }) => {
               xs={12}
               lg={7}
               className="pl-md-3 mb-3 hd-p rich-text"
-              dangerouslySetInnerHTML={{ __html: parse(sanitizeHtml(subFamily.description)) }}
+              dangerouslySetInnerHTML={{
+                __html: parse(sanitizeHtml(subFamily.description)) as string,
+              }}
             />
             <Col
               xs={12}

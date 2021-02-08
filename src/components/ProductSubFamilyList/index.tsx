@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 
-import { CustomSlider } from '~components/CustomSlider'
 import HDSlider from '~components/HDSlider'
 import { SubfamilyProduct } from '~types/SubfamilyProduct'
 

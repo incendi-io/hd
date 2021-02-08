@@ -1,15 +1,11 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
-import YouTube from 'react-youtube'
 
 import Breadcrumbs from '~components/Breadcrumbs'
 import Layout from '~components/Layout'
 import PromoCard from '~components/PromoCard'
 import PromoImage from '~components/PromoImage'
-
-import styles from './AboutUs.module.scss'
 
 const WorkingWithUsPage = (): React.ReactElement => {
   return (

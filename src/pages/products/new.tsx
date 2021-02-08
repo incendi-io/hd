@@ -6,7 +6,7 @@ import Layout from '~components/Layout'
 import ProductFamilyList from '~components/ProductFamilyList'
 import PromoImage from '~components/PromoImage'
 
-import styles from './Products.module.scss'
+import styles from './NewProducts.module.scss'
 
 const NewProducts: FC<unknown> = (): React.ReactElement => {
   return (

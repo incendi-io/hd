@@ -1,7 +1,4 @@
-import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Breadcrumb, Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 import YouTube from 'react-youtube'

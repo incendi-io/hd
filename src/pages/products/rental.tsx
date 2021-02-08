@@ -1,7 +1,4 @@
-import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { FC, ReactElement } from 'react'
-import { Breadcrumb } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import FormGroup from 'react-bootstrap/cjs/FormGroup'
 import Nav from 'react-bootstrap/cjs/Nav'
@@ -13,7 +10,7 @@ import Layout from '~components/Layout'
 import PromoImage from '~components/PromoImage'
 
 import HydraulicHoseTick from '../../../static/images/hydraulic-hose-tick.png'
-import styles from './Products.module.scss'
+import styles from './RentalProducts.module.scss'
 
 const RentalProducts: FC<unknown> = (): ReactElement => (
   <Layout>

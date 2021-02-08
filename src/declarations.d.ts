@@ -9,3 +9,6 @@ declare module '*.scss' {
 }
 
 declare module '*.ttf'
+
+declare module '*.jpg'
+declare module '*.png'

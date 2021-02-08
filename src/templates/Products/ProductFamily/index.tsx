@@ -1,17 +1,14 @@
-import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql } from 'gatsby'
 import React, { FC, useState } from 'react'
-import { Breadcrumb, Col } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 
+import Breadcrumbs from '~components/Breadcrumbs'
 import Layout from '~components/Layout'
 import ProductCard from '~components/ProductCard'
 import ProductSearch from '~components/ProductSearch'
 import { FamilyProduct, RawFamilyProduct } from '~types/FamilyProduct'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
-
-import styles from '../../../pages/products/Products.module.scss'
 
 type Edge = {
   node: RawSubfamilyProduct
@@ -40,17 +37,22 @@ const ProductFamily: FC<Props> = ({ data }): React.ReactElement => {
       <Col className="component row-splitter">
         <div className="container">
           <Row>
-            <Breadcrumb className={styles.breadcrump}>
-              <Breadcrumb.Item href="/">
-                <FontAwesomeIcon icon={faHome} title={'Home'} className={styles.homeIcon} />
-              </Breadcrumb.Item>
-              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-              <Breadcrumb.Item href="/products">Products</Breadcrumb.Item>
-              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-              <Breadcrumb.Item href="/products/new">New Equipment</Breadcrumb.Item>
-              <FontAwesomeIcon icon={faChevronRight} className={styles.separator} />
-              <Breadcrumb.Item href={family.url}>{family.name}</Breadcrumb.Item>
-            </Breadcrumb>
+            <Breadcrumbs
+              list={[
+                {
+                  title: 'Products',
+                  url: '/products',
+                },
+                {
+                  title: 'New Equipment',
+                  url: '/products/new',
+                },
+                {
+                  title: family.name,
+                  url: family.url as string,
+                },
+              ]}
+            />
           </Row>
         </div>
         <div className="container">

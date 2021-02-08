@@ -1,3 +1,4 @@
+//TODO: replace with css modules
 import './navbar.scss'
 
 import { graphql } from 'gatsby'
@@ -10,6 +11,7 @@ import sanitizeHtml from 'sanitize-html'
 import slugify from 'slugify'
 
 import Breadcrumbs from '~components/Breadcrumbs'
+//TODO: replace with css modules
 import styles from '~components/Footer/Footer.module.scss'
 import HDSlider from '~components/HDSlider'
 import Layout from '~components/Layout'

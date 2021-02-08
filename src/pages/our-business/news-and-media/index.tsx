@@ -1,8 +1,8 @@
-import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import { Breadcrumb, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 

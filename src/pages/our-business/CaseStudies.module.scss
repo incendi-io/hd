@@ -1,45 +1,5 @@
 @import "../../components/theme";
 
-.facet-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: #8a8a8a;
-  padding: 0 0 5px 0;
-  margin: 0 0 5px 0;
-  position: relative;
-}
-
-.facet-value {
-  position: relative;
-  border-bottom: 1px solid #e0dede;
-  background: transparent;
-  cursor: pointer;
-  padding: 5px 0;
-
-  &:last-of-type {
-    border-bottom: none;
-  }
-}
-
-.active-facet {
-  font-weight: bold;
-  color: map-get($incendi-colors, 'text-secondary-blue');
-}
-
-.home-icon {
-  color: #fc0;
-}
-
-.separator {
-  color: #747474;
-  margin: 6px 12px;
-  height: 12px;
-}
-
 .icon-right {
   position: absolute;
   right: 20px;

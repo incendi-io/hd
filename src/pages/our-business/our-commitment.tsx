@@ -1,7 +1,4 @@
-import { faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Breadcrumb } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
 
@@ -9,8 +6,6 @@ import Breadcrumbs from '~components/Breadcrumbs'
 import Layout from '~components/Layout'
 import PromoCard from '~components/PromoCard'
 import PromoImage from '~components/PromoImage'
-
-import styles from './AboutUs.module.scss'
 
 const OurBusinessPage = (): React.ReactElement => {
   return (

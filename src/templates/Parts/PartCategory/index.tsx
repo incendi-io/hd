@@ -8,7 +8,7 @@ import PartsList from '~components/PartsList'
 import { FamilyProduct } from '~components/ProductFamilyCard'
 import ProductSearch from '~components/ProductSearch'
 import PromoImage from '~components/PromoImage'
-import { partsListMock, recentListMock } from '~utils/mocks/categories'
+import { recentListMock } from '~utils/mocks/categories'
 
 import styles from './Parts.module.scss'
 
