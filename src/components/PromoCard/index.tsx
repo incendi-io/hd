@@ -6,6 +6,7 @@ import styles from './PromoCard.module.scss'
 type Props = {
   url: string
   title?: string
+  description?: string
   buttonText?: string
   link?: string
   size?: 'big' | 'small' | 'medium'
@@ -15,6 +16,7 @@ type Props = {
 const PromoCard: FC<Props> = ({
   url,
   title,
+  description,
   buttonText = 'Learn more',
   link,
   size = 'small',
@@ -42,8 +44,10 @@ const PromoCard: FC<Props> = ({
           </div>
         </div>
         <div className={styles.promoText}>
-          <h3 className="text-white field-promotitle">{title}</h3>
-          <p className="promo-subheading hd-p1 field-promodescription" />
+          <h3 className={`${styles.promoHeading} text-white field-promotitle`}>{title}</h3>
+          <p className={`${styles.promoSubheading} hd-p1 field-promodescription text-white`}>
+            {description}
+          </p>
         </div>
         <div className={styles.promoCtaSection}>
           <div className={styles.fieldPromocta}>
