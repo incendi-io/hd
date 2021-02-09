@@ -130,7 +130,7 @@ function familyProductsMapper(rawData: RawFamilyProducts): FamilyProduct[] {
 
 const query = graphql`
   query GetParts($cat: String) {
-    items: allECommerce(limit: 10, filter: { category: { eq: $cat } }) {
+    items: allECommerceTest(limit: 10, filter: { category: { eq: $cat } }) {
       totalCount
       edges {
         node {
