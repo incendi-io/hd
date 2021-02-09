@@ -1,20 +1,17 @@
 import React from 'react'
 import Col from 'react-bootstrap/cjs/Col'
 import Row from 'react-bootstrap/cjs/Row'
-import YouTube from 'react-youtube'
 
 import Breadcrumbs from '~components/Breadcrumbs'
 import Layout from '~components/Layout'
 import PromoCard from '~components/PromoCard'
 import PromoImage from '~components/PromoImage'
 
-import styles from './BookAService.module.scss'
-
 const BookAServicePage = (): React.ReactElement => {
   return (
     <Layout>
       <PromoImage
-        url="/images/about-us-1920x1080.jpg"
+        url="/images/book-a-service-hero-1920x1080.jpg"
         useOverlay={true}
         title="Book A Service"
         subTitle="OWNING"
