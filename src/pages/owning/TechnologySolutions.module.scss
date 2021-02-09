@@ -1,0 +1,45 @@
+@import "../../components/theme";
+
+.promo-text-wrap {
+  background: #fff;
+  padding: 30px;
+  max-height: 430px;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($container-mobile-breakpoint, lg) - 1px) {
+    padding-top: 20px;
+    max-height: 350px;
+  }
+
+  @media only screen and (max-width: map-get($grid-breakpoints, md) - 1px) {
+    padding: 20px 25px;
+    max-height: unset
+  }
+
+  .promo-heading {
+    margin-bottom: 10px
+  }
+
+  .promo-text {
+    min-height: 135px;
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($container-mobile-breakpoint, lg) - 1px) {
+      height: 210px
+    }
+  }
+
+  .button {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    .button-link {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}
+
