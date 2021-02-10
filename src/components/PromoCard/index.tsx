@@ -9,7 +9,7 @@ type Props = {
   description?: string
   buttonText?: string
   link?: string
-  size?: 'big' | 'small' | 'medium'
+  size?: 'large' | 'big' | 'small' | 'medium'
   className?: string
 }
 
@@ -25,8 +25,8 @@ const PromoCard: FC<Props> = ({
   <Col
     xs={12}
     sm={12}
-    md={size === 'small' ? 6 : { span: 8, offset: 2 }}
-    lg={size === 'small' ? 4 : { span: 8, offset: 2 }}
+    md={size === 'small' ? 6 : size === 'large' ? 6 : { span: 8, offset: 2 }}
+    lg={size === 'small' ? 4 : size === 'large' ? 6 : { span: 8, offset: 2 }}
     className={`${className} component promo ${
       size === 'medium' ? `promo-large-tile` : `promo-with-background`
     }`}>
