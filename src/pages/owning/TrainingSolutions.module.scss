@@ -1,0 +1,17 @@
+@import "../../components/theme";
+
+.button {
+  text-transform: uppercase;
+}
+
+.search-result-list {
+  list-style: none;
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: black !important;
+  }
+}
