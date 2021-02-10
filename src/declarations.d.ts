@@ -3,6 +3,13 @@ declare module '*.css' {
   export = content
 }
 
+// declare module 'exports.scss' {
+//   const content: {
+//     gridBreakpointsMd: string
+//   }
+//   export = content
+// }
+
 declare module '*.scss' {
   const content: { [className: string]: string }
   export = content
