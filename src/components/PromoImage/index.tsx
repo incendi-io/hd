@@ -7,11 +7,24 @@ type Props = {
   url: string
   title?: string
   subTitle?: string
+  titleImage?: string
+  titleImageSize?: {
+    w: string
+    h: string
+  }
   description?: string
   useOverlay?: boolean
 }
 
-const PromoImage: FC<Props> = ({ url, title, subTitle, description, useOverlay }) => (
+const PromoImage: FC<Props> = ({
+  url,
+  title,
+  subTitle,
+  titleImage,
+  titleImageSize,
+  description,
+  useOverlay,
+}) => (
   <Col
     xs={12}
     className={`${styles.container} component promo promo-hero promo-hero-with-description`}>
@@ -23,6 +36,16 @@ const PromoImage: FC<Props> = ({ url, title, subTitle, description, useOverlay }
       <div className={`${styles.containerSmall} container overflow-auto`}>
         <div className={`${styles.promoText} offset-md-1`}>
           {subTitle && <h3 className={styles.promoTextH3}>{subTitle}</h3>}
+          {titleImage && (
+            <div className={`${styles.promoTitleImage} field-promotitleimage mb-3`}>
+              <img
+                src={titleImage}
+                alt={title}
+                width={titleImageSize?.w}
+                height={titleImageSize?.h}
+              />
+            </div>
+          )}
           {title && <h1 className={styles.promoHeading}>{title}</h1>}
           {description && <p className={styles.promoTextP}>{description}</p>}
         </div>

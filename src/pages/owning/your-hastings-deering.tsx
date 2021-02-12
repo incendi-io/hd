@@ -8,40 +8,7 @@ import Breadcrumbs from '~components/Breadcrumbs'
 import Layout from '~components/Layout'
 import PromoImage from '~components/PromoImage'
 
-const RoleCol = ({
-  videoId,
-  title,
-  description,
-  children,
-}: {
-  videoId: string
-  title: string
-  description: string
-  children?: React.ReactNode
-}) => (
-  <Col xs={12} md={6} lg={3} className="component video order-1 initialized hide-controls">
-    <div className="component-content">
-      <YouTube
-        videoId={videoId}
-        opts={{
-          height: '150vw',
-          width: '100%',
-        }}
-      />
-      <div className="video-description">
-        <div className="card-deck">
-          <div className="card mb-4">
-            <div className="card-body">
-              <h4 className="text-left mb-4">{title}</h4>
-              <p className="text-left">{description}</p>
-              {children}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </Col>
-)
+import { RoleCols } from '../buying/hdadvantage-program'
 
 const YourHastingsDeeringPage = (): React.ReactElement => {
   return (
@@ -145,48 +112,7 @@ const YourHastingsDeeringPage = (): React.ReactElement => {
                 </p>
               </div>
             </Col>
-            <RoleCol
-              videoId="RRj1_hphdes"
-              title="Executive Role"
-              description="Gives you access to all data. This role is a combination of Fleet,
-                Operations and Financial roles, and also includes a dashboard of the most important and
-                requested graphs and indicators."
-            />
-            <RoleCol
-              videoId="_yLkj1BUaJ8"
-              title="Fleet Role"
-              description="Gives you access to all your assets health and machine information, including:">
-              <ul>
-                <li className="text-left">Assets &amp; Fluid Analysis Reports</li>
-                <li className="text-left">Total Assets</li>
-                <li className="text-left">Connected Assets</li>
-                <li className="text-left">Warranty Information</li>
-                <li className="text-left">S.O.S Alerts℠</li>
-                <li className="text-left">S.O.S Analysis Results℠</li>
-              </ul>
-            </RoleCol>
-            <RoleCol
-              videoId="RRj1_hphdes"
-              title="Operations Role"
-              description="Gives you access to data related to parts ordering, including:">
-              <ul>
-                <li>Parts Reports</li>
-                <li>Open Parts Orders</li>
-                <li>Parts Order History</li>
-              </ul>
-            </RoleCol>
-            <RoleCol
-              videoId="u0d4qCw3KbE"
-              title="Financials Role"
-              description="Gives you access to financial data, including:">
-              <ul>
-                <li>Financial Reports</li>
-                <li>Credit Limits</li>
-                <li>Open Transactions</li>
-                <li>Invoice History</li>
-                <li>Unpaid Invoices</li>
-              </ul>
-            </RoleCol>
+            <RoleCols />
           </Row>
         </div>
       </div>
