@@ -134,7 +134,7 @@ function newsMapper(rawData: RawNews): News[] {
 }
 
 export const query = graphql`
-  query News {
+  query NewsAndMediaNews {
     news: allContentfulNews {
       nodes {
         id

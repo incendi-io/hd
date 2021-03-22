@@ -15,8 +15,8 @@ import { Product, RawProduct } from '~types/Product'
 import { RawSubfamilyProduct, SubfamilyProduct } from '~types/SubfamilyProduct'
 
 import Products from './components/Products'
-import productsStyles from './components/Products/Products.module.scss'
 //TODO: organize styles
+import productsStyles from './components/Products/Products.module.scss'
 import styles from './Products.module.scss'
 
 type RawData = {

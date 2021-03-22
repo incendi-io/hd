@@ -37,9 +37,3 @@ $incendi-colors: (
   button-lightgrey: rgba(0, 0, 0, 0.08),
   button-lightergrey: rgba(0, 0, 0, 0.04),
 );
-
-:root {
-  @each $name, $color in $incendi-colors {
-    --#{$name}: #{$color};
-  }
-}

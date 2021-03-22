@@ -1,6 +1,6 @@
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { StaticQuery, useStaticQuery } from 'gatsby'
+import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import Col from 'react-bootstrap/cjs/Col'
@@ -15,7 +15,6 @@ import { News } from '~types/News'
 import { mockNews } from '~utils/mocks/news'
 
 import styles from './CaseStudies.module.scss'
-import { query } from './news-and-media'
 
 const mockCategories = [
   { title: 'Civil', count: 2 },
@@ -148,3 +147,39 @@ function newsMapper(rawData: RawNews): News[] {
     },
   }))
 }
+
+export const query = graphql`
+  query CaseStudiesNews {
+    news: allContentfulNews {
+      nodes {
+        id
+        slug
+        createdAt
+        title
+        node_locale
+        children {
+          id
+        }
+        parent {
+          id
+        }
+        sys {
+          type
+          revision
+        }
+        body {
+          raw
+        }
+        images {
+          id
+          title
+          file {
+            url
+            fileName
+            contentType
+          }
+        }
+      }
+    }
+  }
+`

@@ -1,0 +1,93 @@
+@import "../../components/theme-sizes";
+@import "../../components/theme-colors";
+
+.promo-image {
+  height: 350px !important;
+}
+.list-group-item {
+  border: 1px solid rgba(0,0,0,.125);
+  padding: .75rem 1.25rem;
+  margin-bottom: -1px;
+  list-style: none;
+}
+.machine-image {
+  width:100%;
+  min-height: 194px;
+  max-height: 194px;
+  object-fit: cover;
+  object-position: bottom;
+}
+.text-hide {
+  width: 100%;
+  min-height: 194px;
+  max-height: 194px;
+  overflow: hidden;
+  background-image: url('https://sdi-sc-prod-cd-cdn.azureedge.net/-/media/project/hdweb/public/visionlink-unified-suite.jpg?w=600');
+  background-position-y: 100%;
+  background-size: cover;
+}
+.submit-button {
+  height: 50px;
+  margin-top: 1.875rem;
+}
+.solution-compare-snippet {
+  .plan-title {
+    top: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%)
+  }
+
+  .plan-features {
+    list-style: outside none none;
+
+    li {
+      padding: 10px 5%;
+      list-style: none;
+
+      &:nth-child(even) {
+        background: rgba(0, 0, 0, .08)
+      }
+    }
+
+    .fa-check-circle {
+      color: #25c594
+    }
+
+    .fa-times-circle {
+      color: rgba(255, 63, 63, 1)
+    }
+
+    .fa-exclamation-circle {
+      color: #fc0
+    }
+  }
+
+  .plan-select a {
+    background-color: #777;
+    color: #fff;
+    text-decoration: none;
+    padding: .5em 1em;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+
+    &:hover {
+      background-color: #fc0;
+      color: #000
+    }
+  }
+
+  .featured {
+    margin-top: -10px;
+    background-color: #565656;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+    z-index: 1;
+
+    .plan-features li {
+      border-top: 1px solid rgba(255, 255, 255, .4)
+    }
+  }
+}

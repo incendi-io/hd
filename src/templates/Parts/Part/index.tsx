@@ -1,6 +1,3 @@
-//TODO: replace with css modules
-import './navbar.scss'
-
 import { graphql } from 'gatsby'
 import parse from 'html-react-parser'
 import React, { FC, ReactElement } from 'react'
@@ -11,12 +8,12 @@ import sanitizeHtml from 'sanitize-html'
 import slugify from 'slugify'
 
 import Breadcrumbs from '~components/Breadcrumbs'
-//TODO: replace with css modules
-import styles from '~components/Footer/Footer.module.scss'
 import HDSlider from '~components/HDSlider'
 import Layout from '~components/Layout'
 import { Image } from '~types/Image'
 import { RawPart } from '~types/Part'
+
+import styles from './Parts.module.scss'
 
 type Props = {
   data: RawPart
@@ -73,7 +70,7 @@ const PartTemplate: FC<Props> = ({ data }): ReactElement => {
             <Col xs={12} className="component">
               <Tab.Container id="product-tabs" defaultActiveKey="description">
                 <Row>
-                  <Col xs={12} className="product-tabs mb-5">
+                  <Col xs={12} className={`${styles.productTabs} mb-5`}>
                     <Nav variant="pills" className="flex-row py-2">
                       <Nav.Item>
                         <Nav.Link eventKey="description">Description</Nav.Link>
